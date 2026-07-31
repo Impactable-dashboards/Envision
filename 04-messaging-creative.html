@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Envision Horizons | Messaging and Creative Performance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a1628;--surface:rgba(17,29,51,.7);--line:rgba(189,215,255,.14);--line-strong:rgba(189,215,255,.28);
+--navy:#1a3b6d;--blue:#0099d1;--teal:#00c4b3;--orange:#f4a261;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;--yellow:#ffd166;
+--txt:#e8f0fb;--txt-mid:#a8bcd8;--txt-dim:#6f88ad;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:15px;line-height:1.55;
+background-image:radial-gradient(1200px 600px at 15% -5%,rgba(0,153,209,.10),transparent 60%),radial-gradient(900px 500px at 90% 0%,rgba(0,196,179,.07),transparent 55%);background-attachment:fixed}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px 90px}
+header{padding:52px 0 30px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 14px}
+h1{font-size:clamp(28px,4.2vw,44px);line-height:1.07;margin:0 0 12px;font-weight:700;letter-spacing:-.02em}
+h1 .sub{display:block;color:var(--txt-mid);font-weight:400;font-size:clamp(16px,2vw,21px);margin-top:10px}
+.meta{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin:16px 0 22px}
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{border:1px solid var(--line-strong);background:var(--surface);border-radius:999px;padding:7px 15px;font-family:var(--mono);font-size:11.5px;color:var(--txt-mid)}
+.badge b{color:var(--txt);font-weight:700}
+.rule{height:1px;background:linear-gradient(90deg,var(--teal),var(--blue) 40%,transparent);margin:30px 0 0}
+.alert{margin:34px 0 0;border:1px solid rgba(239,68,68,.32);border-left:4px solid var(--red);
+background:linear-gradient(90deg,rgba(239,68,68,.08),rgba(17,29,51,.55));border-radius:10px;padding:22px 24px}
+.alert.w{border-color:rgba(244,162,97,.35);border-left-color:var(--orange);background:linear-gradient(90deg,rgba(244,162,97,.09),rgba(17,29,51,.55))}
+.alert .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#f87171;font-weight:700}
+.alert.w .tag{color:var(--orange)}
+.alert h3{margin:9px 0 10px;font-size:19px;font-weight:700;line-height:1.3}
+.alert p{margin:0 0 9px;color:var(--txt-mid);font-size:14.2px;max-width:100ch}.alert p:last-child{margin-bottom:0}
+section{margin-top:56px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.14em}
+h2{font-size:23px;margin:0;font-weight:700;letter-spacing:-.01em}
+.sec-sub{color:var(--txt-dim);font-size:13.5px;margin:6px 0 22px;max-width:105ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(188px,1fr));gap:14px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:19px 18px;position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue)}
+.stat.good::before{background:var(--green)}.stat.bad::before{background:var(--red)}.stat.warn::before{background:var(--orange)}.stat.sig::before{background:var(--purple)}
+.stat .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim)}
+.stat .val{font-family:var(--mono);font-size:25px;font-weight:700;margin:9px 0 3px;letter-spacing:-.02em}
+.stat .val.good{color:var(--green)}.stat .val.bad{color:var(--red)}.stat .val.warn{color:var(--orange)}.stat .val.sig{color:var(--purple)}
+.stat .who{font-size:13px;color:var(--txt-mid)}.stat .note{font-size:11.5px;color:var(--txt-dim);margin-top:7px}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:13.3px;min-width:760px}
+th{position:sticky;top:0;background:#0e1c33;text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+text-transform:uppercase;color:var(--txt-dim);font-weight:500;padding:12px 12px;border-bottom:1px solid var(--line-strong);white-space:nowrap;cursor:pointer;user-select:none}
+th:hover{color:var(--txt)}th .arw{opacity:.35;font-size:9px;margin-left:4px}th[data-dir] .arw{opacity:1;color:var(--blue)}
+td{padding:10px 12px;border-bottom:1px solid rgba(189,215,255,.07);vertical-align:middle}
+tr:last-child td{border-bottom:none}tbody tr:hover{background:rgba(0,153,209,.055)}
+td.num{font-family:var(--mono);font-size:12.5px;text-align:right;white-space:nowrap}
+td.nm{font-weight:500;min-width:190px}td.sm{font-size:12.5px;color:var(--txt-mid)}
+tfoot td{font-family:var(--mono);font-size:12.3px;color:var(--txt-mid);border-top:1px solid var(--line-strong);background:rgba(0,0,0,.16);font-weight:700}
+th:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.b{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;padding:3px 8px;border-radius:5px;font-weight:700;white-space:nowrap;display:inline-block}
+.b-scale{background:rgba(34,197,94,.16);color:var(--green);border:1px solid rgba(34,197,94,.4)}
+.b-refine{background:rgba(0,196,179,.15);color:var(--teal);border:1px solid rgba(0,196,179,.4)}
+.b-hold{background:rgba(0,153,209,.16);color:#4cc4f0;border:1px solid rgba(0,153,209,.4)}
+.b-reduce{background:rgba(244,162,97,.16);color:var(--orange);border:1px solid rgba(244,162,97,.4)}
+.b-cut{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.38)}
+.b-none{background:rgba(111,136,173,.14);color:var(--txt-dim);border:1px solid var(--line-strong)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:15px}
+.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:11px;padding:20px}
+.card.crit{border-left-color:var(--red)}.card.opp{border-left-color:var(--green)}.card.watch{border-left-color:var(--orange)}
+.card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.card.crit .tag{color:#f87171}.card.opp .tag{color:var(--green)}.card.watch .tag{color:var(--orange)}
+.card h4{margin:9px 0 9px;font-size:16.5px;line-height:1.32;font-weight:700}
+.card p{margin:0;color:var(--txt-mid);font-size:13.8px}.card p b{color:var(--txt)}
+.adcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;border-top:3px solid var(--green)}
+.adcard .an{font-family:var(--mono);font-size:12.4px;color:var(--teal);word-break:break-word;line-height:1.45;margin-bottom:14px}
+.adcard dl{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 14px;padding:13px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.adcard dt{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-dim)}
+.adcard dd{margin:3px 0 0;font-family:var(--mono);font-size:16px;font-weight:700}
+.adcard .why{font-size:13.4px;color:var(--txt-mid)}.adcard .why b{color:var(--txt)}
+.adcard .ang{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.bars{display:flex;flex-direction:column;gap:8px}
+.brow{display:grid;grid-template-columns:290px 1fr auto;gap:14px;align-items:center}
+.brow .bl{font-size:13px;color:var(--txt-mid);font-family:var(--mono);word-break:break-all}
+.bt{height:26px;background:rgba(0,0,0,.22);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.bf{position:absolute;left:0;top:0;bottom:0;border-radius:4px;min-width:3px;background:linear-gradient(90deg,rgba(0,153,209,.55),rgba(0,196,179,.3))}
+.bf.r{background:linear-gradient(90deg,rgba(239,68,68,.5),rgba(244,162,97,.25))}
+.bf.g{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
+.brow .bv{font-family:var(--mono);font-size:12.6px;font-weight:700;min-width:118px;text-align:right}
+.brow .bv small{display:block;color:var(--txt-dim);font-weight:400;font-size:10.5px}
+.pmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px}
+.p{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:21px;border-top:3px solid var(--blue)}
+.p.inv{border-top-color:var(--green)}.p.red{border-top-color:var(--orange)}.p.wat{border-top-color:var(--purple)}.p.sup{border-top-color:var(--red)}
+.p h4{margin:0 0 3px;font-size:17px;font-weight:700}
+.p .role{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);margin-bottom:14px}
+.p .fld{margin-bottom:11px}
+.p .fl{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--blue);margin-bottom:3px}
+.p .fv{font-size:13.4px;color:var(--txt-mid)}
+.p .test{background:rgba(0,0,0,.25);border:1px solid var(--line-strong);border-radius:7px;padding:11px 13px;margin-top:12px}
+.p .test .fl{color:var(--teal)}
+.p .test .fv{color:var(--txt);font-weight:500;font-style:italic}
+.gap{border:1px solid rgba(244,162,97,.3);background:rgba(244,162,97,.06);border-radius:10px;padding:18px 20px;margin-top:20px}
+.gap .tg{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);font-weight:700}
+.gap p{margin:8px 0 0;color:var(--txt-mid);font-size:13.8px}.gap p b{color:var(--txt)}
+.note{font-size:12.7px;color:var(--txt-dim);font-family:var(--mono);margin:16px 0 0;padding-left:11px;border-left:2px solid var(--line-strong)}
+.internal{border:1px solid rgba(244,162,97,.32);background:rgba(244,162,97,.07);border-radius:8px;padding:11px 15px;font-family:var(--mono);font-size:11.2px;color:var(--orange);margin-top:22px}
+footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;font-size:12.4px;color:var(--txt-dim)}
+footer b{color:var(--txt-mid)}
+@media (max-width:760px){.brow{grid-template-columns:1fr;gap:5px}.brow .bv{text-align:left}.adcard dl{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.wrap{padding:0 15px 60px}header{padding:34px 0 22px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+
+/* ---- room nav ---- */
+.roomnav{position:sticky;top:0;z-index:999;background:rgba(6,15,28,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);margin-bottom:0}
+.roomnav .inner{max-width:1220px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
+.roomnav .brand{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal);white-space:nowrap;font-weight:700}
+.roomnav .links{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.roomnav .links::-webkit-scrollbar{display:none}
+.roomnav a{font-size:13px;color:var(--txt-dim);text-decoration:none;padding:7px 12px;border-radius:7px;white-space:nowrap;transition:.15s}
+.roomnav a:hover{color:var(--txt);background:rgba(0,153,209,.1)}
+.roomnav a.on{color:#04121f;background:var(--blue);font-weight:700}
+.roomnav a .n{font-family:var(--mono);font-size:9.5px;opacity:.7;margin-right:5px}
+.roomnav a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@media (max-width:760px){.roomnav .inner{padding:0 15px;gap:12px}.roomnav .brand{display:none}}
+</style>
+</head>
+<body>
+<nav class="roomnav"><div class="inner"><span class="brand">Envision Horizons / Intelligence Room</span><div class="links"><a href="index.html">Overview</a><a href="01-audience-segments.html"><span class="n">01</span>Audience Segments</a><a href="02-account-intelligence.html"><span class="n">02</span>Account Intelligence</a><a href="03-marketing-systems.html"><span class="n">03</span>Marketing Systems</a><a href="04-messaging-creative.html" class="on"><span class="n">04</span>Messaging & Creative</a><a href="05-icp-filter.html"><span class="n">05</span>ICP Filter</a><a href="06-roadmap.html"><span class="n">06</span>Roadmap</a></div></div></nav>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Quarterly Diagnostic / Report 4 of 4</p>
+  <h1>Messaging and Creative Performance
+    <span class="sub">Envision Horizons: what messaging resonates, with whom, and what to test next</span>
+  </h1>
+  <p class="meta">LinkedIn creative and website content &nbsp;/&nbsp; 1 March 2026 to 28 July 2026 &nbsp;/&nbsp; prepared by Impactable</p>
+  <div class="badges">
+    <span class="badge"><b>7</b> messaging angles</span>
+    <span class="badge"><b>17</b> named creatives</span>
+    <span class="badge"><b>4</b> produced a lead</span>
+    <span class="badge"><b>$74.15</b> best angle CPL</span>
+    <span class="badge"><b>35%</b> of spend creative attributed</span>
+    <span class="badge"><b>0</b> search terms available</span>
+  </div>
+  <div class="rule"></div>
+</header>
+
+<div class="alert">
+  <span class="tag">The finding that inverts the obvious read</span>
+  <h3>The best performing creative in this account is the worst converting creative.</h3>
+  <p>Client case study documents produce a <b>6.01% CTR at a $2.00 CPC</b>, three times the account CTR and the cheapest clicks by far. They have generated <b>zero leads from $3,518 of spend</b>.</p>
+  <p>The seasonal tactical playbook produces a <b>1.37% CTR at a $9.76 CPC</b>, five times the cost per click. It generated <b>5 leads, all 4 recorded conversions, at a $74.15 cost per lead</b> from $371 of spend.</p>
+  <p><b>This also explains Report 1.</b> The case studies feature Estee Lauder, Harry's and Borghese. Enterprise beauty content attracts enterprise beauty companies, which is exactly the 10,001+ segment that takes <b>22.7% of impressions and 31.6% of clicks at the highest CTR of any large band and converts zero times</b>, per Campaign Manager demographics. The creative is manufacturing the audience problem. Steven flagged the L'Oreal spillover risk on the internal sync. This quantifies it.</p>
+</div>
+
+<div class="alert w" style="margin-top:16px">
+  <span class="tag">Scope limits, read before quoting anything</span>
+  <h3>This is angle level analysis, not copy level. Three sources are missing.</h3>
+  <p><b>65% of spend has no creative attribution.</b> A single unnamed row carries $16,157 of $24,703, with 143,532 impressions and 4,323 clicks. Everything below covers the $8,546 that is attributable. All 18 leads and 4 of 5 conversions do fall inside that attributed portion, so the conversion analysis holds even though the spend coverage does not.</p>
+  <p><b>No ad headline or introduction text.</b> DemandSense exposes creative names only. True headline and hook analysis needs the Campaign Manager Creative Performance export, which has Ad Introduction Text and Ad Headline. That request is with Andrii.</p>
+  <p><b>Partially resolved on 30 July.</b> Google is not connected to DemandSense and Search Console is not connected at all, so the search terms report is still outstanding and Search Console is unconnected, so the organic discovery section is substituted with website content engagement and labelled as such. The Google keyword report that did arrive is analysed in Report 3.</p>
+</div>
+
+<section>
+  <div class="sec-head"><span class="sec-num">01</span><h2>Headline numbers</h2></div>
+  <div class="stats">
+    <div class="stat good"><div class="lbl">Best angle CPL</div><div class="val good">$74.15</div><div class="who">Seasonal tactical playbook</div><div class="note">Also the only angle with conversions</div></div>
+    <div class="stat bad"><div class="lbl">Highest spend, zero leads</div><div class="val bad">$2,929</div><div class="who">Estee Lauder case study</div><div class="note">1,424 clicks, no leads</div></div>
+    <div class="stat sig"><div class="lbl">CPL spread across angles</div><div class="val sig">3.1x</div><div class="who">$74.15 to $230.43</div><div class="note">Excluding zero lead angles</div></div>
+    <div class="stat bad"><div class="lbl">Named spend, zero leads</div><div class="val bad">65%</div><div class="who">$5,578 of $8,546</div><div class="note">13 of 17 named creatives</div></div>
+    <div class="stat warn"><div class="lbl">Spend with no creative name</div><div class="val warn">$16,157</div><div class="who">65% of the account</div><div class="note">No messaging signal at all</div></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">02</span><h2>Messaging angle rankings</h2></div>
+  <p class="sec-sub">Click any column to sort. Seven angles classified from creative naming. Verdicts follow the standard thresholds, adjusted because conversion tracking records only 4 events across the account.</p>
+  <div class="tblwrap">
+    <table id="angles">
+      <thead><tr>
+        <th data-sk="angle">Angle<span class="arw">&#9663;</span></th>
+        <th data-sk="spend">Spend<span class="arw">&#9663;</span></th>
+        <th data-sk="impr">Impressions<span class="arw">&#9663;</span></th>
+        <th data-sk="clicks">Clicks<span class="arw">&#9663;</span></th>
+        <th data-sk="ctr">CTR<span class="arw">&#9663;</span></th>
+        <th data-sk="cpc">CPC<span class="arw">&#9663;</span></th>
+        <th data-sk="eng">Engagements<span class="arw">&#9663;</span></th>
+        <th data-sk="leads">Leads<span class="arw">&#9663;</span></th>
+        <th data-sk="cpl">CPL<span class="arw">&#9663;</span></th>
+        <th data-sk="v">Verdict<span class="arw">&#9663;</span></th>
+      </tr></thead>
+      <tbody></tbody>
+      <tfoot><tr><td>Named total</td><td class="num">$8,546</td><td class="num">89,396</td><td class="num">2,127</td><td class="num">2.38%</td><td class="num">$4.02</td><td class="num">7,936</td><td class="num">18</td><td class="num">$474.80</td><td></td></tr></tfoot>
+    </table>
+  </div>
+  <div class="cards" style="margin-top:20px">
+    <div class="card opp"><span class="tag">Scale</span><h4>Documents that give away a tactical playbook convert. Documents that show off a client do not.</h4><p>Both winning angles are gated documents with a practical takeaway: the <b>Prime Day Tactical Guide</b> at $74.15 CPL and the <b>AI Shopping Report</b> at $230.43 CPL, together 15 of 18 leads. Both losing document angles are about Envision Horizons rather than about the reader's problem. Same format, opposite outcome, so format is not the variable. Subject matter is.</p></div>
+    <div class="card crit"><span class="tag">Cut</span><h4>Three angles consumed $1,950 and produced nothing</h4><p><b>Founder voice video</b> across four cuts: $1,044, 16,097 impressions, 82 clicks, a 0.51% CTR and 334 engagements. <b>PostPrimeDay images</b>: $543 at a 0.42% CTR, the lowest in the account. <b>July 1 webinar image</b>: $364 at a $27.97 CPC, seven times the account average. None produced a lead.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">03</span><h2>The creatives that actually converted</h2></div>
+  <p class="sec-sub">Four of 17 named creatives produced a lead. All four are gated documents. Ranked by lead volume.</p>
+  <div class="cards">
+    <div class="adcard">
+      <div class="ang">Original research report</div>
+      <div class="an">IMP | MOF | US + CA | Doc | AI Shopping Report | 5/4/26 | 2_A</div>
+      <dl><div><dt>Leads</dt><dd style="color:var(--green)">7</dd></div><div><dt>CPL</dt><dd>$186</dd></div><div><dt>Clicks</dt><dd>89</dd></div><div><dt>CTR</dt><dd>0.76%</dd></div></dl>
+      <p class="why">The <b>single highest lead producer in the account</b>. A weak 0.76% CTR and a $14.64 CPC, so it looks like a failing ad on engagement metrics. It is the opposite. Original category research is the one asset type that makes a marketplace operator hand over an email.</p>
+    </div>
+    <div class="adcard">
+      <div class="ang">Seasonal tactical playbook</div>
+      <div class="an">IMP | MOF | US + CA | Doc | 2026 Prime Day Tactical Guide | 5/4/26 | 1_B</div>
+      <dl><div><dt>Leads</dt><dd style="color:var(--green)">5</dd></div><div><dt>Conv</dt><dd style="color:var(--green)">4</dd></div><div><dt>CPL</dt><dd>$62.92</dd></div><div><dt>CTR</dt><dd>1.22%</dd></div></dl>
+      <p class="why">The <b>best creative in the account on every outcome measure</b> and the only one with recorded conversions. $315 of spend, 31 clicks, 5 leads, 4 conversions at a $78.65 cost per conversion. Time bound, tactical, and tied to the single event the entire ICP plans around.</p>
+    </div>
+    <div class="adcard">
+      <div class="ang">Original research report</div>
+      <div class="an">IMP | MOF | US + CA | Doc | AI Shopping Report | 5/4/26 | 2_B</div>
+      <dl><div><dt>Leads</dt><dd style="color:var(--green)">3</dd></div><div><dt>CPL</dt><dd>$334</dd></div><div><dt>Clicks</dt><dd>60</dd></div><div><dt>CTR</dt><dd>0.68%</dd></div></dl>
+      <p class="why">The B variant of the winning research asset, at <b>1.8 times the CPL of the A variant</b> on similar spend. A real A B result worth acting on: variant A is the one to scale and B is the one to retire or rewrite.</p>
+    </div>
+    <div class="adcard">
+      <div class="ang">Seasonal recap</div>
+      <div class="an">IMP | MOF | US + CA | Doc | 2026 Prime Day Recap Guide | 7/16/2026 | 2</div>
+      <dl><div><dt>Leads</dt><dd style="color:var(--green)">3</dd></div><div><dt>CPL</dt><dd>$117</dd></div><div><dt>Clicks</dt><dd>26</dd></div><div><dt>CTR</dt><dd>0.67%</dd></div></dl>
+      <p class="why">Launched 16 July, so it has run under two weeks and already sits at a <b>$116.53 CPL, second best in the account</b>. Variants 1 and 3 of the same guide produced nothing on $53 combined, so the creative execution inside the angle matters as much as the angle.</p>
+    </div>
+  </div>
+  <p class="note">Every other named creative produced zero leads, including the two highest CTR assets in the account. Conversion tracking records only 4 events in total, so lead volume is the primary outcome measure throughout this report.</p>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">04</span><h2>Engagement against conversion</h2></div>
+  <p class="sec-sub">The inverse relationship, drawn out. Bars show CTR. The figure on the right is leads. Founder voice video is included because it is the format most often assumed to work.</p>
+  <div class="bars">
+    <div class="brow"><div class="bl">Client case study, doc</div><div class="bt"><div class="bf r" style="width:100%"></div></div><div class="bv">6.01% CTR<small>0 leads, $3,518</small></div></div>
+    <div class="brow"><div class="bl">Unattributed spend</div><div class="bt"><div class="bf" style="width:50%"></div></div><div class="bv">3.01% CTR<small>0 leads, $16,157</small></div></div>
+    <div class="brow"><div class="bl">Seasonal tactical playbook, doc</div><div class="bt"><div class="bf g" style="width:23%"></div></div><div class="bv">1.37% CTR<small>5 leads, $371</small></div></div>
+    <div class="brow"><div class="bl">Original research report, doc</div><div class="bt"><div class="bf g" style="width:12%"></div></div><div class="bv">0.73% CTR<small>10 leads, $2,304</small></div></div>
+    <div class="brow"><div class="bl">Event and webinar image</div><div class="bt"><div class="bf r" style="width:11%"></div></div><div class="bv">0.68% CTR<small>0 leads, $364</small></div></div>
+    <div class="brow"><div class="bl">Seasonal recap, doc</div><div class="bt"><div class="bf g" style="width:11%"></div></div><div class="bv">0.66% CTR<small>3 leads, $402</small></div></div>
+    <div class="brow"><div class="bl">Founder voice video</div><div class="bt"><div class="bf r" style="width:8%"></div></div><div class="bv">0.51% CTR<small>0 leads, $1,044</small></div></div>
+    <div class="brow"><div class="bl">Seasonal image, PostPrimeDay</div><div class="bt"><div class="bf r" style="width:7%"></div></div><div class="bv">0.42% CTR<small>0 leads, $543</small></div></div>
+  </div>
+  <div class="gap">
+    <span class="tg">Why founder video underperformed here</span>
+    <p>Founder voice content usually beats produced ad copy, often by a wide margin. It did not here. Four cuts, 16,097 impressions, <b>334 engagements and a 0.51% CTR</b>, against 4,541 engagements for the case study documents on 29,203 impressions. <b>This is a production and distribution problem rather than evidence that founder content fails.</b> The client's PR agency now controls Laura's profile and we are still waiting on posts, so these ran as standalone video ads rather than as promoted organic thought leader posts, which is the format that produces the engagement multiple.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">05</span><h2>Content engagement, substituting for search data</h2></div>
+  <p class="sec-sub">Google search terms and Search Console organic queries are both unavailable. What follows is website content engagement from DemandSense, which answers a similar question: which themes hold attention. Top 35 pages by views.</p>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Page</th><th>Views</th><th>Companies</th><th>People</th><th>Avg seconds</th><th>Read</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">/case-study/how-ollie-drove-double-digit-growth...</td><td class="num">68</td><td class="num">0</td><td class="num">0</td><td class="num" style="color:var(--green);font-weight:700">383</td><td class="sm">Deepest read on the site. A mid market DTC pet brand, exactly the ICP.</td></tr>
+        <tr><td class="nm">/career-page-new/</td><td class="num">90</td><td class="num">2</td><td class="num">3</td><td class="num" style="color:var(--orange)">430</td><td class="sm">Longest dwell of any page. Job seekers, not buyers.</td></tr>
+        <tr><td class="nm">/affiliate/ (sales)</td><td class="num">97</td><td class="num">10</td><td class="num">14</td><td class="num" style="color:var(--green)">174</td><td class="sm">High intent service page holding attention.</td></tr>
+        <tr><td class="nm">/case-studies/</td><td class="num">396</td><td class="num">23</td><td class="num">47</td><td class="num" style="color:var(--green)">118</td><td class="sm">Proof content works when people find it.</td></tr>
+        <tr><td class="nm">/2026-ai-shopping-report/</td><td class="num">81</td><td class="num">7</td><td class="num">6</td><td class="num" style="color:var(--green)">107</td><td class="sm">Landing page for the 10 lead creative. Long dwell.</td></tr>
+        <tr><td class="nm">/amazon-growth-services/</td><td class="num">157</td><td class="num">13</td><td class="num">17</td><td class="num" style="color:var(--green)">99</td><td class="sm">Core service page, strong engagement, thin traffic.</td></tr>
+        <tr><td class="nm">/marketplace-mastery/</td><td class="num">92</td><td class="num">6</td><td class="num">11</td><td class="num">70</td><td class="sm">Educational pillar with real dwell.</td></tr>
+        <tr><td class="nm">/2026-prime-day-tactical-guide/</td><td class="num">285</td><td class="num">18</td><td class="num">19</td><td class="num">61</td><td class="sm">Landing page for the best converting creative.</td></tr>
+        <tr><td class="nm">/careers/</td><td class="num">2,941</td><td class="num" style="color:var(--red);font-weight:700">301</td><td class="num" style="color:var(--red);font-weight:700">472</td><td class="num">49</td><td class="sm">Third most viewed page. The contamination source.</td></tr>
+        <tr><td class="nm">/wp-content/uploads/2022/02/theresumator_helper.html</td><td class="num" style="color:var(--red);font-weight:700">3,856</td><td class="num" style="color:var(--red)">186</td><td class="num" style="color:var(--red)">265</td><td class="num">48</td><td class="sm">A resume helper file from 2022. Second most viewed page on the entire site.</td></tr>
+        <tr><td class="nm">/amazon-affiliate-agencies/</td><td class="num">165</td><td class="num">20</td><td class="num">19</td><td class="num" style="color:var(--orange)">11</td><td class="sm">Traffic without attention. Thin page.</td></tr>
+        <tr><td class="nm">/best-amazon-brand-protection-agencies...</td><td class="num">74</td><td class="num">1</td><td class="num">2</td><td class="num" style="color:var(--orange)">9</td><td class="sm">SEO page attracting nobody relevant.</td></tr>
+        <tr><td class="nm">/post-prime-day-audit/</td><td class="num">120</td><td class="num">19</td><td class="num">17</td><td class="num" style="color:var(--red)">1.5</td><td class="sm">Immediate bounce. The PostPrimeDay creative also produced zero leads.</td></tr>
+        <tr><td class="nm">/amazon-sports-outdoors-top-products...</td><td class="num">97</td><td class="num">11</td><td class="num">18</td><td class="num" style="color:var(--red)">0.2</td><td class="sm">Almost certainly automated traffic.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="cards" style="margin-top:18px">
+    <div class="card opp"><span class="tag">The creative swap, fully evidenced</span><h4>The Ollie case study is the deepest read asset on the site and it is not running as an ad</h4><p><b>383 seconds of average dwell</b>, more than six minutes, on a case study about a mid market DTC pet brand. Ollie is also a live engaged account with a VP Commercial identified on the site. Meanwhile the case studies we do run as ads feature Estee Lauder, Harry's and Borghese, and they convert nobody. <b>The asset that matches the ICP already exists and is already proven to hold attention. Put it in the ad account.</b></p></div>
+    <div class="card crit"><span class="tag">Contamination, now quantified</span><h4>The careers cluster is 6,887 views and 489 identified companies</h4><p>/careers/ at 2,941 views plus a 2022 <b>resume helper file at 3,856 views</b> plus /career-page-new/ at 90. Together roughly <b>38% of all page views in the top 35</b>. This is the root cause of the non ICP website population flagged in Report 2 and in the ICP filter. Excluding these three paths from identification is a single change that fixes the account scoring layer.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">06</span><h2>Persona to messaging map</h2></div>
+  <p class="sec-sub">The most important section. Personas come from Report 1. Every persona currently sees the same creative, which is the core problem.</p>
+  <div class="pmap">
+    <div class="p inv">
+      <h4>The Mid Market Brand Lead</h4>
+      <p class="role">51 to 200 employees &nbsp;/&nbsp; 0.76% click to lead &nbsp;/&nbsp; can pay the minimum</p>
+      <div class="fld"><div class="fl">Seeing now</div><div class="fv">Enterprise beauty case studies plus generic Prime Day content. Same as everyone.</div></div>
+      <div class="fld"><div class="fl">Recommended angle</div><div class="fv">Mid market client proof. The Ollie case study, reframed around efficiency gains at their scale rather than logos.</div></div>
+      <div class="test"><div class="fl">Test headline</div><div class="fv">"How a 200 person brand grew double digits while cutting ad waste"</div></div>
+      <div class="fld" style="margin-top:12px"><div class="fl">Expected impact</div><div class="fv">The asset already holds 383 seconds of attention. Closing the gap to the $74.15 best angle CPL is the target.</div></div>
+    </div>
+    <div class="p red">
+      <h4>The Enterprise Browser</h4>
+      <p class="role">10,001+ employees &nbsp;/&nbsp; 0.17% conversion rate &nbsp;/&nbsp; highest CTR in account</p>
+      <div class="fld"><div class="fl">Seeing now</div><div class="fv">Estee Lauder, Harry's and Borghese case studies. Precisely the content that attracts them.</div></div>
+      <div class="fld"><div class="fl">Recommended angle</div><div class="fv">None. Suppress rather than message. The creative is the acquisition mechanism for this segment, so changing the audience without changing the creative will not work.</div></div>
+      <div class="test"><div class="fl">Action, not a headline</div><div class="fv">Retire the enterprise logo case studies from paid distribution entirely</div></div>
+      <div class="fld" style="margin-top:12px"><div class="fl">Expected impact</div><div class="fv">Releases the 31.6% of clicks this segment absorbs, per Report 1 v2.</div></div>
+    </div>
+    <div class="p wat">
+      <h4>The Sub Scale Operator</h4>
+      <p class="role">1 to 50 employees &nbsp;/&nbsp; 1.64% click to lead &nbsp;/&nbsp; below the contract floor</p>
+      <div class="fld"><div class="fl">Seeing now</div><div class="fv">The research reports, which is very likely where 10 of the 18 leads came from.</div></div>
+      <div class="fld"><div class="fl">Recommended angle</div><div class="fv">Hold everything until the CRM export confirms whether any of these became a qualified opportunity.</div></div>
+      <div class="test"><div class="fl">Do not test yet</div><div class="fv">Gated on the Pipedrive pull. Scaling here could scale unqualified volume.</div></div>
+      <div class="fld" style="margin-top:12px"><div class="fl">Expected impact</div><div class="fv">Unknown by design. This is the largest open question in the account.</div></div>
+    </div>
+    <div class="p inv">
+      <h4>The Wellness Challenger</h4>
+      <p class="role">Wellness, cosmetics, consumer goods &nbsp;/&nbsp; 8 of 17 leads</p>
+      <div class="fld"><div class="fl">Seeing now</div><div class="fv">Beauty conglomerate case studies, which speak to a scale they do not have.</div></div>
+      <div class="fld"><div class="fl">Recommended angle</div><div class="fv">Category specific tactical playbook. Take the format that produced the $74.15 CPL and rebuild it for wellness and supplement brands specifically.</div></div>
+      <div class="test"><div class="fl">Test headline</div><div class="fv">"The supplement brand's Prime Day playbook: 9 moves before June"</div></div>
+      <div class="fld" style="margin-top:12px"><div class="fl">Expected impact</div><div class="fv">Combines the best converting format with the best converting category. Highest confidence test available.</div></div>
+    </div>
+    <div class="p sup">
+      <h4>The Non Buyer</h4>
+      <p class="role">Agencies, adtech, VC and PE &nbsp;/&nbsp; 4 of 17 leads &nbsp;/&nbsp; 2.40% click to lead</p>
+      <div class="fld"><div class="fl">Seeing now</div><div class="fv">Everything, and converting at the highest rate of any group.</div></div>
+      <div class="fld"><div class="fl">Recommended angle</div><div class="fv">Suppress. Eleven competitor and agency entities are already identified on the website, including two at very high engagement.</div></div>
+      <div class="test"><div class="fl">Action, not a headline</div><div class="fv">Apply the suppression list before the next creative round goes live</div></div>
+      <div class="fld" style="margin-top:12px"><div class="fl">Expected impact</div><div class="fv">May reduce the defensible lead count from 18 to 14. Better found now.</div></div>
+    </div>
+  </div>
+  <div class="gap">
+    <span class="tg">The biggest creative opportunity in the account</span>
+    <p><b>Every persona currently receives the same creative, and that creative is optimised for the persona we least want.</b> The case study documents are the most engaging assets in the account and they are built around enterprise beauty logos, which is why enterprise beauty companies dominate the click volume. Rebuilding proof content around mid market brands, and rebuilding the tactical playbook by category, addresses the audience problem and the conversion problem with one change rather than two.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">07</span><h2>Five messaging priorities</h2></div>
+  <div class="cards">
+    <div class="card opp"><span class="tag">1 / scale the winner</span><h4>Build three new variants of the seasonal tactical playbook</h4><p>$74.15 CPL and the only angle with conversions, on just $371 of spend. It is the least funded angle in the account and the best performing. Q4 and holiday are the obvious next windows, and variant 1_B is the template, not 1_A.</p></div>
+    <div class="card opp"><span class="tag">2 / the creative swap</span><h4>Replace enterprise case studies with the Ollie case study</h4><p>383 seconds of dwell, mid market DTC, and Ollie is a live engaged account. Retire Estee Lauder, Harry's and Borghese from paid distribution. This is the single change that addresses both the creative problem and the audience problem.</p></div>
+    <div class="card crit"><span class="tag">3 / kill waste</span><h4>Cut founder video, PostPrimeDay and the webinar image</h4><p>$1,950 combined, zero leads, and the three lowest CTRs in the account. Hold founder content until the PR agency delivers posts we can promote as thought leader ads, which is the format that actually works.</p></div>
+    <div class="card watch"><span class="tag">4 / fix the blind spot</span><h4>Get creative names onto the other 65% of spend</h4><p>$16,157 of delivery carries no creative attribution, so two thirds of the account has no messaging signal at all. Until that is fixed every conclusion here rests on a third of the budget.</p></div>
+    <div class="card opp"><span class="tag">5 / the highest confidence test</span><h4>Category specific playbook for wellness and supplements</h4><p>Best converting format crossed with best converting category. Wellness, cosmetics and consumer goods produced 8 of 17 leads on DemandSense industry attribution, which resolves 67% of clicks and should be treated as directional. Campaign Manager demographics independently puts <b>Retail Health and Personal Care at the best CTR of any material industry, 3.06%</b>, which points the same way from a first party source.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">08</span><h2>Correction to Report 2</h2></div>
+  <div class="cards">
+    <div class="card crit"><span class="tag">Restated</span><h4>The creative to campaign reconciliation gap is $292, not roughly $93</h4><p>Measured directly against the creative model: <b>$24,703.11 against $24,411.17</b>, a difference of <b>$291.94</b>. The creative model also reports <b>18 leads against 17</b> and <b>5 conversions against 0</b>. Report 2 cited approximately $93 from an earlier pass. Continue headlining the campaign level figures and footnote the creative model, but use $292 as the gap and note the lead count differs by one.</p></div>
+  </div>
+</section>
+
+<div class="internal">Internal diagnostic. Report 4 of 4 in the quarterly architecture, feeding the Impact Report creative and content intelligence section. Angle classification is derived from creative naming conventions and is reversible. Sections 5 and 6 substitute website content data for unavailable search data.</div>
+
+<footer>
+  <div><b>Client</b><br>Envision Horizons</div>
+  <div><b>Period</b><br>1 Mar to 28 Jul 2026</div>
+  <div><b>Primary metric</b><br>Leads. Conversion tracking records 4 events total.</div>
+  <div><b>Coverage</b><br>35% of spend creative attributed</div>
+  <div><b>Prepared by</b><br>Impactable</div>
+</footer>
+</div>
+
+<script>
+const A=[
+ {angle:'Client case study, doc',spend:3518.48,impr:29203,clicks:1755,eng:4541,leads:0,conv:0,v:'reduce'},
+ {angle:'Original research report, doc',spend:2304.26,impr:20535,clicks:149,eng:1614,leads:10,conv:0,v:'scale'},
+ {angle:'Seasonal tactical playbook, doc',spend:370.75,impr:2770,clicks:38,eng:633,leads:5,conv:4,v:'scale'},
+ {angle:'Seasonal recap, doc',spend:402.47,impr:4246,clicks:28,eng:646,leads:3,conv:0,v:'refine'},
+ {angle:'Founder voice video',spend:1043.84,impr:16097,clicks:82,eng:334,leads:0,conv:0,v:'cut'},
+ {angle:'Seasonal image, PostPrimeDay',spend:542.97,impr:14621,clicks:62,eng:136,leads:0,conv:0,v:'cut'},
+ {angle:'Event and webinar image',spend:363.59,impr:1924,clicks:13,eng:32,leads:0,conv:0,v:'cut'},
+ {angle:'Unattributed spend',spend:16156.75,impr:143532,clicks:4323,eng:4701,leads:0,conv:1,v:'none'}
+];
+const VN={scale:'Scale',refine:'Refine',hold:'Hold',reduce:'Reduce',cut:'Cut',none:'No signal'};
+A.forEach(r=>{r.ctr=r.clicks/r.impr*100;r.cpc=r.clicks?r.spend/r.clicks:0;r.cpl=r.leads?r.spend/r.leads:null;});
+let sk=null,dir=null;
+function draw(){
+  const rows=[...A];
+  if(sk){const m=dir==='asc'?1:-1;rows.sort((a,b)=>{
+    let x=a[sk],y=b[sk];if(x==null)return 1;if(y==null)return -1;
+    return typeof x==='string'?x.localeCompare(y)*m:(x-y)*m;});}
+  const mx=Math.max(...rows.map(r=>r.spend));
+  document.querySelector('#angles tbody').innerHTML=rows.map(r=>`<tr>
+    <td class="nm">${r.angle}</td>
+    <td class="num" style="position:relative"><span style="position:absolute;left:0;top:5px;bottom:5px;width:${(r.spend/mx*100).toFixed(1)}%;background:rgba(0,153,209,.15);border-radius:3px"></span><span style="position:relative">$${Math.round(r.spend).toLocaleString()}</span></td>
+    <td class="num">${r.impr.toLocaleString()}</td>
+    <td class="num">${r.clicks.toLocaleString()}</td>
+    <td class="num" style="color:${r.ctr>=3?'var(--orange)':r.ctr>=1?'var(--txt)':'var(--txt-mid)'}">${r.ctr.toFixed(2)}%</td>
+    <td class="num">$${r.cpc.toFixed(2)}</td>
+    <td class="num">${r.eng.toLocaleString()}</td>
+    <td class="num" style="font-weight:700;color:${r.leads>=5?'var(--green)':r.leads>0?'var(--teal)':'#f87171'}">${r.leads}</td>
+    <td class="num" style="color:${r.cpl==null?'var(--txt-dim)':r.cpl<100?'var(--green)':r.cpl<250?'var(--teal)':'var(--orange)'}">${r.cpl==null?'no leads':'$'+r.cpl.toFixed(2)}</td>
+    <td><span class="b b-${r.v}">${VN[r.v]}</span></td></tr>`).join('');
+  document.querySelectorAll('#angles th').forEach(th=>{
+    th.removeAttribute('data-dir');
+    if(th.dataset.sk===sk)th.setAttribute('data-dir',dir);
+    th.querySelector('.arw').textContent=th.dataset.sk===sk?(dir==='asc'?'\u25B2':'\u25BC'):'\u25BF';});
+}
+document.querySelectorAll('#angles th').forEach(th=>{
+  const go=()=>{const k=th.dataset.sk;if(sk===k){dir=dir==='asc'?'desc':'asc';}else{sk=k;dir='desc';}draw();};
+  th.setAttribute('tabindex','0');
+  th.addEventListener('click',go);
+  th.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});});
+draw();
+</script>
+</body>
+</html>
