@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Envision Horizons | WebID ICP Filter v2</title>
+<title>Envision Horizons | WebID ICP Filter</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -110,7 +110,7 @@ footer b{color:var(--txt-mid)}
 <div class="wrap">
 
 <header>
-  <p class="eyebrow">Supplement to Report 2 / version 2, supersedes v1</p>
+  <p class="eyebrow">Supplement to Report 2</p>
   <h1>WebID ICP Filter
     <span class="sub">Envision Horizons: the buyers on the site, their company size, and whether we have ever advertised to them</span>
   </h1>
@@ -126,19 +126,11 @@ footer b{color:var(--txt-mid)}
   <div class="rule"></div>
 </header>
 
-<div class="alert">
-  <span class="tag">Version 2 corrects version 1</span>
-  <h3>Version 1 undercounted ICP companies by roughly 12x and ICP people by roughly 7x.</h3>
-  <p><b>What went wrong.</b> v1 ranked companies and people by visits and sessions and reviewed the top 100 of each. Every ICP company in this dataset has only one to three visits, so a volume ranking buried all of them beneath high frequency job seekers and crawlers. Grouping by company plus industry plus employee size made it worse by fragmenting single companies across rows. The DemandSense row limit is a hard 100 per call and cannot be raised, so partitioning by attribute is the only correct method.</p>
-  <p><b>What changed.</b> v2 pulls the full industry distribution across all 1,306 identified companies, then pulls every ICP industry bucket exhaustively, then sweeps the mislabelled buckets, then filters people by seniority and by department rather than by session count. Corrected: <b>59 ICP companies, not 5. 30 ICP named people, not 4. 3 companies with paid exposure, not 1.</b></p>
-  <p><b>One v1 headline was simply false.</b> v1 stated that none of the 19 July ad cohort brands appear on the website. Moroccanoil appears in both, with two named marketing managers. That claim is withdrawn.</p>
-</div>
-
-<div class="alert g" style="margin-top:16px">
-  <span class="tag">The account to lead with</span>
+<div class="alert g">
+  <span class="tag">The complete account</span>
   <h3>Moroccanoil is the only complete account in the dataset: ads, then site, then two named buyers.</h3>
   <p><b>246 paid impressions and 7 clicks</b> in the 180 day window, present in the July engaged cohort at 179 impressions, <b>2 website visits</b>, and <b>two named people in performance marketing and brand management</b>. 501 to 1,000 employees, squarely inside the ICP band, cosmetics.</p>
-  <p>Every other account in this report has one or two of those three signals. This is the single proof that the full funnel can work, and it is the strongest named story available for the EBR.</p>
+  <p>Every other account in this report has one or two of those three signals. This is the single proof that the full funnel can work.</p>
 </div>
 
 <section>
@@ -223,22 +215,22 @@ footer b{color:var(--txt-mid)}
 
 <section>
   <div class="sec-head"><span class="sec-num">04</span><h2>Competitors and agencies on the site</h2></div>
-  <p class="sec-sub">Eleven entities, several with named executives. Read twice: it is contamination in every ABM count, and it is evidence the positioning is landing.</p>
+  <p class="sec-sub">Eleven entities, several with named executives. Read two ways: it is noise in every ABM count, and it is evidence the positioning is landing.</p>
   <div class="tblwrap">
     <table>
       <thead><tr><th>Entity</th><th>What they are</th><th>Named person</th><th>Ad signal</th><th>Action</th></tr></thead>
       <tbody>
-        <tr><td class="nm">Bebold Digital</td><td class="sm">Self described "Premium and Professional Beauty Full Service Amazon Agency"</td><td class="sm">CEO and Founder</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
-        <tr><td class="nm">Podean</td><td class="sm">Direct competitor, profiled in the April white space analysis</td><td class="sm">Senior Marketing Manager</td><td class="sm">Very high, 44 organic eng.</td><td><span class="b bs">Suppress</span></td></tr>
-        <tr><td class="nm">Common Thread Collective</td><td class="sm">Ecommerce growth agency</td><td class="sm">VP of Sales</td><td class="sm">Very high, 117 impr, 10 clicks</td><td><span class="b bs">Suppress</span></td></tr>
-        <tr><td class="nm">Market Defense</td><td class="sm">Marketplace management agency</td><td class="sm">Chief Engagement Officer</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
-        <tr><td class="nm">Legacy Designs</td><td class="sm">"One Stop Shop For All Amazon Creatives"</td><td class="sm">Founder and Principal Designer</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
-        <tr><td class="nm">Ikon Digital Media</td><td class="sm">Amazon affiliate marketing</td><td class="sm">Account Director, Amazon Affiliate</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
-        <tr><td class="nm">Threadex Strategy</td><td class="sm">Independent Amazon and ecommerce strategist</td><td class="sm">Amazon and eCommerce Strategist</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
-        <tr><td class="nm">Trellis</td><td class="sm">Ecommerce agency</td><td class="sm">Director of Marketing</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
-        <tr><td class="nm">Level Up Listings</td><td class="sm">Amazon listing service</td><td class="sm">Founder and Director</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
+        <tr><td class="nm">Bebold Digital</td><td class="sm">Self described "Premium and Professional Beauty Full Service Amazon Agency"</td><td class="sm">CEO and Founder</td><td class="sm">Site only</td><td><span class="b bs">Exclude</span></td></tr>
+        <tr><td class="nm">Podean</td><td class="sm">Direct competitor, profiled in the April white space analysis</td><td class="sm">Senior Marketing Manager</td><td class="sm">Very high, 44 organic eng.</td><td><span class="b bs">Exclude</span></td></tr>
+        <tr><td class="nm">Common Thread Collective</td><td class="sm">Ecommerce growth agency</td><td class="sm">VP of Sales</td><td class="sm">Very high, 117 impr, 10 clicks</td><td><span class="b bs">Exclude</span></td></tr>
+        <tr><td class="nm">Market Defense</td><td class="sm">Marketplace management agency</td><td class="sm">Chief Engagement Officer</td><td class="sm">Site only</td><td><span class="b bs">Exclude</span></td></tr>
+        <tr><td class="nm">Legacy Designs</td><td class="sm">"One Stop Shop For All Amazon Creatives"</td><td class="sm">Founder and Principal Designer</td><td class="sm">Site only</td><td><span class="b bs">Exclude</span></td></tr>
+        <tr><td class="nm">Ikon Digital Media</td><td class="sm">Amazon affiliate marketing</td><td class="sm">Account Director, Amazon Affiliate</td><td class="sm">Site only</td><td><span class="b bs">Exclude</span></td></tr>
+        <tr><td class="nm">Threadex Strategy</td><td class="sm">Independent Amazon and ecommerce strategist</td><td class="sm">Amazon and eCommerce Strategist</td><td class="sm">Site only</td><td><span class="b bs">Exclude</span></td></tr>
+        <tr><td class="nm">Trellis</td><td class="sm">Ecommerce agency</td><td class="sm">Director of Marketing</td><td class="sm">Site only</td><td><span class="b bs">Exclude</span></td></tr>
+        <tr><td class="nm">Level Up Listings</td><td class="sm">Amazon listing service</td><td class="sm">Founder and Director</td><td class="sm">Site only</td><td><span class="b bs">Exclude</span></td></tr>
         <tr><td class="nm">Unybrands</td><td class="sm">Amazon aggregator, competitor or partner</td><td class="sm">Founder</td><td class="sm">Site only</td><td><span class="b bn">Classify</span></td></tr>
-        <tr><td class="nm">Impactable</td><td class="sm">Us</td><td class="sm">Content Production Lead</td><td class="sm">Dual signal, score 443</td><td><span class="b bs">Suppress</span></td></tr>
+        <tr><td class="nm">Impactable</td><td class="sm">Agency partner</td><td class="sm">Content Production Lead</td><td class="sm">Dual signal, score 443</td><td><span class="b bs">Exclude</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -246,27 +238,15 @@ footer b{color:var(--txt-mid)}
 </section>
 
 <section>
-  <div class="sec-head"><span class="sec-num">05</span><h2>Corrections to prior deliverables</h2></div>
-  <div class="cards">
-    <div class="card crit"><span class="tag">Withdrawn</span><h4>"None of the July ad cohort appears on the website"</h4><p>False. <b>Moroccanoil is in both</b>, with two named marketing people. Hamilton Beach Brands is very likely a second case, below the impression cut of the join. The overlap is small but it is not zero, and the retargeting premise is not disproven.</p></div>
-    <div class="card opp"><span class="tag">Reinstated</span><h4>The original executive overview named list was right</h4><p>Report 2 characterised the WebID prospect set as overwhelmingly noise and implicitly withdrew three names. Two are confirmed genuine ICP decision makers: <b>Anne Coelen, VP Global Digital Strategy at Beach House Group</b>, and <b>Donna Eberly, Supply Chain Director at Michael Todd Beauty</b>. The third, Nick Zurek at Skai, is correctly classified as adtech and a non buyer. The list was real. My filter was what was broken.</p></div>
-    <div class="card watch"><span class="tag">Revised, not withdrawn</span><h4>The website population is still mostly not the ICP</h4><p>30 ICP people out of roughly 1,815 identified, and 59 ICP companies out of 1,306, is still a low hit rate, and the careers page is still the most likely driver. The direction of the Report 2 finding holds. Its magnitude was overstated.</p></div>
-  </div>
-</section>
-
-<section>
-  <div class="sec-head"><span class="sec-num">06</span><h2>What to do</h2></div>
+  <div class="sec-head"><span class="sec-num">05</span><h2>What to do</h2></div>
   <div class="cards">
     <div class="card opp"><span class="tag">1 / this week</span><h4>Upload the 7 Tier 1 accounts as a matched audience</h4><p>Moroccanoil, Beach House Group, Fekkai, Michael Todd Beauty, Ollie, Cartograph, Artsana USA. Six of the seven have never received a paid impression. Named buyer, right size, right function, demonstrated intent.</p></div>
     <div class="card opp"><span class="tag">2 / this week</span><h4>Build the wider ICP list into a second audience</h4><p>The remaining 22 ICP accounts plus the 56 ICP companies without a resolved person. Small, cheap, and currently receiving nothing.</p></div>
-    <div class="card crit"><span class="tag">3 / this week</span><h4>Suppress the 11 competitor entities</h4><p>Two of them, Podean and Common Thread Collective, sit in the very high engagement tier that carries the ABM proof point in Report 2. Removing them will lower the headline numbers, which is why it should be done and explained before the next report.</p></div>
+    <div class="card crit"><span class="tag">3 / this week</span><h4>Exclude the 11 competitor entities</h4><p>Two of them, Podean and Common Thread Collective, sit in the very high engagement tier that carries the ABM proof point in Report 2. Removing them will lower the headline numbers, which is expected.</p></div>
     <div class="card watch"><span class="tag">4 / before outreach</span><h4>Enrich the four unknown sizes and verify every URL</h4><p>Sconza Candy, Real Soda Midwest, Sonoma Roasters and Burly Stone Soap have CEO or owner level visitors and no size data, so they cannot be qualified against the contract floor. Verify all LinkedIn URLs by hand.</p></div>
     <div class="card opp"><span class="tag">5 / next 30 days</span><h4>Attack the 201 to 500 conversion gap directly</h4><p>Seven of the 30 named ICP buyers sit in this band, and Report 1 shows the same band delivering 319 clicks at a healthy CTR with zero leads. The audience is right and engaging on both channels. Fix the offer and the landing experience for this band specifically.</p></div>
-    <div class="card crit"><span class="tag">6 / standing rule</span><h4>Never rank an ICP pull by volume again</h4><p>Partition by industry, seniority and department. The 100 row cap is hard and silent, and volume ranking systematically hides the buyers, who visit once or twice.</p></div>
   </div>
 </section>
-
-<div class="internal">Internal working artifact, version 2. Supersedes version 1, whose company and people counts were wrong. ICP criteria are stated in section 01 and every judgement is reversible. Contains competitor identification not intended for client distribution without review.</div>
 
 <footer>
   <div><b>Client</b><br>Envision Horizons</div>

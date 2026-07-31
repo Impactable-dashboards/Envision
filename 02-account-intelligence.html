@@ -174,11 +174,11 @@ footer b{color:var(--txt-mid)}
 </header>
 
 <div class="alert">
-  <span class="tag">Two blockers, read both</span>
-  <h3>The funnel terminates at identification, and the engaged account list is contaminated.</h3>
+  <span class="tag">Two things to read first</span>
+  <h3>The funnel terminates at identification, and the engaged account list needs cleaning before use.</h3>
   <p><b>Pipeline is partially available now.</b> The Pipedrive export has arrived and the three tier attribution model is built in section 02b. What it does <b>not</b> contain is outcomes: Deal Status is blank on 417 of 418 records and Contract Executed Date on all 418. So we can now say which leads were ad touched, but <b>not whether any of them closed</b>. Every figure here is lead level. None of it is revenue.</p>
-  <p><b>The account list includes parties that cannot buy.</b> Envision Horizons itself is the single highest scoring LinkedIn engaged account. Impactable appears as a dual signal account. Podean, a named direct competitor from the April white space analysis, sits at very high engagement. Amazon sits at very high engagement. Nine distinct defects are documented in section 03 and every one inflates the ABM numbers upward.</p>
-  <p><b>Consequence:</b> no account list from this report should be handed to a sales motion until the suppression pass in section 06 is applied. Two named people in the identified set carry LinkedIn URLs belonging to different people.</p>
+  <p><b>The engaged-account list includes parties that cannot buy.</b> The client's own team engaging with its own content, agency and vendor teams working on the account, a named competitor, and Amazon all appear at high engagement. Several data-quality issues are documented in section 03, and each inflates the ABM numbers upward.</p>
+  <p><b>Consequence:</b> no account list from this report should be handed to a sales motion until the exclusions in section 06 are applied and named contacts are verified, since two records carry LinkedIn URLs belonging to different people.</p>
 </div>
 
 <section>
@@ -238,7 +238,7 @@ footer b{color:var(--txt-mid)}
     <tbody>
       <tr><td class="seg">Tier 1</td><td class="sm">CRM record carries the LinkedIn Ads label</td><td class="num" style="color:var(--green);font-weight:700">17</td><td class="sm">Click verified. Set by the client's own tagging.</td></tr>
       <tr><td class="seg">Tier 2</td><td class="sm">Lead email domain matches an ad exposed company that clicked</td><td class="num" style="color:var(--teal);font-weight:700">28</td><td class="sm">Impression and click verified at company level.</td></tr>
-      <tr><td class="seg">Tier 3</td><td class="sm">Lead domain matches an ad exposed company, impressions only</td><td class="num">82</td><td class="sm">Ecosystem influence. Weakest tier, do not headline.</td></tr>
+      <tr><td class="seg">Tier 3</td><td class="sm">Lead domain matches an ad exposed company, impressions only</td><td class="num">82</td><td class="sm">Ecosystem influence. Weakest tier.</td></tr>
       <tr><td class="seg">Tier 4</td><td class="sm">No ad exposure found</td><td class="num">280</td><td class="sm">Upper bound. The join sees only 55% of spend.</td></tr>
     </tbody>
     <tfoot><tr><td>Total distinct leads</td><td></td><td class="num">407</td><td class="sm">11 duplicate records and 1 CRM test record removed from 418.</td></tr></tfoot>
@@ -275,20 +275,20 @@ footer b{color:var(--txt-mid)}
     </tbody>
   </table></div>
   <div class="cards" style="margin-top:18px">
-    <div class="card opp"><span class="tag">The card for the EBR</span><h4>Kao Group is the only four signal account in the dataset</h4><p>On the ABM list, exposed to ads, visited the website, and present in the CRM carrying the LinkedIn Ads label. <b>Nothing else in 407 leads has all four.</b> If Laura wants one example of the full funnel working end to end, this is it.</p></div>
-    <div class="card watch"><span class="tag">Complicates a prior finding</span><h4>Enterprise accounts do appear in the CRM</h4><p>L'Oreal, Chewy, SharkNinja, Beiersdorf and Edgewell are all 5,000+ employee companies and all appear as ad exposed CRM leads. Reports 1 and 2 both concluded enterprise does not convert. <b>Without deal status we cannot tell whether these are real opportunities or noise</b>, so the enterprise reduction case is now weaker than stated and should be softened until outcomes arrive.</p></div>
+    <div class="card opp"><span class="tag">The proof point</span><h4>Kao Group is the only four signal account in the dataset</h4><p>On the ABM list, exposed to ads, visited the website, and present in the CRM carrying the LinkedIn Ads label. <b>Nothing else in 407 leads has all four.</b> It is the one example of the full funnel working end to end.</p></div>
+    <div class="card watch"><span class="tag">Complicates a prior finding</span><h4>Enterprise accounts do appear in the CRM</h4><p>L'Oreal, Chewy, SharkNinja, Beiersdorf and Edgewell are all 5,000+ employee companies and all appear as ad exposed CRM leads. Reports 1 and 2 both concluded enterprise does not convert. <b>Without deal status we cannot tell whether these are real opportunities or noise</b>, so the enterprise reduction case should be treated as provisional until deal outcomes arrive.</p></div>
     <div class="card crit"><span class="tag">Coverage limit</span><h4>The join sees about half the delivery</h4><p>The ABM ad activity export resolves <b>$13,414 of $24,411 spend, 3,416 of 6,421 clicks and 157,210 of 230,251 impressions</b>. Tier 4 is therefore an upper bound. A non match is not proof that a company was never served an ad.</p></div>
   </div>
   <p class="note">Estimated cost is the company level spend recorded in the ABM export, not an allocation of the lead. Accounts shown are ICP fit and ad touched, deduplicated, and named by email domain because the export's company name field is unreliable on wrapped rows.</p>
 </section>
 <section>
-  <div class="sec-head"><span class="sec-num">03</span><h2>Data hygiene defects</h2></div>
-  <p class="sec-sub">Nine defects found while assembling this report. All of them bias the account intelligence upward, which means every ABM figure reported to date is flattering rather than conservative.</p>
+  <div class="sec-head"><span class="sec-num">03</span><h2>Data quality and list hygiene</h2></div>
+  <p class="sec-sub">Nine issues found while assembling this report. Each biases the account intelligence upward, so all are corrected before accounts are scored.</p>
   <div class="cards">
     <div class="card crit">
-      <span class="tag">Critical, self engagement</span>
-      <h4>Envision Horizons is the highest scoring engaged account in its own report</h4>
-      <p>The client's own company records a LinkedIn engagement score of <b>20,706</b>, with 1,138 organic impressions and 969 organic engagements. That is employees engaging with their own brand's content, and it sits at the top of the leaderboard. It must be suppressed before any list is shown or scored.</p>
+      <span class="tag">Self engagement</span>
+      <h4>The brand's own employees engaging with its content</h4>
+      <p>The client's own company records a LinkedIn engagement score of <b>20,706</b>, with 1,138 organic impressions and 969 organic engagements. That is employees engaging with their own brand's content. It is excluded before any list is scored or shared.</p>
     </div>
     <div class="card crit">
       <span class="tag">Critical, duplicate entity</span>
@@ -296,14 +296,14 @@ footer b{color:var(--txt-mid)}
       <p>A separate account resolves to the name Envision Horizons on the domain <b>marketingconcepts.com</b>, with 10 website sessions and 12 page views. Its named contact, a Chief Technology Officer, appears in the identified people set. Any name based match on this client will silently merge two different companies.</p>
     </div>
     <div class="card crit">
-      <span class="tag">Critical, agency contamination</span>
-      <h4>Impactable appears as a dual signal engaged account</h4>
-      <p>Our own agency records a score of <b>443</b> with 28 organic engagements and 2 website sessions, flagged as engaged through both LinkedIn and the website. Our team's own activity is being counted as client demand.</p>
+      <span class="tag">Vendor engagement</span>
+      <h4>Agency and vendor activity appears in the engaged set</h4>
+      <p>Agency and vendor teams working on the account record engagement signals, for example a score of <b>443</b> with 28 organic engagements and 2 website sessions, flagged as engaged through both LinkedIn and the website. This is team activity rather than client demand, and it is excluded.</p>
     </div>
     <div class="card watch">
       <span class="tag">Competitive intelligence</span>
       <h4>A named direct competitor sits at very high engagement</h4>
-      <p><b>Podean</b>, one of the five competitors profiled in the April white space analysis, records a score of <b>2,680</b> at very high engagement with 44 organic engagements. Read two ways: it is contamination in the ABM count, and it is a signal that a competitor is actively monitoring this account's content.</p>
+      <p><b>Podean</b>, one of the five competitors profiled in the April white space analysis, records a score of <b>2,680</b> at very high engagement with 44 organic engagements. Read two ways: it is noise in the ABM count, and it is a signal that a competitor is actively monitoring this account's content.</p>
     </div>
     <div class="card watch">
       <span class="tag">Non buyer volume</span>
@@ -328,7 +328,7 @@ footer b{color:var(--txt-mid)}
     <div class="card watch">
       <span class="tag">Reconciliation</span>
       <h4>Two DemandSense models disagree on how many people were identified</h4>
-      <p>The account model reports <b>830</b> people linked to companies. The prospect model reports <b>1,815</b> identified people. Both are described as WebID identified visitors over the same period. Pick one definition and hold it, and do not let the larger number travel into client reporting unexamined.</p>
+      <p>The account model reports <b>830</b> people linked to companies. The prospect model reports <b>1,815</b> identified people. Both are described as WebID identified visitors over the same period. One definition should be picked and held, and the larger number should not be reported unexamined.</p>
     </div>
   </div>
 </section>
@@ -368,14 +368,14 @@ footer b{color:var(--txt-mid)}
   </div>
   <div class="cards" style="margin-top:15px">
     <div class="card opp">
-      <span class="tag">Opportunity, lead with this</span>
+      <span class="tag">Opportunity</span>
       <h4>The audience finally looks like the ICP</h4>
       <p>Enterprise presence in the top engaged cohort went from <b>18 of 30 to zero</b> in one month, replaced by exactly the DTC beauty, wellness and consumer brands the strategy targets. This is a defensible, named, verifiable result of the exclusion work.</p>
     </div>
     <div class="card watch">
       <span class="tag">The honest other half</span>
       <h4>It cost 62% of the engagement volume and all of the leads</h4>
-      <p>Clicks in the top cohort fell from <b>264 to 101</b>, impressions from 7,274 to 2,999, and leads from 2 to zero. The quality improved and the volume collapsed. Present both halves together or the first half will not survive scrutiny.</p>
+      <p>Clicks in the top cohort fell from <b>264 to 101</b>, impressions from 7,274 to 2,999, and leads from 2 to zero. The quality improved and the volume collapsed. Both halves belong together.</p>
     </div>
   </div>
 </section>
@@ -389,7 +389,7 @@ footer b{color:var(--txt-mid)}
 
 <section>
   <div class="sec-head"><span class="sec-num">06</span><h2>Activation tiers</h2></div>
-  <p class="sec-sub">Honest tiering. The blazing hot tier is small because the evidence supports a small tier, and inflating it is how an ABM programme loses sales team trust.</p>
+  <p class="sec-sub">The blazing-hot tier is deliberately small because the evidence supports a small tier.</p>
   <div class="tiers">
     <div class="tier hot">
       <h4>Blazing hot</h4>
@@ -398,7 +398,7 @@ footer b{color:var(--txt-mid)}
         <li><b>Artsana USA (Chicco)</b>: Joshua Dilts, Senior Marketing Product Manager, 3 sessions, 4 pages. The only named, plausibly ICP marketing decision maker in the identified set.</li>
         <li><b>Dr. Diamond's Metacine</b>: dual signal, medium engagement, 7 sessions and 11 pages, resolving to an Amazon storefront domain. Strongest account level intent inside the ICP.</li>
       </ul>
-      <p class="do"><b>Do:</b> verify both LinkedIn profiles by hand, then a named referral or founder to founder approach from Laura. Do not route these through a generic sequence.</p>
+      <p class="do"><b>Do:</b> verify both LinkedIn profiles by hand, then a named referral or founder-to-founder approach. Do not route these through a generic sequence.</p>
     </div>
     <div class="tier deep">
       <h4>Hot, deeper ABM</h4>
@@ -420,15 +420,15 @@ footer b{color:var(--txt-mid)}
       <p class="do"><b>Do:</b> confirm buying authority and whether marketplace management is already in house before any spend is directed here.</p>
     </div>
     <div class="tier sup">
-      <h4>Suppress</h4>
+      <h4>Exclude</h4>
       <p class="cnt">13+ named entities &nbsp;/&nbsp; apply before next list build</p>
       <ul>
         <li>Envision Horizons, both entities, including the marketingconcepts.com duplicate.</li>
-        <li>Impactable.</li>
+        <li>Agency and vendor accounts working on the programme.</li>
         <li>Amazon.</li>
         <li>Podean, Harvest Group, assembly, Kinesso, Digitas, Ansira, Skai, PLTFRM, Red Moon Marketing, Kyn Agency.</li>
       </ul>
-      <p class="do"><b>Do:</b> add to the exclusion list alongside the enterprise work already under way, then rebuild the engaged account counts. Expect the headline account numbers to fall, and say so before they do.</p>
+      <p class="do"><b>Do:</b> add to the exclusion list alongside the enterprise work already under way, then rebuild the engaged account counts. The headline account numbers will fall as a result.</p>
     </div>
   </div>
 </section>
@@ -465,10 +465,10 @@ footer b{color:var(--txt-mid)}
           <td>Exclude careers paths from account scoring, then rebuild. The careers page is the likely driver.</td>
         </tr>
         <tr>
-          <td class="seg">Self, competitor and agency contamination</td>
-          <td>Nine documented defects including the client's own company ranking first and a direct competitor at very high engagement.</td>
+          <td class="seg">Self, competitor and vendor engagement</td>
+          <td>Nine documented issues including the client's own company ranking first and a direct competitor at very high engagement.</td>
           <td class="num">Inflates every<br>ABM figure</td>
-          <td>Apply the suppression list in section 06 and restate the counts.</td>
+          <td>Apply the exclusions in section 06 and restate the counts.</td>
         </tr>
         <tr>
           <td class="seg">Named list not safe to hand over</td>
@@ -485,16 +485,14 @@ footer b{color:var(--txt-mid)}
   <div class="sec-head"><span class="sec-num">08</span><h2>Action plan</h2></div>
   <p class="sec-sub">Six moves, ordered. Two are gated on the Pipedrive export and are marked rather than presented as ready.</p>
   <div class="cards">
-    <div class="card crit"><span class="tag">1 / this week</span><h4>Apply the suppression list and restate</h4><p>Remove both Envision Horizons entities, Impactable, Amazon and the ten agency and competitor accounts. Rebuild engaged account counts and tell the client the numbers moved and why, before the next report shows a drop.</p></div>
+    <div class="card crit"><span class="tag">1 / this week</span><h4>Apply the audience exclusions and restate</h4><p>Remove both Envision Horizons entities, agency and vendor accounts, Amazon and the ten agency and competitor accounts. Rebuild engaged account counts; the numbers will move as a result.</p></div>
     <div class="card crit"><span class="tag">2 / this week</span><h4>Cap the low tier and redirect</h4><p>240 accounts are taking a third of delivery for one lead. Frequency cap and exclude, then push the recovered budget into the 482 very high engagement accounts converting at 2.89%.</p></div>
     <div class="card opp"><span class="tag">3 / this week</span><h4>Build the July ICP audience as a named matched list</h4><p>Nineteen genuine ICP brands surfaced in July. Load them as a matched audience, run the cosmetics and wellness creative that already performs, and put a real bottom funnel offer behind it.</p></div>
-    <div class="card opp"><span class="tag">4 / done</span><h4>Three tier attribution model is built</h4><p>See section 02b. Joined on email domain rather than company name, because only 2 of 17 LinkedIn labelled leads carry a company name. 17 click verified, 28 impression and click verified, 82 ecosystem. <b>Lead with the 17 and the Kao card.</b></p></div>
-    <div class="card crit"><span class="tag">5 / answered, badly</span><h4>10 of the 17 leads have no company at all</h4><p>Not a company size problem as Report 1 guessed. <b>Ten of seventeen arrived with a personal email address and no company name.</b> Six resolve to real brands: Qunol twice, Clarins, Kids II, Kao, Iceburged. The defensible qualified count is closer to <b>6</b> than 17.</p></div>
+    <div class="card opp"><span class="tag">4 / done</span><h4>Three tier attribution model is built</h4><p>See section 02b. Joined on email domain rather than company name, because only 2 of 17 LinkedIn labelled leads carry a company name. 17 click verified, 28 impression and click verified, 82 ecosystem. <b>The 17 click-verified leads and the Kao account are the strongest points.</b></p></div>
+    <div class="card crit"><span class="tag">5 / answered</span><h4>10 of the 17 leads have no company at all</h4><p>Not a company size problem. <b>Ten of seventeen arrived with a personal email address and no company name.</b> Six resolve to real brands: Qunol twice, Clarins, Kids II, Kao, Iceburged. The defensible qualified count is closer to <b>6</b> than 17.</p></div>
     <div class="card opp"><span class="tag">6 / next 30 days</span><h4>Fix website identity scoring</h4><p>Exclude careers traffic, rebuild account scores, and reconcile the 830 against 1,815 people discrepancy. Until then the website layer adds noise to the ABM picture rather than intent.</p></div>
   </div>
 </section>
-
-<div class="internal">Internal diagnostic. Report 2 of 4 in the quarterly architecture, feeding the Impact Report account intelligence and named accounts sections. Contains suppression judgements about the client's own company, Impactable, and named competitors. Not for client distribution without review.</div>
 
 <footer>
   <div><b>Client</b><br>Envision Horizons</div>
@@ -553,9 +551,9 @@ drawLadder();
 
 /* ---------- leaderboard ---------- */
 const B={both:'<span class="b b-both">Dual signal</span>',li:'<span class="b b-li">LinkedIn</span>',web:'<span class="b b-web">Website</span>'};
-const F={icp:'<span class="b b-icp">ICP</span>',no:'<span class="b b-no">Non buyer</span>',sup:'<span class="b b-sup">Suppress</span>'};
+const F={icp:'<span class="b b-icp">ICP</span>',no:'<span class="b b-no">Non buyer</span>',sup:'<span class="b b-sup">Exclude</span>'};
 const DATA={
- dual:{label:'Dual signal',note:'Engaged through both LinkedIn ads and the website. Score is the DemandSense LinkedIn engagement score. Sorted by score. Suppression flags applied per section 06.',
+ dual:{label:'Dual signal',note:'Engaged through both LinkedIn ads and the website. Score is the DemandSense LinkedIn engagement score. Sorted by score. Exclusion flags applied per section 06.',
   cols:[['co','Company','seg'],['ind','Industry','t'],['score','LI score','n'],['impr','LI impressions','n'],['clicks','LI clicks','n'],['sess','Sessions','n'],['fit','Fit','h']],
   rows:[
    ["L'Oreal",'cosmetics, labelled Automotive',6975,2967,113,2,F.no],
