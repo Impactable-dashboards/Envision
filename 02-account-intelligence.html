@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Envision Horizons | Account Intelligence and Pipeline Activation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a1628; --surface:rgba(17,29,51,.7); --line:rgba(189,215,255,.14); --line-strong:rgba(189,215,255,.28);
+  --navy:#1a3b6d; --blue:#0099d1; --teal:#00c4b3; --orange:#f4a261;
+  --green:#22c55e; --red:#ef4444; --purple:#a78bfa; --yellow:#ffd166;
+  --txt:#e8f0fb; --txt-mid:#a8bcd8; --txt-dim:#6f88ad;
+  --mono:'JetBrains Mono',ui-monospace,monospace; --sans:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:15px;line-height:1.55;
+  background-image:radial-gradient(1200px 600px at 15% -5%,rgba(0,153,209,.10),transparent 60%),
+                   radial-gradient(900px 500px at 90% 0%,rgba(0,196,179,.07),transparent 55%);
+  background-attachment:fixed}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px 90px}
+header{padding:52px 0 30px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 14px}
+h1{font-size:clamp(28px,4.2vw,45px);line-height:1.06;margin:0 0 12px;font-weight:700;letter-spacing:-.02em}
+h1 .sub{display:block;color:var(--txt-mid);font-weight:400;font-size:clamp(16px,2vw,21px);margin-top:10px;letter-spacing:0}
+.meta{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin:16px 0 22px}
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{border:1px solid var(--line-strong);background:var(--surface);border-radius:999px;padding:7px 15px;font-family:var(--mono);font-size:11.5px;color:var(--txt-mid)}
+.badge b{color:var(--txt);font-weight:700}
+.rule{height:1px;background:linear-gradient(90deg,var(--teal),var(--blue) 40%,transparent);margin:30px 0 0}
+.alert{margin:34px 0 0;border:1px solid rgba(239,68,68,.32);border-left:4px solid var(--red);
+  background:linear-gradient(90deg,rgba(239,68,68,.08),rgba(17,29,51,.55));border-radius:10px;padding:20px 22px}
+.alert.warn{border-color:rgba(244,162,97,.35);border-left-color:var(--orange);
+  background:linear-gradient(90deg,rgba(244,162,97,.09),rgba(17,29,51,.55))}
+.alert .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#f87171;font-weight:700}
+.alert.warn .tag{color:var(--orange)}
+.alert h3{margin:9px 0 8px;font-size:17px;font-weight:700}
+.alert p{margin:0 0 9px;color:var(--txt-mid);font-size:14.2px;max-width:100ch}
+.alert p:last-child{margin-bottom:0}
+section{margin-top:56px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.14em}
+h2{font-size:23px;margin:0;font-weight:700;letter-spacing:-.01em}
+.sec-sub{color:var(--txt-dim);font-size:13.5px;margin:6px 0 22px;max-width:105ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:19px 18px;position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue)}
+.stat.good::before{background:var(--green)}.stat.bad::before{background:var(--red)}
+.stat.warn::before{background:var(--orange)}.stat.sig::before{background:var(--purple)}.stat.dead::before{background:var(--txt-dim)}
+.stat .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim)}
+.stat .val{font-family:var(--mono);font-size:26px;font-weight:700;margin:9px 0 3px;letter-spacing:-.02em}
+.stat .val.good{color:var(--green)}.stat .val.bad{color:var(--red)}
+.stat .val.warn{color:var(--orange)}.stat .val.sig{color:var(--purple)}.stat .val.dead{color:var(--txt-dim)}
+.stat .who{font-size:13px;color:var(--txt-mid)}
+.stat .note{font-size:11.5px;color:var(--txt-dim);margin-top:7px}
+
+/* funnel */
+.funnel{display:flex;flex-direction:column;gap:8px;margin-top:6px}
+.fstep{display:grid;grid-template-columns:200px 1fr auto;gap:16px;align-items:center}
+.fstep .fl{font-size:13.5px;font-weight:500}
+.fstep .fl small{display:block;color:var(--txt-dim);font-size:11.5px;font-weight:400;font-family:var(--mono)}
+.ftrack{height:34px;background:rgba(0,0,0,.22);border-radius:6px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.fbar{position:absolute;left:0;top:0;bottom:0;border-radius:5px;min-width:4px;
+  background:linear-gradient(90deg,rgba(0,153,209,.55),rgba(0,196,179,.35))}
+.fbar.dead{background:linear-gradient(90deg,rgba(111,136,173,.35),rgba(111,136,173,.15))}
+.fbar.hot{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
+.fstep .fv{font-family:var(--mono);font-size:15px;font-weight:700;min-width:88px;text-align:right}
+.fstep .fv small{display:block;font-size:10.5px;color:var(--txt-dim);font-weight:400}
+
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:13.4px;min-width:660px}
+th{position:sticky;top:0;background:#0e1c33;text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--txt-dim);font-weight:500;padding:12px 13px;border-bottom:1px solid var(--line-strong);
+  white-space:nowrap;cursor:pointer;user-select:none}
+th:hover{color:var(--txt)}
+th .arw{opacity:.35;font-size:9px;margin-left:4px}
+th[data-dir] .arw{opacity:1;color:var(--blue)}
+td{padding:10px 13px;border-bottom:1px solid rgba(189,215,255,.07);vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tbody tr:hover{background:rgba(0,153,209,.055)}
+td.num{font-family:var(--mono);font-size:12.8px;text-align:right;white-space:nowrap}
+td.seg{font-weight:500;min-width:150px}
+tfoot td{font-family:var(--mono);font-size:12.4px;color:var(--txt-mid);border-top:1px solid var(--line-strong);
+  background:rgba(0,0,0,.16);font-weight:700}
+.tabs{display:flex;flex-wrap:wrap;gap:7px;margin:0 0 4px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.tab{background:transparent;border:1px solid var(--line);color:var(--txt-mid);font-family:var(--sans);font-size:13.2px;
+  padding:8px 15px;border-radius:8px;cursor:pointer;transition:.15s}
+.tab:hover{border-color:var(--line-strong);color:var(--txt)}
+.tab[aria-selected="true"]{background:var(--blue);border-color:var(--blue);color:#04121f;font-weight:700}
+.tab .n{font-family:var(--mono);font-size:10.5px;opacity:.75;margin-left:6px}
+.tab:focus-visible,th:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+.panel-note{font-size:12.8px;color:var(--txt-dim);font-family:var(--mono);margin:16px 0 12px;padding-left:11px;border-left:2px solid var(--line-strong)}
+.b{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px;font-weight:700;white-space:nowrap;display:inline-block}
+.b-both{background:rgba(34,197,94,.16);color:var(--green);border:1px solid rgba(34,197,94,.4)}
+.b-li{background:rgba(0,153,209,.16);color:#4cc4f0;border:1px solid rgba(0,153,209,.4)}
+.b-web{background:rgba(167,139,250,.16);color:var(--purple);border:1px solid rgba(167,139,250,.4)}
+.b-sup{background:rgba(239,68,68,.15);color:#f87171;border:1px solid rgba(239,68,68,.38)}
+.b-icp{background:rgba(0,196,179,.15);color:var(--teal);border:1px solid rgba(0,196,179,.4)}
+.b-no{background:rgba(244,162,97,.15);color:var(--orange);border:1px solid rgba(244,162,97,.4)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(330px,1fr));gap:15px}
+.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:11px;padding:20px}
+.card.crit{border-left-color:var(--red)}.card.opp{border-left-color:var(--green)}.card.watch{border-left-color:var(--orange)}
+.card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.card.crit .tag{color:#f87171}.card.opp .tag{color:var(--green)}.card.watch .tag{color:var(--orange)}
+.card h4{margin:9px 0 9px;font-size:16.5px;line-height:1.32;font-weight:700}
+.card p{margin:0;color:var(--txt-mid);font-size:13.8px}
+.card p b{color:var(--txt)}
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:15px}
+.tier{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:21px;border-top:3px solid var(--blue)}
+.tier.hot{border-top-color:var(--red)}.tier.warm{border-top-color:var(--orange)}
+.tier.deep{border-top-color:var(--teal)}.tier.sup{border-top-color:var(--txt-dim)}
+.tier h4{margin:0 0 4px;font-size:17px;font-weight:700}
+.tier .cnt{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);margin-bottom:13px}
+.tier ul{margin:0 0 14px;padding-left:17px;color:var(--txt-mid);font-size:13.3px}
+.tier li{margin-bottom:5px}
+.tier .do{font-size:13.4px;color:var(--txt-mid);padding-top:13px;border-top:1px solid var(--line)}
+.tier .do b{color:var(--txt)}
+.mo{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.mo-col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px}
+.mo-col h4{margin:0 0 3px;font-size:16px;font-weight:700}
+.mo-col .mm{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);margin-bottom:14px}
+.mo-col.jun{border-top:3px solid var(--orange)}.mo-col.jul{border-top:3px solid var(--teal)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:11px;padding:4px 9px;border-radius:5px;border:1px solid var(--line-strong);color:var(--txt-mid);background:rgba(0,0,0,.18)}
+.chip.ent{border-color:rgba(244,162,97,.4);color:var(--orange)}
+.chip.icp{border-color:rgba(0,196,179,.4);color:var(--teal)}
+.internal{border:1px solid rgba(244,162,97,.32);background:rgba(244,162,97,.07);border-radius:8px;padding:11px 15px;
+  font-family:var(--mono);font-size:11.2px;color:var(--orange);margin-top:22px}
+footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:26px;
+  justify-content:space-between;font-size:12.4px;color:var(--txt-dim)}
+footer b{color:var(--txt-mid)}
+@media (max-width:760px){.mo{grid-template-columns:1fr}.fstep{grid-template-columns:1fr;gap:6px}.fstep .fv{text-align:left}}
+@media (max-width:640px){.wrap{padding:0 15px 60px}header{padding:34px 0 22px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+
+/* ---- room nav ---- */
+.roomnav{position:sticky;top:0;z-index:999;background:rgba(6,15,28,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);margin-bottom:0}
+.roomnav .inner{max-width:1220px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
+.roomnav .brand{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal);white-space:nowrap;font-weight:700}
+.roomnav .links{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.roomnav .links::-webkit-scrollbar{display:none}
+.roomnav a{font-size:13px;color:var(--txt-dim);text-decoration:none;padding:7px 12px;border-radius:7px;white-space:nowrap;transition:.15s}
+.roomnav a:hover{color:var(--txt);background:rgba(0,153,209,.1)}
+.roomnav a.on{color:#04121f;background:var(--blue);font-weight:700}
+.roomnav a .n{font-family:var(--mono);font-size:9.5px;opacity:.7;margin-right:5px}
+.roomnav a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@media (max-width:760px){.roomnav .inner{padding:0 15px;gap:12px}.roomnav .brand{display:none}}
+</style>
+</head>
+<body>
+<nav class="roomnav"><div class="inner"><span class="brand">Envision Horizons / Intelligence Room</span><div class="links"><a href="index.html">Overview</a><a href="01-audience-segments.html"><span class="n">01</span>Audience Segments</a><a href="02-account-intelligence.html" class="on"><span class="n">02</span>Account Intelligence</a><a href="03-marketing-systems.html"><span class="n">03</span>Marketing Systems</a><a href="04-messaging-creative.html"><span class="n">04</span>Messaging & Creative</a><a href="05-icp-filter.html"><span class="n">05</span>ICP Filter</a><a href="06-roadmap.html"><span class="n">06</span>Roadmap</a></div></div></nav>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Quarterly Diagnostic / Report 2 of 4</p>
+  <h1>Account Intelligence and Pipeline Activation
+    <span class="sub">Envision Horizons: which accounts are ready for action, and what the next move is for each</span>
+  </h1>
+  <p class="meta">LinkedIn Ads and website identity &nbsp;/&nbsp; 1 March 2026 to 28 July 2026 &nbsp;/&nbsp; prepared by Impactable</p>
+  <div class="badges">
+    <span class="badge"><b>9,787</b> companies reached</span>
+    <span class="badge"><b>1,325</b> identified on site</span>
+    <span class="badge"><b>482</b> at very high engagement</span>
+    <span class="badge"><b>11 of 17</b> leads from that tier</span>
+    <span class="badge"><b>0</b> accounts joined to CRM</span>
+    <span class="badge"><b>9</b> hygiene defects found</span>
+  </div>
+  <div class="rule"></div>
+</header>
+
+<div class="alert">
+  <span class="tag">Two blockers, read both</span>
+  <h3>The funnel terminates at identification, and the engaged account list is contaminated.</h3>
+  <p><b>Pipeline is partially available now.</b> The Pipedrive export has arrived and the three tier attribution model is built in section 02b. What it does <b>not</b> contain is outcomes: Deal Status is blank on 417 of 418 records and Contract Executed Date on all 418. So we can now say which leads were ad touched, but <b>not whether any of them closed</b>. Every figure here is lead level. None of it is revenue.</p>
+  <p><b>The account list includes parties that cannot buy.</b> Envision Horizons itself is the single highest scoring LinkedIn engaged account. Impactable appears as a dual signal account. Podean, a named direct competitor from the April white space analysis, sits at very high engagement. Amazon sits at very high engagement. Nine distinct defects are documented in section 03 and every one inflates the ABM numbers upward.</p>
+  <p><b>Consequence:</b> no account list from this report should be handed to a sales motion until the suppression pass in section 06 is applied. Two named people in the identified set carry LinkedIn URLs belonging to different people.</p>
+</div>
+
+<section>
+  <div class="sec-head"><span class="sec-num">01</span><h2>Account funnel</h2></div>
+  <p class="sec-sub">Reached through to customer. The ladder is honest about where it stops: identification is the last measurable stage, and everything below it requires the Pipedrive export.</p>
+  <div class="funnel">
+    <div class="fstep"><div class="fl">Reached<small>LinkedIn impressions</small></div><div class="ftrack"><div class="fbar" style="width:100%"></div></div><div class="fv">9,787<small>companies</small></div></div>
+    <div class="fstep"><div class="fl">Any engagement signal<small>above very low tier</small></div><div class="ftrack"><div class="fbar" style="width:26.1%"></div></div><div class="fv">2,556<small>26.1%</small></div></div>
+    <div class="fstep"><div class="fl">Identified on website<small>WebID companies</small></div><div class="ftrack"><div class="fbar" style="width:13.5%"></div></div><div class="fv">1,325<small>13.5%</small></div></div>
+    <div class="fstep"><div class="fl">High or very high engagement<small>top two tiers</small></div><div class="ftrack"><div class="fbar hot" style="width:8.6%"></div></div><div class="fv">846<small>8.6%</small></div></div>
+    <div class="fstep"><div class="fl">Named people resolved<small>linked to an account</small></div><div class="ftrack"><div class="fbar" style="width:8.5%"></div></div><div class="fv">830<small>8.5%</small></div></div>
+    <div class="fstep"><div class="fl">Lead form completions<small>LinkedIn, account attributed</small></div><div class="ftrack"><div class="fbar hot" style="width:0.17%"></div></div><div class="fv">17<small>0.17%</small></div></div>
+    <div class="fstep"><div class="fl">Ad touched CRM leads<small>tiers 1 to 3</small></div><div class="ftrack"><div class="fbar hot" style="width:1.3%"></div></div><div class="fv">128<small>of 407 leads</small></div></div>
+    <div class="fstep"><div class="fl">Opportunity<small>Deal Status blank on 417 of 418</small></div><div class="ftrack"><div class="fbar dead" style="width:0.6%"></div></div><div class="fv" style="color:var(--txt-dim)">n/a<small>not in export</small></div></div>
+    <div class="fstep"><div class="fl">Customer<small>Contract Executed Date empty on all 418</small></div><div class="ftrack"><div class="fbar dead" style="width:0.6%"></div></div><div class="fv" style="color:var(--txt-dim)">n/a<small>not in export</small></div></div>
+  </div>
+  <p class="panel-note">n/a means the source is not connected. It is not a measured zero and must never be presented as one. 830 account linked people against 1,815 individually identified people is itself a reconciliation gap between two DemandSense models, flagged in section 03.</p>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">02</span><h2>The engagement ladder: proof and waste in one table</h2></div>
+  <p class="sec-sub">This is the most important table in the report. Engagement tier behaves as a rate, not a volume, so large enterprises land in the lower tiers despite consuming the most delivery.</p>
+  <div class="tblwrap">
+    <table id="ladder">
+      <thead><tr>
+        <th data-sk="tier">Tier<span class="arw">&#9663;</span></th>
+        <th data-sk="acc">Accounts<span class="arw">&#9663;</span></th>
+        <th data-sk="accs">% of accounts<span class="arw">&#9663;</span></th>
+        <th data-sk="impr">Impressions<span class="arw">&#9663;</span></th>
+        <th data-sk="imprs">% of impressions<span class="arw">&#9663;</span></th>
+        <th data-sk="imppa">Impr. per account<span class="arw">&#9663;</span></th>
+        <th data-sk="clicks">Clicks<span class="arw">&#9663;</span></th>
+        <th data-sk="leads">Leads<span class="arw">&#9663;</span></th>
+        <th data-sk="c2l">Click to lead<span class="arw">&#9663;</span></th>
+        <th data-sk="est">Est. spend<span class="arw">&#9663;</span></th>
+      </tr></thead>
+      <tbody></tbody>
+      <tfoot><tr><td>Total</td><td class="num">9,787</td><td class="num">100%</td><td class="num">218,269</td><td class="num">100%</td><td class="num">22</td><td class="num">4,324</td><td class="num">17</td><td class="num">0.39%</td><td class="num">$24,411</td></tr></tfoot>
+    </table>
+  </div>
+  <div class="stats" style="margin-top:16px">
+    <div class="stat good"><div class="lbl">Very high tier share of leads</div><div class="val good">65%</div><div class="who">11 of 17 leads</div><div class="note">From 3.9% of impressions</div></div>
+    <div class="stat good"><div class="lbl">Very high click to lead</div><div class="val good">2.89%</div><div class="who">381 clicks, 11 leads</div><div class="note">7.4x the account average</div></div>
+    <div class="stat bad"><div class="lbl">Low tier impression share</div><div class="val bad">34.5%</div><div class="who">240 accounts</div><div class="note">1 lead in five months</div></div>
+    <div class="stat bad"><div class="lbl">Impressions per low tier account</div><div class="val bad">314</div><div class="who">vs 18 at very high</div><div class="note">17.9x concentration</div></div>
+    <div class="stat warn"><div class="lbl">Estimated spend, low tier</div><div class="val warn">$8,427</div><div class="who">Est. by impression share</div><div class="note">Returned 1 lead</div></div>
+  </div>
+  <p class="panel-note">Estimated spend apportions the verified $24,411 by each tier's share of company resolved impressions. It is an estimate, not a measured per account cost, because LinkedIn does not expose spend at account grain. Treat the ranking as sound and the absolute dollars as indicative.</p>
+</section>
+
+
+<section>
+  <div class="sec-head"><span class="sec-num">02b</span><h2>Attribution, now measurable</h2></div>
+  <p class="sec-sub">The Pipedrive export arrived. It carries no deal outcomes, so this is lead level signal pairing rather than pipeline value. Leads window 3 May to 30 July, ad activity window 3 March to 27 July.</p>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Tier</th><th>Definition</th><th>Leads</th><th>Basis</th></tr></thead>
+    <tbody>
+      <tr><td class="seg">Tier 1</td><td class="sm">CRM record carries the LinkedIn Ads label</td><td class="num" style="color:var(--green);font-weight:700">17</td><td class="sm">Click verified. Set by the client's own tagging.</td></tr>
+      <tr><td class="seg">Tier 2</td><td class="sm">Lead email domain matches an ad exposed company that clicked</td><td class="num" style="color:var(--teal);font-weight:700">28</td><td class="sm">Impression and click verified at company level.</td></tr>
+      <tr><td class="seg">Tier 3</td><td class="sm">Lead domain matches an ad exposed company, impressions only</td><td class="num">82</td><td class="sm">Ecosystem influence. Weakest tier, do not headline.</td></tr>
+      <tr><td class="seg">Tier 4</td><td class="sm">No ad exposure found</td><td class="num">280</td><td class="sm">Upper bound. The join sees only 55% of spend.</td></tr>
+    </tbody>
+    <tfoot><tr><td>Total distinct leads</td><td></td><td class="num">407</td><td class="sm">11 duplicate records and 1 CRM test record removed from 418.</td></tr></tfoot>
+  </table></div>
+  <div class="stats" style="margin-top:16px">
+    <div class="stat good"><div class="lbl">Ad touched leads</div><div class="val good">128</div><div class="who">31.4% of all leads</div><div class="note">Tiers 1 to 3 combined</div></div>
+    <div class="stat good"><div class="lbl">At ICP fit companies</div><div class="val good">51</div><div class="who">across 21 accounts</div><div class="note">Named table below</div></div>
+    <div class="stat sig"><div class="lbl">On the ABM list</div><div class="val sig">27</div><div class="who">ad touched leads</div><div class="note">Target50 overlap</div></div>
+    <div class="stat sig"><div class="lbl">Triple stacked</div><div class="val sig">6</div><div class="who">ads + site + CRM lead</div><div class="note">4 clean after dedupe</div></div>
+    <div class="stat bad"><div class="lbl">Deal outcomes available</div><div class="val bad">0</div><div class="who">Deal Status blank 417 of 418</div><div class="note">Revenue still unanswerable</div></div>
+  </div>
+  <h3 style="margin:26px 0 10px;font-size:17px;font-weight:700">ICP fit accounts with paired signals</h3>
+  <div class="tblwrap"><table>
+    <thead><tr><th>Account</th><th>Leads</th><th>Clicks</th><th>Impr</th><th>Est. cost</th><th>ABM</th><th>Website</th><th>CRM label</th></tr></thead>
+    <tbody>
+      <tr style="background:rgba(34,197,94,.07)"><td class="seg" style="color:var(--green);font-weight:700">Kao Group</td><td class="num">1</td><td class="num">0</td><td class="num">59</td><td class="num">n/a</td><td class="num" style="color:var(--green)">Yes</td><td class="num" style="color:var(--green)">Yes</td><td class="num" style="color:var(--green);font-weight:700">Yes</td></tr>
+      <tr><td class="seg">L'Oreal</td><td class="num">1</td><td class="num">176</td><td class="num">4,454</td><td class="num">$686</td><td class="num">n/a</td><td class="num" style="color:var(--teal)">Yes</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Danone / Neocate</td><td class="num">2</td><td class="num">17</td><td class="num">563</td><td class="num">$65</td><td class="num" style="color:var(--teal)">Yes</td><td class="num" style="color:var(--teal)">Yes</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Roc Skincare</td><td class="num">1</td><td class="num">0</td><td class="num">93</td><td class="num">n/a</td><td class="num" style="color:var(--teal)">Yes</td><td class="num" style="color:var(--teal)">Yes</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">SharkNinja</td><td class="num">1</td><td class="num">18</td><td class="num">924</td><td class="num">$95</td><td class="num" style="color:var(--teal)">Yes</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Chewy</td><td class="num">2</td><td class="num">15</td><td class="num">308</td><td class="num">$47</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Beiersdorf</td><td class="num">1</td><td class="num">8</td><td class="num">254</td><td class="num">$27</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Nutrabolt</td><td class="num">4</td><td class="num">6</td><td class="num">579</td><td class="num">$50</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Edgewell Personal Care</td><td class="num">4</td><td class="num">6</td><td class="num">151</td><td class="num">$14</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Huel</td><td class="num">4</td><td class="num">4</td><td class="num">141</td><td class="num">$23</td><td class="num" style="color:var(--teal)">Yes</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Ariat International</td><td class="num">6</td><td class="num">0</td><td class="num">161</td><td class="num">n/a</td><td class="num" style="color:var(--teal)">Yes</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">FIGS</td><td class="num">5</td><td class="num">0</td><td class="num">275</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Bloom Nutrition</td><td class="num">4</td><td class="num">0</td><td class="num">194</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Selkirk Sport</td><td class="num">4</td><td class="num">0</td><td class="num">121</td><td class="num">n/a</td><td class="num" style="color:var(--teal)">Yes</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">G Fuel</td><td class="num">5</td><td class="num">0</td><td class="num">112</td><td class="num">n/a</td><td class="num" style="color:var(--teal)">Yes</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Perry Ellis</td><td class="num">2</td><td class="num">0</td><td class="num">308</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Bob's Red Mill</td><td class="num">1</td><td class="num">0</td><td class="num">82</td><td class="num">n/a</td><td class="num" style="color:var(--teal)">Yes</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+      <tr><td class="seg">Native Shoes</td><td class="num">1</td><td class="num">0</td><td class="num">79</td><td class="num">n/a</td><td class="num" style="color:var(--teal)">Yes</td><td class="num">n/a</td><td class="num">n/a</td></tr>
+    </tbody>
+  </table></div>
+  <div class="cards" style="margin-top:18px">
+    <div class="card opp"><span class="tag">The card for the EBR</span><h4>Kao Group is the only four signal account in the dataset</h4><p>On the ABM list, exposed to ads, visited the website, and present in the CRM carrying the LinkedIn Ads label. <b>Nothing else in 407 leads has all four.</b> If Laura wants one example of the full funnel working end to end, this is it.</p></div>
+    <div class="card watch"><span class="tag">Complicates a prior finding</span><h4>Enterprise accounts do appear in the CRM</h4><p>L'Oreal, Chewy, SharkNinja, Beiersdorf and Edgewell are all 5,000+ employee companies and all appear as ad exposed CRM leads. Reports 1 and 2 both concluded enterprise does not convert. <b>Without deal status we cannot tell whether these are real opportunities or noise</b>, so the enterprise reduction case is now weaker than stated and should be softened until outcomes arrive.</p></div>
+    <div class="card crit"><span class="tag">Coverage limit</span><h4>The join sees about half the delivery</h4><p>The ABM ad activity export resolves <b>$13,414 of $24,411 spend, 3,416 of 6,421 clicks and 157,210 of 230,251 impressions</b>. Tier 4 is therefore an upper bound. A non match is not proof that a company was never served an ad.</p></div>
+  </div>
+  <p class="note">Estimated cost is the company level spend recorded in the ABM export, not an allocation of the lead. Accounts shown are ICP fit and ad touched, deduplicated, and named by email domain because the export's company name field is unreliable on wrapped rows.</p>
+</section>
+<section>
+  <div class="sec-head"><span class="sec-num">03</span><h2>Data hygiene defects</h2></div>
+  <p class="sec-sub">Nine defects found while assembling this report. All of them bias the account intelligence upward, which means every ABM figure reported to date is flattering rather than conservative.</p>
+  <div class="cards">
+    <div class="card crit">
+      <span class="tag">Critical, self engagement</span>
+      <h4>Envision Horizons is the highest scoring engaged account in its own report</h4>
+      <p>The client's own company records a LinkedIn engagement score of <b>20,706</b>, with 1,138 organic impressions and 969 organic engagements. That is employees engaging with their own brand's content, and it sits at the top of the leaderboard. It must be suppressed before any list is shown or scored.</p>
+    </div>
+    <div class="card crit">
+      <span class="tag">Critical, duplicate entity</span>
+      <h4>A second, unrelated company is also named Envision Horizons</h4>
+      <p>A separate account resolves to the name Envision Horizons on the domain <b>marketingconcepts.com</b>, with 10 website sessions and 12 page views. Its named contact, a Chief Technology Officer, appears in the identified people set. Any name based match on this client will silently merge two different companies.</p>
+    </div>
+    <div class="card crit">
+      <span class="tag">Critical, agency contamination</span>
+      <h4>Impactable appears as a dual signal engaged account</h4>
+      <p>Our own agency records a score of <b>443</b> with 28 organic engagements and 2 website sessions, flagged as engaged through both LinkedIn and the website. Our team's own activity is being counted as client demand.</p>
+    </div>
+    <div class="card watch">
+      <span class="tag">Competitive intelligence</span>
+      <h4>A named direct competitor sits at very high engagement</h4>
+      <p><b>Podean</b>, one of the five competitors profiled in the April white space analysis, records a score of <b>2,680</b> at very high engagement with 44 organic engagements. Read two ways: it is contamination in the ABM count, and it is a signal that a competitor is actively monitoring this account's content.</p>
+    </div>
+    <div class="card watch">
+      <span class="tag">Non buyer volume</span>
+      <h4>Amazon, and at least nine agencies or adtech vendors, rank as engaged accounts</h4>
+      <p>Amazon itself is at very high engagement with a score of <b>6,250</b>. Alongside it: Harvest Group, assembly, Kinesso, Digitas, Ansira, Skai, PLTFRM, Red Moon Marketing and Kyn Agency. These are the marketplace operator and the competitive set, not prospects. This corroborates the non buyer persona identified in Report 1 at named account level.</p>
+    </div>
+    <div class="card crit">
+      <span class="tag">Critical, identity error</span>
+      <h4>Two identified people carry LinkedIn profiles belonging to someone else</h4>
+      <p>One record named David Scantland links to a profile for a different individual, and one named Neena Malik links to a third party's profile. If a named list is handed to sales without verification, outreach will reach the wrong person. Treat every LinkedIn URL in the identified set as unverified until checked.</p>
+    </div>
+    <div class="card watch">
+      <span class="tag">Taxonomy</span>
+      <h4>Industry labels are unreliable on the website enrichment layer</h4>
+      <p>L'Oreal, Revlon, Clampitt Paper and International Paper are all labelled <b>Automotive</b>. Artsana USA, the Chicco baby products brand, is labelled Building materials. An eye clinic is labelled Internet. The LinkedIn sourced labels in Report 1 use a separate lower case taxonomy and appear sound, but any industry cut that draws on website enrichment needs rebuilding.</p>
+    </div>
+    <div class="card watch">
+      <span class="tag">Interpretation caveat</span>
+      <h4>Non US entities appear despite 100% US ad delivery</h4>
+      <p>Coty Brasil, Delice Danone, AMOREPACIFIC, SharkNinja APAC, a Philippine Balsam entity and Salesforce India all appear in the LinkedIn engaged set. This is most likely LinkedIn resolving members to a global parent company page rather than a geographic targeting leak, but it should be confirmed before anyone reports international reach.</p>
+    </div>
+    <div class="card watch">
+      <span class="tag">Reconciliation</span>
+      <h4>Two DemandSense models disagree on how many people were identified</h4>
+      <p>The account model reports <b>830</b> people linked to companies. The prospect model reports <b>1,815</b> identified people. Both are described as WebID identified visitors over the same period. Pick one definition and hold it, and do not let the larger number travel into client reporting unexamined.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">04</span><h2>Movement: June to July</h2></div>
+  <p class="sec-sub">The clearest evidence that the targeting work landed, and the clearest evidence of what it cost. Comparing the top 30 engaged accounts by clicks in each month.</p>
+  <div class="mo">
+    <div class="mo-col jun">
+      <h4>June</h4>
+      <p class="mm">7,274 impressions &nbsp;/&nbsp; 264 clicks &nbsp;/&nbsp; 2 leads &nbsp;/&nbsp; <b style="color:var(--orange)">18 of 30 at 10,001+ employees</b></p>
+      <div class="chips">
+        <span class="chip ent">L'Oreal Professional</span><span class="chip ent">PepsiCo</span><span class="chip ent">Sephora</span>
+        <span class="chip ent">Procter &amp; Gamble</span><span class="chip ent">Colgate-Palmolive</span><span class="chip ent">Mars Snacking</span>
+        <span class="chip ent">Nestle</span><span class="chip ent">EssilorLuxottica</span><span class="chip ent">Mattel</span>
+        <span class="chip ent">Kenvue</span><span class="chip ent">Reckitt</span><span class="chip ent">Kraft Heinz</span>
+        <span class="chip ent">Belk</span><span class="chip ent">Coty Brasil</span><span class="chip ent">AMOREPACIFIC</span>
+        <span class="chip">Wella</span><span class="chip">Revlon</span><span class="chip">Clorox</span>
+        <span class="chip icp">ZO Skin Health</span><span class="chip icp">The Honest Company</span>
+      </div>
+      <p class="do" style="margin-top:14px;padding-top:13px;border-top:1px solid var(--line);color:var(--txt-mid);font-size:13.3px">Both June leads came from 10,001+ enterprises: Colgate-Palmolive and Kenvue. Real leads, from companies that will not buy a marketplace growth retainer.</p>
+    </div>
+    <div class="mo-col jul">
+      <h4>July</h4>
+      <p class="mm">2,999 impressions &nbsp;/&nbsp; 101 clicks &nbsp;/&nbsp; 0 leads &nbsp;/&nbsp; <b style="color:var(--teal)">0 of 30 at 10,001+ employees</b></p>
+      <div class="chips">
+        <span class="chip icp">Dr. Squatch</span><span class="chip icp">OLAPLEX</span><span class="chip icp">Moroccanoil</span>
+        <span class="chip icp">John Paul Mitchell</span><span class="chip icp">Cymbiotika</span><span class="chip icp">O Positiv Health</span>
+        <span class="chip icp">Thrive Market</span><span class="chip icp">Lovevery</span><span class="chip icp">BARK</span>
+        <span class="chip icp">Fabletics</span><span class="chip icp">Interparfums</span><span class="chip icp">Beauty Barrage</span>
+        <span class="chip icp">Piping Rock</span><span class="chip icp">Flamingo Estate</span><span class="chip icp">Hamilton Beach</span>
+        <span class="chip icp">The Laundress</span><span class="chip icp">TileBar</span><span class="chip icp">Meyer</span>
+        <span class="chip icp">I and love and you</span><span class="chip">Harvest Group</span><span class="chip">assembly</span>
+      </div>
+      <p class="do" style="margin-top:14px;padding-top:13px;border-top:1px solid var(--line);color:var(--txt-mid);font-size:13.3px">Nineteen of the thirty are true ICP consumer, beauty and wellness brands in the 11 to 1,000 employee range. Only one account, the agency assembly, persisted from June's top 30.</p>
+    </div>
+  </div>
+  <div class="cards" style="margin-top:15px">
+    <div class="card opp">
+      <span class="tag">Opportunity, lead with this</span>
+      <h4>The audience finally looks like the ICP</h4>
+      <p>Enterprise presence in the top engaged cohort went from <b>18 of 30 to zero</b> in one month, replaced by exactly the DTC beauty, wellness and consumer brands the strategy targets. This is a defensible, named, verifiable result of the exclusion work.</p>
+    </div>
+    <div class="card watch">
+      <span class="tag">The honest other half</span>
+      <h4>It cost 62% of the engagement volume and all of the leads</h4>
+      <p>Clicks in the top cohort fell from <b>264 to 101</b>, impressions from 7,274 to 2,999, and leads from 2 to zero. The quality improved and the volume collapsed. Present both halves together or the first half will not survive scrutiny.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">05</span><h2>Account leaderboard</h2></div>
+  <p class="sec-sub">Click any column to sort. Dual signal means the account engaged through both LinkedIn ads and the website, which is the strongest available intent marker with no CRM join.</p>
+  <div class="tabs" role="tablist" id="tabs"></div>
+  <div id="panel"></div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">06</span><h2>Activation tiers</h2></div>
+  <p class="sec-sub">Honest tiering. The blazing hot tier is small because the evidence supports a small tier, and inflating it is how an ABM programme loses sales team trust.</p>
+  <div class="tiers">
+    <div class="tier hot">
+      <h4>Blazing hot</h4>
+      <p class="cnt">2 accounts &nbsp;/&nbsp; immediate outreach</p>
+      <ul>
+        <li><b>Artsana USA (Chicco)</b>: Joshua Dilts, Senior Marketing Product Manager, 3 sessions, 4 pages. The only named, plausibly ICP marketing decision maker in the identified set.</li>
+        <li><b>Dr. Diamond's Metacine</b>: dual signal, medium engagement, 7 sessions and 11 pages, resolving to an Amazon storefront domain. Strongest account level intent inside the ICP.</li>
+      </ul>
+      <p class="do"><b>Do:</b> verify both LinkedIn profiles by hand, then a named referral or founder to founder approach from Laura. Do not route these through a generic sequence.</p>
+    </div>
+    <div class="tier deep">
+      <h4>Hot, deeper ABM</h4>
+      <p class="cnt">19 accounts &nbsp;/&nbsp; the July ICP cohort</p>
+      <ul>
+        <li>Dr. Squatch, OLAPLEX, Moroccanoil, John Paul Mitchell Systems, Cymbiotika, O Positiv Health, Thrive Market, Lovevery, BARK, Fabletics, Interparfums, Beauty Barrage, Piping Rock, Flamingo Estate, Hamilton Beach, The Laundress, TileBar, Meyer, I and love and you.</li>
+      </ul>
+      <p class="do"><b>Do:</b> build a dedicated matched audience from this list, run the wellness and cosmetics creative that already carries the best rates, and put a bottom funnel offer behind it. None of these has produced a lead yet, so this is a conversion test, not a retargeting formality.</p>
+    </div>
+    <div class="tier warm">
+      <h4>Warm, enrichment needed</h4>
+      <p class="cnt">4 accounts &nbsp;/&nbsp; signal present, fit unconfirmed</p>
+      <ul>
+        <li><b>As Beauty Group</b>: dual signal, cosmetics, 2 sessions.</li>
+        <li><b>Cartograph</b>: dual signal, score 951, 8 organic engagements.</li>
+        <li><b>Revlon</b>: dual signal, 363 impressions, 12 clicks. Also the account previously flagged for showing clicks without impressions.</li>
+        <li><b>Target</b>: dual signal, score 2,928, but enterprise scale.</li>
+      </ul>
+      <p class="do"><b>Do:</b> confirm buying authority and whether marketplace management is already in house before any spend is directed here.</p>
+    </div>
+    <div class="tier sup">
+      <h4>Suppress</h4>
+      <p class="cnt">13+ named entities &nbsp;/&nbsp; apply before next list build</p>
+      <ul>
+        <li>Envision Horizons, both entities, including the marketingconcepts.com duplicate.</li>
+        <li>Impactable.</li>
+        <li>Amazon.</li>
+        <li>Podean, Harvest Group, assembly, Kinesso, Digitas, Ansira, Skai, PLTFRM, Red Moon Marketing, Kyn Agency.</li>
+      </ul>
+      <p class="do"><b>Do:</b> add to the exclusion list alongside the enterprise work already under way, then rebuild the engaged account counts. Expect the headline account numbers to fall, and say so before they do.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">07</span><h2>Bottleneck analysis</h2></div>
+  <p class="sec-sub">Where accounts stop moving, what it costs, and the specific fix. Dollar figures are estimated from impression share where noted.</p>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Bottleneck</th><th>Evidence</th><th>Cost</th><th>Fix</th></tr></thead>
+      <tbody>
+        <tr>
+          <td class="seg">Impression hoarding by the low tier</td>
+          <td>240 accounts absorbed 75,358 impressions, 34.5% of company resolved delivery, and 2,218 clicks, for 1 lead. 314 impressions per account against 18 at very high.</td>
+          <td class="num" style="color:var(--orange)">~$8,427<br><small style="color:var(--txt-dim)">estimated</small></td>
+          <td>Frequency cap plus exclusion. Redirect toward the 482 very high accounts already producing 11 of 17 leads.</td>
+        </tr>
+        <tr>
+          <td class="seg">Reach without engagement</td>
+          <td>7,231 accounts, 73.9% of everything reached, sit at very low engagement with 89,836 impressions and 198 clicks between them. Zero leads.</td>
+          <td class="num" style="color:var(--orange)">~$10,046<br><small style="color:var(--txt-dim)">estimated</small></td>
+          <td>Tighten to the matched ABM list. Broad reach is producing volume, not accounts.</td>
+        </tr>
+        <tr>
+          <td class="seg">No CRM join</td>
+          <td>in_crm returns 0 for all 9,787 accounts. No stage, no deal value, no closed won.</td>
+          <td class="num">Blocks all<br>attribution</td>
+          <td>Pipedrive export: company name, amount, create date, stage, source, for open and closed won.</td>
+        </tr>
+        <tr>
+          <td class="seg">Website identity is not the ICP</td>
+          <td>1,325 companies and 1,662 visits, but the highest engaging named people are a professor, a nurse, a massage therapist, an interpreter, a teacher and a school aide.</td>
+          <td class="num">Corrupts<br>scoring</td>
+          <td>Exclude careers paths from account scoring, then rebuild. The careers page is the likely driver.</td>
+        </tr>
+        <tr>
+          <td class="seg">Self, competitor and agency contamination</td>
+          <td>Nine documented defects including the client's own company ranking first and a direct competitor at very high engagement.</td>
+          <td class="num">Inflates every<br>ABM figure</td>
+          <td>Apply the suppression list in section 06 and restate the counts.</td>
+        </tr>
+        <tr>
+          <td class="seg">Named list not safe to hand over</td>
+          <td>Two of forty identified people carry LinkedIn URLs for different individuals. Ten of forty have no company resolved at all.</td>
+          <td class="num">Outreach<br>risk</td>
+          <td>Manual verification pass on any name before it reaches a sales sequence.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">08</span><h2>Action plan</h2></div>
+  <p class="sec-sub">Six moves, ordered. Two are gated on the Pipedrive export and are marked rather than presented as ready.</p>
+  <div class="cards">
+    <div class="card crit"><span class="tag">1 / this week</span><h4>Apply the suppression list and restate</h4><p>Remove both Envision Horizons entities, Impactable, Amazon and the ten agency and competitor accounts. Rebuild engaged account counts and tell the client the numbers moved and why, before the next report shows a drop.</p></div>
+    <div class="card crit"><span class="tag">2 / this week</span><h4>Cap the low tier and redirect</h4><p>240 accounts are taking a third of delivery for one lead. Frequency cap and exclude, then push the recovered budget into the 482 very high engagement accounts converting at 2.89%.</p></div>
+    <div class="card opp"><span class="tag">3 / this week</span><h4>Build the July ICP audience as a named matched list</h4><p>Nineteen genuine ICP brands surfaced in July. Load them as a matched audience, run the cosmetics and wellness creative that already performs, and put a real bottom funnel offer behind it.</p></div>
+    <div class="card opp"><span class="tag">4 / done</span><h4>Three tier attribution model is built</h4><p>See section 02b. Joined on email domain rather than company name, because only 2 of 17 LinkedIn labelled leads carry a company name. 17 click verified, 28 impression and click verified, 82 ecosystem. <b>Lead with the 17 and the Kao card.</b></p></div>
+    <div class="card crit"><span class="tag">5 / answered, badly</span><h4>10 of the 17 leads have no company at all</h4><p>Not a company size problem as Report 1 guessed. <b>Ten of seventeen arrived with a personal email address and no company name.</b> Six resolve to real brands: Qunol twice, Clarins, Kids II, Kao, Iceburged. The defensible qualified count is closer to <b>6</b> than 17.</p></div>
+    <div class="card opp"><span class="tag">6 / next 30 days</span><h4>Fix website identity scoring</h4><p>Exclude careers traffic, rebuild account scores, and reconcile the 830 against 1,815 people discrepancy. Until then the website layer adds noise to the ABM picture rather than intent.</p></div>
+  </div>
+</section>
+
+<div class="internal">Internal diagnostic. Report 2 of 4 in the quarterly architecture, feeding the Impact Report account intelligence and named accounts sections. Contains suppression judgements about the client's own company, Impactable, and named competitors. Not for client distribution without review.</div>
+
+<footer>
+  <div><b>Client</b><br>Envision Horizons</div>
+  <div><b>Period</b><br>1 Mar to 28 Jul 2026</div>
+  <div><b>Data sources</b><br>DemandSense account engagement, LinkedIn company intelligence, WebID</div>
+  <div><b>Pipeline</b><br>Lead level only. No deal outcomes in export.</div>
+  <div><b>Prepared by</b><br>Impactable</div>
+</footer>
+</div>
+
+<script>
+/* ---------- engagement ladder ---------- */
+const LADDER=[
+  {tier:'VERY_HIGH',acc:482,impr:8440,clicks:381,leads:11},
+  {tier:'HIGH',acc:364,impr:15166,clicks:445,leads:1},
+  {tier:'MEDIUM',acc:1470,impr:29469,clicks:1082,leads:4},
+  {tier:'LOW',acc:240,impr:75358,clicks:2218,leads:1},
+  {tier:'VERY_LOW',acc:7231,impr:89836,clicks:198,leads:0}
+];
+const TOT_ACC=9787, TOT_IMPR=218269, SPEND=24411.17;
+LADDER.forEach(r=>{
+  r.accs=r.acc/TOT_ACC*100; r.imprs=r.impr/TOT_IMPR*100;
+  r.imppa=r.impr/r.acc; r.c2l=r.clicks?r.leads/r.clicks*100:0;
+  r.est=r.imprs/100*SPEND;
+});
+const TIERC={VERY_HIGH:'var(--green)',HIGH:'var(--teal)',MEDIUM:'#4cc4f0',LOW:'var(--orange)',VERY_LOW:'var(--txt-dim)'};
+let lsk=null,ldir=null;
+function drawLadder(){
+  const rows=[...LADDER];
+  if(lsk){const d=ldir==='asc'?1:-1;rows.sort((a,b)=>typeof a[lsk]==='string'?a[lsk].localeCompare(b[lsk])*d:(a[lsk]-b[lsk])*d);}
+  const mx=Math.max(...rows.map(r=>r.impr));
+  document.querySelector('#ladder tbody').innerHTML=rows.map(r=>`<tr>
+    <td class="seg" style="color:${TIERC[r.tier]};font-weight:700;font-family:var(--mono);font-size:12px">${r.tier.replace('_',' ')}</td>
+    <td class="num">${r.acc.toLocaleString()}</td>
+    <td class="num">${r.accs.toFixed(1)}%</td>
+    <td class="num" style="position:relative"><span style="position:absolute;left:0;top:5px;bottom:5px;width:${(r.impr/mx*100).toFixed(1)}%;background:rgba(0,153,209,.15);border-radius:3px"></span><span style="position:relative">${r.impr.toLocaleString()}</span></td>
+    <td class="num">${r.imprs.toFixed(1)}%</td>
+    <td class="num" style="color:${r.imppa>200?'var(--red)':r.imppa>50?'var(--orange)':'var(--txt)'}">${Math.round(r.imppa)}</td>
+    <td class="num">${r.clicks.toLocaleString()}</td>
+    <td class="num" style="font-weight:700">${r.leads}</td>
+    <td class="num" style="color:${r.c2l>=2?'var(--green)':r.c2l>=0.3?'var(--teal)':r.c2l>0?'var(--orange)':'#f87171'};font-weight:700">${r.c2l.toFixed(2)}%</td>
+    <td class="num">$${Math.round(r.est).toLocaleString()}</td></tr>`).join('');
+  document.querySelectorAll('#ladder th').forEach(th=>{
+    th.removeAttribute('data-dir');
+    if(th.dataset.sk===lsk)th.setAttribute('data-dir',ldir);
+    th.querySelector('.arw').textContent=th.dataset.sk===lsk?(ldir==='asc'?'\u25B2':'\u25BC'):'\u25BF';
+  });
+}
+document.querySelectorAll('#ladder th').forEach(th=>{
+  const go=()=>{const k=th.dataset.sk;if(lsk===k){ldir=ldir==='asc'?'desc':'asc';}else{lsk=k;ldir='desc';}drawLadder();};
+  th.setAttribute('tabindex','0');
+  th.addEventListener('click',go);
+  th.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+});
+drawLadder();
+
+/* ---------- leaderboard ---------- */
+const B={both:'<span class="b b-both">Dual signal</span>',li:'<span class="b b-li">LinkedIn</span>',web:'<span class="b b-web">Website</span>'};
+const F={icp:'<span class="b b-icp">ICP</span>',no:'<span class="b b-no">Non buyer</span>',sup:'<span class="b b-sup">Suppress</span>'};
+const DATA={
+ dual:{label:'Dual signal',note:'Engaged through both LinkedIn ads and the website. Score is the DemandSense LinkedIn engagement score. Sorted by score. Suppression flags applied per section 06.',
+  cols:[['co','Company','seg'],['ind','Industry','t'],['score','LI score','n'],['impr','LI impressions','n'],['clicks','LI clicks','n'],['sess','Sessions','n'],['fit','Fit','h']],
+  rows:[
+   ["L'Oreal",'cosmetics, labelled Automotive',6975,2967,113,2,F.no],
+   ['Target','retail',2928,73,3,3,F.no],
+   ['Podean','marketing and advertising',2680,3,0,1,F.sup],
+   ['CVS Health','health, wellness and fitness',2128,610,15,1,F.no],
+   ['Cartograph','building materials',951,0,0,2,F.icp],
+   ['Revlon','cosmetics, labelled Automotive',691,363,12,4,F.icp],
+   ['Accenture','information technology',452,0,0,2,F.no],
+   ['Impactable','marketing and advertising',443,0,0,2,F.sup],
+   ['Mayo Clinic Health System','medical practice',348,112,3,6,F.no],
+   ['Digitas North America','marketing and advertising',144,0,0,2,F.sup],
+   ['Citi','financial services',75,0,0,2,F.no],
+   ['Skai','computer software',71,0,0,2,F.sup],
+   ['Barclays','financial services',64,0,0,2,F.no],
+   ['CBRE','real estate',60,0,0,2,F.no],
+   ['ABM Industries','facilities services',53,0,0,2,F.no],
+   ['Vistage Worldwide','professional training',51,0,0,2,F.no],
+   ['As Beauty Group','cosmetics',50,0,0,2,F.icp],
+   ['iHeartMedia','broadcast media',43,0,0,2,F.no],
+   ['Analog Devices','semiconductors',37,0,0,2,F.no],
+   ['Kinesso','marketing and advertising',36,0,0,2,F.sup],
+   ['Kantar','market research',35,15,0,4,F.no],
+   ['The Y','non profit',30,0,0,2,F.no],
+   ["Dr. Diamond's Metacine",'internet, Amazon storefront',21.5,0,0,7,F.icp],
+   ['Kaiser Permanente','hospital and health care',16,3,0,4,F.no],
+   ['Boehringer Ingelheim','pharmaceuticals',6,0,0,2,F.no],
+   ['Ernst and Young','accounting',5,0,0,2,F.no],
+   ['The Hive Consulting','program development',3,0,0,2,F.no]]},
+
+ jul:{label:'July ICP cohort',note:'Top engaged accounts in July by clicks, restricted to the genuine ICP. Zero accounts at 10,001+ employees appeared in July. No leads yet from this cohort, which makes it a conversion test rather than a retargeting formality.',
+  cols:[['co','Company','seg'],['ind','Industry','t'],['size','Employees','t'],['impr','Impressions','n'],['clicks','Clicks','n'],['ctr','CTR','p'],['fit','Fit','h']],
+  rows:[
+   ['Meyer','consumer goods','201-500',145,6,4.14,F.icp],
+   ['John Paul Mitchell Systems','cosmetics','501-1000',98,5,5.10,F.icp],
+   ['Lovevery','consumer goods','51-200',110,4,3.64,F.icp],
+   ['Interparfums','cosmetics','501-1000',129,4,3.10,F.icp],
+   ['O Positiv Health','health, wellness and fitness','51-200',150,4,2.67,F.icp],
+   ['Beauty Barrage','cosmetics','51-200',18,4,22.22,F.icp],
+   ['Moroccanoil','cosmetics','501-1000',179,3,1.68,F.icp],
+   ['I and love and you pet','consumer goods','11-50',212,3,1.42,F.icp],
+   ['Piping Rock Health Products','health, wellness and fitness','501-1000',92,3,3.26,F.icp],
+   ['Fabletics','apparel and fashion','201-500',102,3,2.94,F.icp],
+   ['Cymbiotika','health, wellness and fitness','51-200',142,3,2.11,F.icp],
+   ['Dr. Squatch','consumer goods','201-500',218,3,1.38,F.icp],
+   ['Flamingo Estate','consumer goods','11-50',71,3,4.23,F.icp],
+   ['BARK','consumer goods','501-1000',121,3,2.48,F.icp],
+   ['OLAPLEX','cosmetics','201-500',189,3,1.59,F.icp],
+   ['Hamilton Beach Brands','consumer goods','501-1000',145,3,2.07,F.icp],
+   ['Thrive Market','health, wellness and fitness','501-1000',65,3,4.62,F.icp],
+   ['TileBar','design','501-1000',117,3,2.56,F.icp],
+   ['The Laundress','retail','11-50',67,3,4.48,F.icp],
+   ['Harvest Group','consumer goods','201-500',88,3,3.41,F.sup],
+   ['assembly','internet','501-1000',138,3,2.17,F.sup],
+   ['PLTFRM','marketing and advertising','201-500',41,3,7.32,F.sup],
+   ['Red Moon Marketing','marketing and advertising','51-200',17,3,17.65,F.sup],
+   ['Kyn Agency','unknown','Unknown',20,3,15.00,F.sup]]},
+
+ jun:{label:'June, dropped out',note:'June top engaged accounts by clicks. Eighteen of the top thirty were 10,001+ employee enterprises. All but one account left the top thirty by July. Both June leads came from enterprises.',
+  cols:[['co','Company','seg'],['ind','Industry','t'],['size','Employees','t'],['impr','Impressions','n'],['clicks','Clicks','n'],['leads','Leads','n'],['fit','Fit','h']],
+  rows:[
+   ['L\'Oreal Professional Products','cosmetics','10001+',1265,44,0,F.no],
+   ['PepsiCo','food and beverages','10001+',842,22,0,F.no],
+   ['Wella Company','cosmetics','5001-10000',135,14,0,F.no],
+   ['Prisma Ventures','retail','10001+',236,14,0,F.no],
+   ['Colgate-Palmolive','consumer goods','10001+',211,12,1,F.no],
+   ['Sephora','retail','10001+',306,11,0,F.no],
+   ['Procter and Gamble','consumer goods','10001+',677,11,0,F.no],
+   ['Mars Snacking','food production','10001+',363,10,0,F.no],
+   ['Nutrition and Health by Nestle','food and beverages','10001+',177,9,0,F.no],
+   ['EssilorLuxottica','consumer goods','10001+',287,9,0,F.no],
+   ['Mattel','consumer goods','10001+',174,8,0,F.no],
+   ['Kenvue','retail','10001+',276,8,1,F.no],
+   ['SharkNinja APAC','consumer goods','1001-5000',244,7,0,F.no],
+   ['Coty Brasil','cosmetics','10001+',171,7,0,F.no],
+   ['Revlon','cosmetics','1001-5000',139,7,0,F.icp],
+   ['The Clorox Company','consumer goods','5001-10000',273,7,0,F.no],
+   ['Reckitt','consumer goods','10001+',179,6,0,F.no],
+   ['Belk','retail','10001+',81,6,0,F.no],
+   ['The Hain Celestial Group','consumer goods','1001-5000',108,6,0,F.no],
+   ['ZO Skin Health','pharmaceuticals','201-500',79,5,0,F.icp],
+   ['Jarden Corporation','consumer goods','10001+',138,5,0,F.no],
+   ['MetricsCart','retail','11-50',94,4,0,F.no],
+   ['AMOREPACIFIC','cosmetics','10001+',83,4,0,F.no],
+   ['Balsam International','retail','201-500',67,4,0,F.icp],
+   ['Delice Danone','food production','10001+',171,4,0,F.no],
+   ['Resident','retail','201-500',46,4,0,F.icp],
+   ['assembly','internet','501-1000',132,4,0,F.sup],
+   ['Kraft Heinz','food and beverages','10001+',220,4,0,F.no],
+   ['Dorel Juvenile','consumer goods','1001-5000',36,4,0,F.icp],
+   ['The Honest Company','consumer goods','201-500',64,4,0,F.icp]]},
+
+ people:{label:'Named people',note:'Top identified people by website sessions. This is the reality check: almost none are Amazon marketplace or ecommerce decision makers. Two records carry LinkedIn URLs belonging to different individuals and are marked. Ten of the top forty resolve to no company at all.',
+  cols:[['nm','Person','seg'],['ti','Title','t'],['co','Company','t'],['sess','Sessions','n'],['pg','Pages','n'],['fit','Read','h']],
+  rows:[
+   ['Joshua Dilts','Senior Marketing Product Manager','Artsana USA, Chicco',3,4,F.icp],
+   ['Jim Skillman','President and Owner','Tablex, wholesale',4,32,F.icp],
+   ['Victoria Gaston','not resolved','not resolved',9,9,F.no],
+   ['Goldis Malek','Professor of Ophthalmology','Duke University School of Medicine',8,8,F.no],
+   ['Todd Klinedinst','Safety Tech','New Hanover Regional Medical Center',7,16,F.no],
+   ['Lindsey Gorman','Chief Technology Officer','Envision Horizons, duplicate entity',7,8,F.sup],
+   ['Samantha Pollard','not resolved','not resolved',6,21,F.no],
+   ['Brian Lee','VP FP&A and Project Control','Procentrix',5,18,F.no],
+   ['Peter Simpson','Senior IT Analyst','Mayo Clinic Health System',5,35,F.no],
+   ['Mark Polly','Manager','Clampitt Paper',5,5,F.no],
+   ['Katie Dabbs','Public Relations Consultant','Percepture',4,50,F.no],
+   ['Karen Wright','Division Manager','WSSC Water',4,4,F.no],
+   ['Rosa Felix','Bilingual Education Specialist','Parents Helping Parents',4,18,F.no],
+   ['Hana Arjan','Director of Marketing','Illumina',4,4,F.no],
+   ['Rachel Guarnieri','Registered Nurse','Crystal Clinic',4,19,F.no],
+   ['Carrie Good','Massage Therapist','Infinity Bodyworks',4,21,F.no],
+   ['Esmeralda Nino-Martinez','Interpreter','Kelly Services',4,33,F.no],
+   ['Bernadine Soriano','VP, Charlesbank Capital Partners','not resolved',4,8,F.no],
+   ['Mark Oliver','Specialty Sales Representative','IBSA USA',3,23,F.no],
+   ['David Scantland','School Aide, Special Needs','Rusk ISD',3,3,F.sup],
+   ['Neena Malik','Financial services contractor','not resolved',3,14,F.sup],
+   ['Manley Williams','Partner','Orrick Herrington and Sutcliffe',3,10,F.no],
+   ['Ed Gaus','Partner','Shook Hardy and Bacon',3,4,F.no],
+   ['Karolina Silva','Lead Platform Application Engineer','Intel',3,22,F.no],
+   ['Tiffany Stevens','Assistant Manager','Walmart',3,3,F.no],
+   ['Saharnaz Baghdadchi','Associate Teaching Professor','UC San Diego',3,9,F.no],
+   ['Jordan Burridge','Teacher','Bay District Schools',3,3,F.no],
+   ['Kalim Qadeer','Treatment Technician II','City of Arlington',3,11,F.no],
+   ['Tanae Adams','Multisite Leasing Professional','MAA',3,3,F.no],
+   ['Robert Larson','Dentist','not resolved',3,9,F.no]]}
+};
+const ORDER=['dual','jul','jun','people'];
+let cur='dual',sk=null,dir=null;
+function tabs(){
+  document.getElementById('tabs').innerHTML=ORDER.map(k=>
+    `<button class="tab" role="tab" id="tab-${k}" aria-selected="${k===cur}" data-k="${k}">${DATA[k].label}<span class="n">${DATA[k].rows.length}</span></button>`).join('');
+  document.querySelectorAll('#tabs .tab').forEach(b=>b.addEventListener('click',()=>{
+    if(cur===b.dataset.k)return; cur=b.dataset.k; sk=null; dir=null; render();}));
+}
+function render(){
+  tabs();
+  const d=DATA[cur], keys=d.cols.map(c=>c[0]);
+  let rows=d.rows.map(r=>{const o={};keys.forEach((k,i)=>o[k]=r[i]);return o;});
+  if(sk){const m=dir==='asc'?1:-1;rows.sort((a,b)=>typeof a[sk]==='string'?a[sk].localeCompare(b[sk])*m:(a[sk]-b[sk])*m);}
+  const nk=d.cols.find(c=>c[2]==='n');
+  const mx=nk?Math.max(...rows.map(r=>Number(r[nk[0]])||0)):0;
+  const head='<tr>'+d.cols.map(c=>`<th tabindex="0" data-sk="${c[0]}"${sk===c[0]?` data-dir="${dir}"`:''}>${c[1]}<span class="arw">${sk===c[0]?(dir==='asc'?'\u25B2':'\u25BC'):'\u25BF'}</span></th>`).join('')+'</tr>';
+  const body=rows.map(r=>'<tr>'+d.cols.map(c=>{
+    const [k,,t]=c,v=r[k];
+    if(t==='h')return `<td>${v}</td>`;
+    if(t==='seg')return `<td class="seg">${v}</td>`;
+    if(t==='p')return `<td class="num">${Number(v).toFixed(2)}%</td>`;
+    if(t==='n'){
+      const w=mx&&k===nk[0]?(Number(v)/mx*100).toFixed(1):0;
+      return k===nk[0]
+        ?`<td class="num" style="position:relative"><span style="position:absolute;left:0;top:5px;bottom:5px;width:${w}%;background:rgba(0,153,209,.15);border-radius:3px"></span><span style="position:relative">${Number(v).toLocaleString()}</span></td>`
+        :`<td class="num">${Number(v).toLocaleString()}</td>`;
+    }
+    return `<td style="color:var(--txt-mid);font-size:12.9px">${v}</td>`;
+  }).join('')+'</tr>').join('');
+  document.getElementById('panel').innerHTML=
+    `<p class="panel-note">${d.note}</p><div class="tblwrap"><table><thead>${head}</thead><tbody>${body}</tbody></table></div>`;
+  document.querySelectorAll('#panel th').forEach(th=>{
+    const go=()=>{const k=th.dataset.sk;if(sk===k){dir=dir==='asc'?'desc':'asc';}else{sk=k;dir='desc';}render();};
+    th.addEventListener('click',go);
+    th.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
+  });
+}
+render();
+</script>
+</body>
+</html>
