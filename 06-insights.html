@@ -85,6 +85,7 @@ h2{font-size:23px;margin:0;font-weight:700;letter-spacing:-.01em}
 .bf.hot{background:linear-gradient(90deg,rgba(239,68,68,.55),rgba(244,162,97,.3))}
 .bf.g{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
 .bf.z{background:none;min-width:0}
+.bf.r{background:linear-gradient(90deg,rgba(239,68,68,.55),rgba(244,162,97,.3))}
 .brow .bv{font-family:var(--mono);font-size:12.6px;font-weight:700;min-width:150px;text-align:right}
 .brow .bv small{display:block;color:var(--txt-dim);font-weight:400;font-size:10.5px}
 .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
@@ -138,13 +139,138 @@ footer b{color:var(--txt-mid)}
 .roomnav a .n{font-family:var(--mono);font-size:9.5px;opacity:.7;margin-right:5px}
 .roomnav a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 @media (max-width:760px){.roomnav .inner{padding:0 15px;gap:12px}.roomnav .brand{display:none}}
+
+
+/* ===== shared components (appended) ===== */
+/* status / verdict badges */
+.b{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap;border:1px solid var(--line-strong);color:var(--txt-mid);background:rgba(0,0,0,.2)}
+.b-g{background:rgba(34,197,94,.16);color:var(--green);border-color:rgba(34,197,94,.45)}
+.b-r{background:rgba(239,68,68,.16);color:#f87171;border-color:rgba(239,68,68,.45)}
+.b-o{background:rgba(244,162,97,.16);color:var(--orange);border-color:rgba(244,162,97,.45)}
+.b-p{background:rgba(167,139,250,.16);color:var(--purple);border-color:rgba(167,139,250,.45)}
+.b-b{background:rgba(0,153,209,.16);color:#4cc4f0;border-color:rgba(0,153,209,.45)}
+.b-d{background:rgba(111,136,173,.14);color:var(--txt-dim);border-color:var(--line-strong)}
+.b1{background:rgba(0,153,209,.16);color:#4cc4f0;border-color:rgba(0,153,209,.45)}
+.b2{background:rgba(0,196,179,.16);color:var(--teal);border-color:rgba(0,196,179,.45)}
+.b3{background:rgba(34,197,94,.16);color:var(--green);border-color:rgba(34,197,94,.45)}
+.bp{background:rgba(167,139,250,.16);color:var(--purple);border-color:rgba(167,139,250,.45)}
+.b-both{background:rgba(167,139,250,.16);color:var(--purple);border-color:rgba(167,139,250,.45)}
+.b-li{background:rgba(0,153,209,.16);color:#4cc4f0;border-color:rgba(0,153,209,.45)}
+.b-web{background:rgba(0,196,179,.16);color:var(--teal);border-color:rgba(0,196,179,.45)}
+.b-icp{background:rgba(34,197,94,.16);color:var(--green);border-color:rgba(34,197,94,.45)}
+.b-no{background:rgba(111,136,173,.14);color:var(--txt-dim);border-color:var(--line-strong)}
+.b-sup{background:rgba(239,68,68,.16);color:#f87171;border-color:rgba(239,68,68,.45)}
+/* table verdict pills */
+.v{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap;border:1px solid var(--line-strong);color:var(--txt-mid)}
+.v-invest{background:rgba(34,197,94,.16);color:var(--green);border-color:rgba(34,197,94,.45)}
+.v-watch{background:rgba(244,162,97,.16);color:var(--orange);border-color:rgba(244,162,97,.45)}
+.v-reduce{background:rgba(239,68,68,.16);color:#f87171;border-color:rgba(239,68,68,.45)}
+.v-hold{background:rgba(111,136,173,.14);color:var(--txt-mid);border-color:var(--line-strong)}
+.v-exclude{background:rgba(239,68,68,.1);color:#f87171;border-color:rgba(239,68,68,.4)}
+/* table helpers */
+td.seg,.seg{font-weight:600;color:var(--txt)}
+.mono{font-family:var(--mono)}
+.arw{margin-left:5px;opacity:.55;font-size:9px}
+th[data-sk]{cursor:pointer;user-select:none}
+th[data-dir]{color:var(--blue)}
+/* method definition list (Intent 01) */
+.crit-rule{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 22px}
+.crit-rule dl{display:grid;grid-template-columns:190px 1fr;margin:0}
+.crit-rule dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);font-weight:700;padding:16px 18px 16px 0;border-top:1px solid var(--line)}
+.crit-rule dd{margin:0;padding:16px 0;border-top:1px solid var(--line);color:var(--txt-mid);font-size:13.6px;line-height:1.5}
+.crit-rule dt:first-of-type,.crit-rule dd:first-of-type{border-top:none}
+/* horizontal size bars (Intent 02) */
+.sizerow{display:grid;grid-template-columns:130px 1fr 150px;gap:14px;align-items:center;margin-bottom:9px}
+.sizerow .sl{font-family:var(--mono);font-size:12px;color:var(--txt-mid)}
+.sizerow .st{height:24px;background:rgba(0,0,0,.22);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.sizerow .sf{position:absolute;left:0;top:0;bottom:0;border-radius:4px;min-width:3px;background:linear-gradient(90deg,rgba(0,153,209,.5),rgba(0,196,179,.28))}
+.sizerow .sf.icp{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
+.sizerow .sf.low{background:linear-gradient(90deg,rgba(244,162,97,.5),rgba(239,68,68,.28))}
+.sizerow .sv{font-family:var(--mono);font-size:15px;font-weight:700}
+.sizerow .sv small{color:var(--txt-dim);font-weight:400;font-size:10.5px;margin-left:8px}
+/* account funnel (Pipeline 01) */
+.funnel{display:flex;flex-direction:column;gap:8px}
+.fstep{display:grid;grid-template-columns:240px 1fr 150px;gap:14px;align-items:center}
+.fstep .fl{font-size:13px;color:var(--txt);font-weight:500}
+.fstep .fl small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--txt-dim);font-weight:400;margin-top:2px}
+.fstep .ftrack{height:26px;background:rgba(0,0,0,.22);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.fstep .fbar{position:absolute;left:0;top:0;bottom:0;border-radius:4px;min-width:3px;background:linear-gradient(90deg,rgba(0,153,209,.55),rgba(0,196,179,.3))}
+.fstep .fbar.hot{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
+.fstep .fbar.dead{background:repeating-linear-gradient(45deg,rgba(111,136,173,.22),rgba(111,136,173,.22) 6px,transparent 6px,transparent 12px)}
+.fstep .fv{font-family:var(--mono);font-size:15px;font-weight:700;text-align:right}
+.fstep .fv small{display:block;font-family:var(--mono);font-size:10px;color:var(--txt-dim);font-weight:400;margin-top:2px}
+.panel-note{font-size:12.7px;color:var(--txt-dim);font-family:var(--mono);margin:14px 0 0;padding-left:11px;border-left:2px solid var(--line-strong);line-height:1.5}
+/* month movement columns (Pipeline 04) */
+.mo{display:grid;grid-template-columns:1fr 1fr;gap:15px}
+.mo-col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;border-top:3px solid var(--orange)}
+.mo-col.jun{border-top-color:var(--orange)}.mo-col.jul{border-top-color:var(--teal)}
+.mo-col h4{margin:0 0 4px;font-size:17px;font-weight:700}
+.mm{font-size:12.5px;color:var(--txt-mid);margin:0 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:11.5px;padding:4px 9px;border-radius:6px;background:rgba(0,0,0,.2);border:1px solid var(--line);color:var(--txt-mid)}
+.chip.ent{border-color:rgba(239,68,68,.4);color:#f0a4a4;background:rgba(239,68,68,.08)}
+.chip.icp{border-color:rgba(34,197,94,.4);color:#8fe0ab;background:rgba(34,197,94,.08)}
+.do{margin:12px 0 0;color:var(--txt-mid);font-size:13.3px}
+.do b{color:var(--txt)}
+/* leaderboard tabs (Pipeline 05) */
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.tab{font-family:var(--sans);font-size:13px;color:var(--txt-mid);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.15s}
+.tab:hover{color:var(--txt);border-color:var(--line-strong)}
+.tab[aria-selected="true"]{color:#04121f;background:var(--blue);border-color:var(--blue);font-weight:700}
+.tab .n{font-family:var(--mono);font-size:10px;background:rgba(0,0,0,.2);padding:1px 6px;border-radius:10px;opacity:.85}
+.tab[aria-selected="true"] .n{background:rgba(0,0,0,.18)}
+/* activation tiers (Pipeline 06) */
+.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}
+.tier{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:12px;padding:20px}
+.tier.hot{border-top-color:var(--red)}.tier.deep{border-top-color:var(--orange)}.tier.warm{border-top-color:var(--yellow)}.tier.sup{border-top-color:var(--txt-dim)}
+.tier h4{margin:0 0 3px;font-size:16.5px;font-weight:700}
+.tier .cnt{font-family:var(--mono);font-size:11px;color:var(--txt-dim);margin:0 0 12px}
+.tier ul{margin:0 0 12px;padding-left:18px;color:var(--txt-mid);font-size:13px}
+.tier li{margin-bottom:7px}.tier li b{color:var(--txt)}
+/* persona map (Insights) */
+.pmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:15px}
+.p{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:12px;padding:20px}
+.p.inv{border-top-color:var(--green)}.p.red{border-top-color:var(--red)}.p.wat{border-top-color:var(--orange)}.p.sup{border-top-color:var(--purple)}
+.p h4{margin:0 0 4px;font-size:16px;font-weight:700}
+.p .role{font-family:var(--mono);font-size:11px;color:var(--txt-dim);margin:0 0 12px}
+.p .fld{padding:9px 0;border-top:1px solid var(--line)}
+.p .fl{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:3px}
+.p .fv{font-size:13.3px;color:var(--txt-mid)}
+.p .test{padding:9px 0 0;border-top:1px solid var(--line);margin-top:9px}
+.p .test .fl{color:var(--teal)}.p .test .fv{color:var(--txt)}
+/* creative cards (Insights part two) */
+.adcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
+.adcard .ang{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:700}
+.adcard .an{font-family:var(--mono);font-size:10.5px;color:var(--txt-dim);margin:6px 0 12px;word-break:break-word;line-height:1.5}
+.adcard dl{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 12px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.adcard dl dt{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-dim)}
+.adcard dl dd{margin:3px 0 0;font-family:var(--mono);font-size:15px;font-weight:700;color:var(--txt)}
+.adcard .why{margin:0;color:var(--txt-mid);font-size:13.3px}
+.adcard .why b{color:var(--txt)}
+/* highlighted callout (Insights) */
+.gap{border:1px solid rgba(0,196,179,.28);background:rgba(0,196,179,.06);border-radius:10px;padding:18px 20px;margin-top:18px}
+.gap .tg{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:700}
+.gap p{margin:8px 0 0;color:var(--txt-mid);font-size:13.8px}.gap p b{color:var(--txt)}
+@media(max-width:820px){.mo{grid-template-columns:1fr}}
+@media(max-width:760px){
+  .crit-rule dl{grid-template-columns:1fr}
+  .crit-rule dt{padding:14px 0 2px;border-top:1px solid var(--line)}
+  .crit-rule dd{padding:2px 0 14px;border-top:none}
+  .crit-rule dd:first-of-type{border-top:none}
+  .fstep{grid-template-columns:1fr;gap:5px}
+  .fstep .fv{text-align:left}
+  .sizerow{grid-template-columns:96px 1fr;gap:8px}
+  .sizerow .sv{grid-column:2}
+  .adcard dl{grid-template-columns:repeat(2,1fr)}
+}
+
 </style>
 </head>
 <body>
-<nav class="roomnav"><div class="inner"><span class="brand">Envision Horizons / Impact Report</span><div class="links"><a href="index.html">Summary</a><a href="02-results.html"><span class="n">02</span>Results</a><a href="03-performance.html"><span class="n">03</span>Performance</a><a href="04-intent.html"><span class="n">04</span>Intent</a><a href="05-pipeline.html"><span class="n">05</span>Pipeline</a><a href="06-insights.html" class="on"><span class="n">06</span>Insights</a><a href="07-ecosystem.html"><span class="n">07</span>Ecosystem</a><a href="08-next90.html"><span class="n">08</span>Next 90</a><a href="09-strategy.html"><span class="n">09</span>Strategy</a><a href="10-sources.html"><span class="n">10</span>Sources</a></div></div></nav>
+<nav class="roomnav"><div class="inner"><span class="brand">Envision Horizons / Impact Report</span><div class="links"><a href="index.html">Summary</a><a href="02-results.html"><span class="n">02</span>Results</a><a href="03-performance.html"><span class="n">03</span>Performance</a><a href="04-intent.html"><span class="n">04</span>Intent</a><a href="05-pipeline.html"><span class="n">05</span>Pipeline</a><a href="06-insights.html" class="on"><span class="n">06</span>Insights</a><a href="07-ecosystem.html"><span class="n">07</span>Ecosystem</a><a href="08-next90.html"><span class="n">08</span>Next 90</a><a href="10-sources.html"><span class="n">10</span>Sources</a></div></div></nav>
 <div class="wrap">
 <header>
-  <p class="eyebrow">Quarterly Diagnostic / Report 1 of 4 &nbsp;/&nbsp; version 2</p>
+  <p class="eyebrow">Quarterly Diagnostic &nbsp;/&nbsp; Audience &amp; Creative</p>
   <h1>Audience Segment Intelligence
     <span class="sub">Envision Horizons: who the ads actually reach, how efficiently they convert, and what to change</span>
   </h1>
@@ -161,36 +287,35 @@ footer b{color:var(--txt-mid)}
 </header>
 
 <div class="alert">
-  <span class="tag">Version 2 replaces version 1 and withdraws its headline</span>
-  <h3>Version 1 said the most efficient segment might be the least qualified. Both halves of that were wrong.</h3>
-  <p><b>What v1 said:</b> 8 of 17 leads came from companies under 50 employees, below the $7,500 monthly floor, so the cheapest leads might be the most expensive waste. That rested on DemandSense company intelligence, which resolves only 67% of clicks to a company and infers lead attribution from that partial match.</p>
-  <p><b>What Campaign Manager says:</b> all <b>5 attributable conversions sit in the 51 to 200 employee band</b>. Every band under 50 employees shows zero. Enterprise share of clicks is <b>31.6%</b>, not the 53% v1 reported. LinkedIn first-party demographics has full coverage and supersedes the inferred version.</p>
-  <p><b>And the real answer on lead quality is worse, for a different reason.</b> Cross-referencing the Pipedrive export against ad exposure shows <b>10 of the 17 LinkedIn attributed leads have no company name and no business email address</b>. They are individuals who downloaded a gated report with a personal address. The qualification problem is real. It is not a company size problem.</p>
+  <span class="tag">The lead-quality finding</span>
+  <h3>The qualification problem is real, and it is not a company-size problem.</h3>
+  <p><b>Where conversions sit.</b> All <b>5 attributable conversions sit in the 51 to 200 employee band</b>, squarely inside ICP. Every band under 50 employees converts zero times, and enterprise takes <b>31.6% of clicks</b> and also converts zero. LinkedIn first-party demographics has full coverage across every segment below.</p>
+  <p><b>The real issue.</b> Cross-referencing the CRM export against ad exposure shows <b>10 of the 17 LinkedIn attributed leads have no company name and no business email address</b>. They are individuals who downloaded a gated report with a personal address. The qualification problem is real — it simply is not about company size.</p>
 </div>
 
 <div class="alert w" style="margin-top:16px">
   <span class="tag">Window and cost caveats</span>
-  <h3>This report covers 1 May to 28 July. The room's spine is 1 March to 28 July.</h3>
-  <p>The Campaign Manager demographics export only runs from 1 May. All 17 leads and all recorded conversions fall inside that window, so conversion analysis is unaffected, but <b>impression and click totals here are not comparable to the 230,251 and 6,421 quoted elsewhere in the room</b>. The base here is 148,199 impressions.</p>
+  <h3>This section covers 1 May to 28 July, where the rest of the report runs 1 March to 28 July.</h3>
+  <p>The Campaign Manager demographics export only runs from 1 May. All 17 leads and all recorded conversions fall inside that window, so conversion analysis is unaffected, but <b>impression and click totals here are not comparable to the 230,251 and 6,421 quoted on the other tabs</b>. The base here is 148,199 impressions.</p>
   <p><b>There is still no cost column.</b> LinkedIn does not expose spend by demographic segment. Where dollars appear below they are apportioned by impression share and labelled as estimates. True cost per lead by segment remains unavailable.</p>
   <p><b>Percentages do not sum to 100.</b> LinkedIn assigns members to multiple industry and function segments, so shares overlap by design. Read them as relative weight, not as a partition.</p>
 </div>
 
 <section>
   <div class="sec-head"><span class="sec-num">01</span><h2>The good news first</h2></div>
-  <p class="sec-sub">Seniority was the biggest gap in version 1, which measured website visitors instead of ad recipients. The corrected picture is a genuine strength.</p>
+  <p class="sec-sub">Seniority here is measured on ad recipients, not website visitors, and the picture is a genuine strength.</p>
   <div class="stats">
     <div class="stat good"><div class="lbl">Decision maker share</div><div class="val good">70.3%</div><div class="who">Director and above</div><div class="note">104,129 of 148,199 impressions</div></div>
     <div class="stat good"><div class="lbl">Founder and CEO level</div><div class="val good">16.7%</div><div class="who">By job title</div><div class="note">Founder, CEO, Co-Founder, Owner, President, Board</div></div>
     <div class="stat sig"><div class="lbl">Best converting size band</div><div class="val sig">51-200</div><div class="who">All 5 conversions</div><div class="note">0.98% conversion rate</div></div>
     <div class="stat sig"><div class="lbl">All conversions by seniority</div><div class="val sig">Director</div><div class="who">4 of 4 attributed</div><div class="note">0.33% conversion rate</div></div>
-    <div class="stat warn"><div class="lbl">Enterprise share of clicks</div><div class="val warn">31.6%</div><div class="who">963 of 3,046</div><div class="note">v1 reported 53%</div></div>
+    <div class="stat warn"><div class="lbl">Enterprise share of clicks</div><div class="val warn">31.6%</div><div class="who">963 of 3,046</div><div class="note">Converts zero</div></div>
   </div>
 </section>
 
 <section>
   <div class="sec-head"><span class="sec-num">02</span><h2>Job seniority</h2></div>
-  <p class="sec-sub">Ad reached members, not website visitors. This is the dimension version 1 could not measure.</p>
+  <p class="sec-sub">Measured on the members the ads actually reached, not on website visitors.</p>
   <div class="tblwrap"><table>
     <thead><tr><th>Seniority</th><th>Impressions</th><th>Share</th><th>Clicks</th><th>CTR</th><th>Conversions</th><th>Read</th></tr></thead>
     <tbody>
@@ -205,12 +330,12 @@ footer b{color:var(--txt-mid)}
       <tr><td class="seg">Training</td><td class="num">85</td><td class="num">0.06%</td><td class="num">7</td><td class="num">8.24%</td><td class="num">0</td><td class="sm">Negligible.</td></tr>
     </tbody>
   </table></div>
-  <p class="note">Director, VP, CXO, Owner and Partner together take 104,129 impressions, 70.3% of delivery. That is a defensible targeting result and it should be said out loud at the EBR, because it is the strongest thing in this report.</p>
+  <p class="note">Director, VP, CXO, Owner and Partner together take 104,129 impressions, 70.3% of delivery. That is a defensible targeting result and the strongest thing in this report, so it should lead the readout.</p>
 </section>
 
 <section>
-  <div class="sec-head"><span class="sec-num">03</span><h2>Company size, the reversal</h2></div>
-  <p class="sec-sub">Version 1's central claim inverted. Conversions concentrate in the ICP band, not below it.</p>
+  <div class="sec-head"><span class="sec-num">03</span><h2>Company size</h2></div>
+  <p class="sec-sub">Conversions concentrate in the ICP band, not below it.</p>
   <div class="tblwrap"><table>
     <thead><tr><th>Size band</th><th>Impressions</th><th>Share</th><th>Clicks</th><th>CTR</th><th>Conversions</th><th>Verdict</th></tr></thead>
     <tbody>
@@ -227,9 +352,9 @@ footer b{color:var(--txt-mid)}
     <tfoot><tr><td>Total</td><td class="num">148,199</td><td class="num">100%</td><td class="num">3,046</td><td class="num">2.06%</td><td class="num">5</td><td></td></tr></tfoot>
   </table></div>
   <div class="cards" style="margin-top:18px">
-    <div class="card opp"><span class="tag">Reversed</span><h4>The ICP band is the converting band</h4><p><b>All 5 conversions sit in 51 to 200 employees</b>, at a 0.98% conversion rate. The 201 to 500 band engages at 1.87% CTR with no conversions yet, which makes it the offer-gap target rather than a targeting problem. Together those two bands take 28% of impressions.</p></div>
-    <div class="card crit"><span class="tag">Still true</span><h4>Enterprise still buys nothing</h4><p>10,001+ takes <b>22.7% of impressions and 31.6% of clicks at the highest CTR of any large band, 2.86%, and converts zero times</b>. The magnitude is smaller than v1 claimed but the direction holds. This is the segment the enterprise case study creative attracts, per Report 4.</p></div>
-    <div class="card watch"><span class="tag">Corrected</span><h4>Sub-50 is not the lead source</h4><p>1 employee, 2 to 10 and 11 to 50 together take 21.6% of clicks and produce <b>zero conversions</b>. v1 attributed 8 leads here. That attribution came from partial company resolution and does not survive first-party data.</p></div>
+    <div class="card opp"><span class="tag">ICP band</span><h4>The ICP band is the converting band</h4><p><b>All 5 conversions sit in 51 to 200 employees</b>, at a 0.98% conversion rate. The 201 to 500 band engages at 1.87% CTR with no conversions yet, which makes it the offer-gap target rather than a targeting problem. Together those two bands take 28% of impressions.</p></div>
+    <div class="card crit"><span class="tag">Enterprise</span><h4>Enterprise buys nothing</h4><p>10,001+ takes <b>22.7% of impressions and 31.6% of clicks at the highest CTR of any large band, 2.86%, and converts zero times</b>. This is the segment the enterprise case study creative attracts, shown in part two.</p></div>
+    <div class="card watch"><span class="tag">Below floor</span><h4>Sub-50 is not the lead source</h4><p>1 employee, 2 to 10 and 11 to 50 together take 21.6% of clicks and produce <b>zero conversions</b>. Enrichment-based attribution had placed leads here, but that came from partial company resolution and does not survive first-party data.</p></div>
   </div>
 </section>
 
@@ -253,15 +378,15 @@ footer b{color:var(--txt-mid)}
     </tbody>
   </table></div>
   <div class="cards" style="margin-top:18px">
-    <div class="card crit"><span class="tag">Confirmed from a third source</span><h4>Non buyer categories dominate delivery</h4><p><b>Technology and Internet at 32.5%, Business Consulting at 28.6%, Advertising Services at 17.3% and IT Services at 7.5%.</b> Advertising Services alone absorbed 25,695 impressions. That is the agency contamination documented in Report 2 and the ICP filter, now visible in LinkedIn's own first-party industry data rather than inferred from enrichment.</p></div>
-    <div class="card watch"><span class="tag">Needs verifying</span><h4>All 5 conversions are tagged Business Consulting and Services</h4><p>That is a very broad LinkedIn category, and members carry multiple tags, so this does not prove the converters are consultancies. But it is not the consumer brand category we would want either. <b>Cross-check the 5 against the named CRM leads before anyone presents this as a win.</b></p></div>
-    <div class="card opp"><span class="tag">Opportunity</span><h4>Retail Health and Personal Care is the best converting engagement in the account</h4><p><b>3.06% CTR</b>, the strongest of any material industry, on 8.1% of impressions. Consistent with Report 4's finding that the wellness and supplements category is where the tactical playbook creative should be rebuilt.</p></div>
+    <div class="card crit"><span class="tag">Confirmed from a third source</span><h4>Non buyer categories dominate delivery</h4><p><b>Technology and Internet at 32.5%, Business Consulting at 28.6%, Advertising Services at 17.3% and IT Services at 7.5%.</b> Advertising Services alone absorbed 25,695 impressions. That is the agency contamination documented in the Pipeline analysis and the ICP filter, now visible in LinkedIn's own first-party industry data rather than inferred from enrichment.</p></div>
+    <div class="card watch"><span class="tag">Needs verifying</span><h4>All 5 conversions are tagged Business Consulting and Services</h4><p>That is a very broad LinkedIn category, and members carry multiple tags, so this does not prove the converters are consultancies. But it is not the consumer brand category we would want either. <b>These should be reconciled against the named CRM leads before they are treated as ICP wins.</b></p></div>
+    <div class="card opp"><span class="tag">Opportunity</span><h4>Retail Health and Personal Care is the best converting engagement in the account</h4><p><b>3.06% CTR</b>, the strongest of any material industry, on 8.1% of impressions. Consistent with the creative finding in part two that the wellness and supplements category is where the tactical playbook creative should be rebuilt.</p></div>
   </div>
 </section>
 
 <section>
   <div class="sec-head"><span class="sec-num">05</span><h2>Job function and job title</h2></div>
-  <p class="sec-sub">The function mix raises a question the room has not asked before.</p>
+  <p class="sec-sub">The function mix raises a question worth stating plainly.</p>
   <div class="tblwrap"><table>
     <thead><tr><th>Job function</th><th>Impressions</th><th>Share</th><th>Clicks</th><th>CTR</th><th>Read</th></tr></thead>
     <tbody>
@@ -299,7 +424,7 @@ footer b{color:var(--txt-mid)}
 
 <section>
   <div class="sec-head"><span class="sec-num">06</span><h2>The lead quality answer</h2></div>
-  <p class="sec-sub">Version 1 left this open as the largest question in the account. The Pipedrive cross reference closes it.</p>
+  <p class="sec-sub">This was the largest open question in the account. The CRM cross-reference closes it.</p>
   <div class="stats">
     <div class="stat bad"><div class="lbl">No company, no business email</div><div class="val bad">10</div><div class="who">of 17 LinkedIn leads</div><div class="note">Individuals, not brands</div></div>
     <div class="stat warn"><div class="lbl">Business email domain</div><div class="val warn">6</div><div class="who">Resolvable to a brand</div><div class="note">One more on a free provider</div></div>
@@ -322,23 +447,22 @@ footer b{color:var(--txt-mid)}
     <span class="tag">The thread that connects three datasets</span>
     <h3>A third of the demand this account attracts is individuals, not brands.</h3>
     <p><b>Ten of seventeen</b> LinkedIn leads have no company. <b>74.5% of Google spend</b> went to affiliate and influencer keywords, which are searched by people wanting to become an Amazon affiliate rather than brands hiring an agency. <b>6,887 page views</b> sit on the careers page and a 2022 resume helper file.</p>
-    <p>Three independent datasets, one failure mode. It is not a channel problem and it is not a creative problem. <b>The offer and the keywords are attracting career and side income intent alongside commercial intent, and the measurement layer cannot tell them apart.</b> Fixing that is worth more than any budget reallocation in this room.</p>
+    <p>Three independent datasets, one failure mode. It is not a channel problem and it is not a creative problem. <b>The offer and the keywords are attracting career and side income intent alongside commercial intent, and the measurement layer cannot tell them apart.</b> Fixing that is worth more than any budget reallocation in this report.</p>
   </div>
 </section>
 
 <section>
   <div class="sec-head"><span class="sec-num">07</span><h2>Recommendations</h2></div>
   <div class="cards">
-    <div class="card opp"><span class="tag">1 / lead with this</span><h4>Report the 70.3% decision maker share</h4><p>Director and above takes 104,129 of 148,199 impressions. This is the strongest defensible targeting result in the account and it is currently missing from every client facing artifact.</p></div>
+    <div class="card opp"><span class="tag">1 / lead with this</span><h4>Report the 70.3% decision maker share</h4><p>Director and above takes 104,129 of 148,199 impressions. This is the strongest defensible targeting result in the account and it deserves to lead.</p></div>
     <div class="card opp"><span class="tag">2 / trim Sales, keep BizDev</span><h4>Reduce Sales function weight, hold Business Development</h4><p>Business Development is the founder and CEO bucket and should be protected. <b>Sales at 26.2% with a 2.00% CTR is the weak line</b>, and Sales Director is the second largest title at 1.85%. Reallocate from Sales toward Marketing, which posts the best CTR of the big three at 2.66%, and toward the four strongest title profiles: Marketing Director 3.03%, Brand Specialist 2.83%, Digital Specialist 2.77%, CMO 2.55%.</p></div>
-    <div class="card opp"><span class="tag">3 / fix the offer, not the audience</span><h4>Target the 201 to 500 band with a bottom funnel offer</h4><p>1.87% CTR, 319 clicks, zero conversions, and squarely able to pay the minimum. The band engages and then stops. Same conclusion as v1, now on better evidence.</p></div>
+    <div class="card opp"><span class="tag">3 / fix the offer, not the audience</span><h4>Target the 201 to 500 band with a bottom funnel offer</h4><p>1.87% CTR, 319 clicks, zero conversions, and squarely able to pay the minimum. The band engages and then stops. The audience is right; the offer and the landing experience are the gap.</p></div>
     <div class="card crit"><span class="tag">4 / stop buying the wrong intent</span><h4>Gate the report downloads</h4><p>Ten of seventeen leads arrived with a personal email and no company. Require a business email on the lead form, or accept that the lead count is inflated and report a qualified subset instead.</p></div>
     <div class="card crit"><span class="tag">5 / exclusions</span><h4>Suppress Advertising Services and IT Services at the industry level</h4><p>Advertising Services alone absorbed 25,695 impressions, 17.3% of delivery. Combined with Technology and Internet and IT Services, non buyer categories dominate the mix.</p></div>
-    <div class="card watch"><span class="tag">6 / verify before presenting</span><h4>Cross check the 5 conversions against the named leads</h4><p>All 5 are tagged Business Consulting and Services. That is a broad category with overlapping tags, but it is not the consumer brand label we would want. Confirm who they are before this becomes a slide.</p></div>
+    <div class="card watch"><span class="tag">6 / reconcile</span><h4>Reconcile the 5 conversions against the named leads</h4><p>All 5 are tagged Business Consulting and Services. That is a broad category with overlapping tags, but it is not the consumer brand label we would want. Confirm who they are before they are reported as ICP wins.</p></div>
   </div>
 </section>
 
-<div class="internal">Internal diagnostic, version 2. Supersedes version 1, whose company size and lead qualification findings were based on partially resolved data and are withdrawn. Demographics window is 1 May to 28 July and is not comparable to the room's 1 March spine. No cost by segment is available.</div>
 
 
 <div class="rule" style="margin:54px 0 8px"></div><p class="eyebrow" style="margin-top:24px">Part two / messaging and creative</p>
@@ -350,15 +474,15 @@ footer b{color:var(--txt-mid)}
   <h3>The best performing creative in this account is the worst converting creative.</h3>
   <p>Client case study documents produce a <b>6.01% CTR at a $2.00 CPC</b>, three times the account CTR and the cheapest clicks by far. They have generated <b>zero leads from $3,518 of spend</b>.</p>
   <p>The seasonal tactical playbook produces a <b>1.37% CTR at a $9.76 CPC</b>, five times the cost per click. It generated <b>5 leads, all 4 recorded conversions, at a $74.15 cost per lead</b> from $371 of spend.</p>
-  <p><b>This also explains Report 1.</b> The case studies feature Estee Lauder, Harry's and Borghese. Enterprise beauty content attracts enterprise beauty companies, which is exactly the 10,001+ segment that takes <b>22.7% of impressions and 31.6% of clicks at the highest CTR of any large band and converts zero times</b>, per Campaign Manager demographics. The creative is manufacturing the audience problem. Steven flagged the L'Oreal spillover risk on the internal sync. This quantifies it.</p>
+  <p><b>This also explains the audience mix.</b> The case studies feature Estee Lauder, Harry's and Borghese. Enterprise beauty content attracts enterprise beauty companies, which is exactly the 10,001+ segment that takes <b>22.7% of impressions and 31.6% of clicks at the highest CTR of any large band and converts zero times</b>, per Campaign Manager demographics. The creative is manufacturing the audience problem.</p>
 </div>
 
 <div class="alert w" style="margin-top:16px">
   <span class="tag">Scope limits, read before quoting anything</span>
   <h3>This is angle level analysis, not copy level. Three sources are missing.</h3>
   <p><b>65% of spend has no creative attribution.</b> A single unnamed row carries $16,157 of $24,703, with 143,532 impressions and 4,323 clicks. Everything below covers the $8,546 that is attributable. All 18 leads and 4 of 5 conversions do fall inside that attributed portion, so the conversion analysis holds even though the spend coverage does not.</p>
-  <p><b>No ad headline or introduction text.</b> DemandSense exposes creative names only. True headline and hook analysis needs the Campaign Manager Creative Performance export, which has Ad Introduction Text and Ad Headline. That request is with Andrii.</p>
-  <p><b>Partially resolved on 30 July.</b> Google is not connected to DemandSense and Search Console is not connected at all, so the search terms report is still outstanding and Search Console is unconnected, so the organic discovery section is substituted with website content engagement and labelled as such. The Google keyword report that did arrive is analysed in Report 3.</p>
+  <p><b>No ad headline or introduction text.</b> DemandSense exposes creative names only. True headline and hook analysis needs the Campaign Manager Creative Performance export, which carries Ad Introduction Text and Ad Headline, and is not yet available.</p>
+  <p><b>Search data is partial.</b> Google is not connected to DemandSense and Search Console is not connected at all, so the search terms report is outstanding and the organic discovery section is substituted with website content engagement and labelled as such. The Google keyword data that is available is analysed on the Performance tab.</p>
 </div>
 
 <section>
@@ -446,7 +570,7 @@ footer b{color:var(--txt-mid)}
   </div>
   <div class="gap">
     <span class="tg">Why founder video underperformed here</span>
-    <p>Founder voice content usually beats produced ad copy, often by a wide margin. It did not here. Four cuts, 16,097 impressions, <b>334 engagements and a 0.51% CTR</b>, against 4,541 engagements for the case study documents on 29,203 impressions. <b>This is a production and distribution problem rather than evidence that founder content fails.</b> The client's PR agency now controls Laura's profile and we are still waiting on posts, so these ran as standalone video ads rather than as promoted organic thought leader posts, which is the format that produces the engagement multiple.</p>
+    <p>Founder voice content usually beats produced ad copy, often by a wide margin. It did not here. Four cuts, 16,097 impressions, <b>334 engagements and a 0.51% CTR</b>, against 4,541 engagements for the case study documents on 29,203 impressions. <b>This is a production and distribution problem rather than evidence that founder content fails.</b> Because the founder's profile is currently managed by the PR agency and organic posts are not yet live, these ran as standalone video ads rather than as promoted organic thought leader posts, which is the format that produces the engagement multiple.</p>
   </div>
 </section>
 
@@ -476,13 +600,13 @@ footer b{color:var(--txt-mid)}
   </div>
   <div class="cards" style="margin-top:18px">
     <div class="card opp"><span class="tag">The creative swap, fully evidenced</span><h4>The Ollie case study is the deepest read asset on the site and it is not running as an ad</h4><p><b>383 seconds of average dwell</b>, more than six minutes, on a case study about a mid market DTC pet brand. Ollie is also a live engaged account with a VP Commercial identified on the site. Meanwhile the case studies we do run as ads feature Estee Lauder, Harry's and Borghese, and they convert nobody. <b>The asset that matches the ICP already exists and is already proven to hold attention. Put it in the ad account.</b></p></div>
-    <div class="card crit"><span class="tag">Contamination, now quantified</span><h4>The careers cluster is 6,887 views and 489 identified companies</h4><p>/careers/ at 2,941 views plus a 2022 <b>resume helper file at 3,856 views</b> plus /career-page-new/ at 90. Together roughly <b>38% of all page views in the top 35</b>. This is the root cause of the non ICP website population flagged in Report 2 and in the ICP filter. Excluding these three paths from identification is a single change that fixes the account scoring layer.</p></div>
+    <div class="card crit"><span class="tag">Contamination, now quantified</span><h4>The careers cluster is 6,887 views and 489 identified companies</h4><p>/careers/ at 2,941 views plus a 2022 <b>resume helper file at 3,856 views</b> plus /career-page-new/ at 90. Together roughly <b>38% of all page views in the top 35</b>. This is the root cause of the non ICP website population flagged in the Pipeline analysis and in the ICP filter. Excluding these three paths from identification is a single change that fixes the account scoring layer.</p></div>
   </div>
 </section>
 
 <section>
   <div class="sec-head"><span class="sec-num">06</span><h2>Persona to messaging map</h2></div>
-  <p class="sec-sub">The most important section. Personas come from Report 1. Every persona currently sees the same creative, which is the core problem.</p>
+  <p class="sec-sub">The most important section. Personas come from the audience analysis in part one. Every persona currently sees the same creative, which is the core problem.</p>
   <div class="pmap">
     <div class="p inv">
       <h4>The Mid Market Brand Lead</h4>
@@ -498,7 +622,7 @@ footer b{color:var(--txt-mid)}
       <div class="fld"><div class="fl">Seeing now</div><div class="fv">Estee Lauder, Harry's and Borghese case studies. Precisely the content that attracts them.</div></div>
       <div class="fld"><div class="fl">Recommended angle</div><div class="fv">None. Suppress rather than message. The creative is the acquisition mechanism for this segment, so changing the audience without changing the creative will not work.</div></div>
       <div class="test"><div class="fl">Action, not a headline</div><div class="fv">Retire the enterprise logo case studies from paid distribution entirely</div></div>
-      <div class="fld" style="margin-top:12px"><div class="fl">Expected impact</div><div class="fv">Releases the 31.6% of clicks this segment absorbs, per Report 1 v2.</div></div>
+      <div class="fld" style="margin-top:12px"><div class="fl">Expected impact</div><div class="fv">Releases the 31.6% of clicks this segment absorbs.</div></div>
     </div>
     <div class="p wat">
       <h4>The Sub Scale Operator</h4>
@@ -543,15 +667,7 @@ footer b{color:var(--txt-mid)}
 </section>
 
 <section>
-  <div class="sec-head"><span class="sec-num">08</span><h2>Correction to Report 2</h2></div>
-  <div class="cards">
-    <div class="card crit"><span class="tag">Restated</span><h4>The creative to campaign reconciliation gap is $292, not roughly $93</h4><p>Measured directly against the creative model: <b>$24,703.11 against $24,411.17</b>, a difference of <b>$291.94</b>. The creative model also reports <b>18 leads against 17</b> and <b>5 conversions against 0</b>. Report 2 cited approximately $93 from an earlier pass. Continue headlining the campaign level figures and footnote the creative model, but use $292 as the gap and note the lead count differs by one.</p></div>
-  </div>
-</section>
-
-
-<section>
-  <div class="sec-head"><span class="sec-num">09</span><h2>Cut, scale, test</h2></div>
+  <div class="sec-head"><span class="sec-num">08</span><h2>Cut, scale, test</h2></div>
   <p class="sec-sub">The three decisions this report exists to produce.</p>
   <div class="tblwrap"><table>
     <thead><tr><th>Action</th><th>Messaging</th><th>Evidence</th><th>Replace with</th></tr></thead>
@@ -569,7 +685,6 @@ footer b{color:var(--txt-mid)}
   </table></div>
   <p class="note">Cut list recovers roughly $1,950 per month of directly identified waste plus the $3,518 case study allocation, which is reallocated rather than saved. Ad copy for every creative above is available in the Ads Performance export, including introduction text and headline.</p>
 </section>
-<div class="internal">Internal diagnostic. Report 4 of 4 in the quarterly architecture, feeding the Impact Report creative and content intelligence section. Angle classification is derived from creative naming conventions and is reversible. Sections 5 and 6 substitute website content data for unavailable search data.</div>
 
 
 </div>

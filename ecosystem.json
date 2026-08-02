@@ -212,10 +212,10 @@
   {
    "pillar": "COMPOUND",
    "id": "C21",
-   "name": "Diagnostics and EBR cadence",
+   "name": "Diagnostics and reporting cadence",
    "level": 3,
    "owner": "IMP",
-   "evidence": "Quarterly EBR running, four diagnostics built, room deployed.",
+   "evidence": "Quarterly reviews running, four diagnostics built, report deployed.",
    "pts": 7.5,
    "weight": 7.5
   },
@@ -250,7 +250,7 @@
    "trigger": "Three sources disagree on conversions and no deal outcome exists. $18,406 of measured spend cannot be tied to revenue",
    "effort": "Zapier offline bridge plus a thank you page",
    "cost": "$0",
-   "impact": "Makes every other number in the room provable",
+   "impact": "Makes every other number in the report provable",
    "owner": "Todd with Milovan",
    "opens": "C13 CRM sync, C15 and C16 measurable expansion"
   },
