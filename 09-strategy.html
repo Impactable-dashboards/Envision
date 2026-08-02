@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Envision Horizons | Strategy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a1628;--surface:rgba(17,29,51,.7);--line:rgba(189,215,255,.14);--line-strong:rgba(189,215,255,.28);
+--navy:#1a3b6d;--blue:#0099d1;--teal:#00c4b3;--orange:#f4a261;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;--yellow:#ffd166;
+--txt:#e8f0fb;--txt-mid:#a8bcd8;--txt-dim:#6f88ad;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:15px;line-height:1.55;
+background-image:radial-gradient(1200px 600px at 15% -5%,rgba(0,153,209,.10),transparent 60%),radial-gradient(900px 500px at 90% 0%,rgba(0,196,179,.07),transparent 55%);background-attachment:fixed}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px 90px}
+header{padding:52px 0 30px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 14px}
+h1{font-size:clamp(28px,4.2vw,44px);line-height:1.07;margin:0 0 12px;font-weight:700;letter-spacing:-.02em}
+h1 .sub{display:block;color:var(--txt-mid);font-weight:400;font-size:clamp(16px,2vw,21px);margin-top:10px}
+.meta{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin:16px 0 22px}
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{border:1px solid var(--line-strong);background:var(--surface);border-radius:999px;padding:7px 15px;font-family:var(--mono);font-size:11.5px;color:var(--txt-mid)}
+.badge b{color:var(--txt);font-weight:700}
+.rule{height:1px;background:linear-gradient(90deg,var(--teal),var(--blue) 40%,transparent);margin:30px 0 0}
+.alert{margin:34px 0 0;border:1px solid rgba(239,68,68,.32);border-left:4px solid var(--red);
+background:linear-gradient(90deg,rgba(239,68,68,.08),rgba(17,29,51,.55));border-radius:10px;padding:22px 24px}
+.alert.w{border-color:rgba(244,162,97,.35);border-left-color:var(--orange);background:linear-gradient(90deg,rgba(244,162,97,.09),rgba(17,29,51,.55))}
+.alert.g{border-color:rgba(34,197,94,.32);border-left-color:var(--green);background:linear-gradient(90deg,rgba(34,197,94,.08),rgba(17,29,51,.55))}
+.alert .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#f87171;font-weight:700}
+.alert.w .tag{color:var(--orange)}.alert.g .tag{color:var(--green)}
+.alert h3{margin:9px 0 10px;font-size:19px;font-weight:700;line-height:1.3}
+.alert p{margin:0 0 9px;color:var(--txt-mid);font-size:14.2px;max-width:100ch}.alert p:last-child{margin-bottom:0}
+section{margin-top:56px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.14em}
+h2{font-size:23px;margin:0;font-weight:700;letter-spacing:-.01em}
+.sec-sub{color:var(--txt-dim);font-size:13.5px;margin:6px 0 22px;max-width:105ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(188px,1fr));gap:14px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:19px 18px;position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue)}
+.stat.good::before{background:var(--green)}.stat.bad::before{background:var(--red)}.stat.warn::before{background:var(--orange)}.stat.sig::before{background:var(--purple)}
+.stat .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim)}
+.stat .val{font-family:var(--mono);font-size:25px;font-weight:700;margin:9px 0 3px;letter-spacing:-.02em}
+.stat .val.good{color:var(--green)}.stat .val.bad{color:var(--red)}.stat .val.warn{color:var(--orange)}.stat .val.sig{color:var(--purple)}
+.stat .who{font-size:13px;color:var(--txt-mid)}.stat .note{font-size:11.5px;color:var(--txt-dim);margin-top:7px}
+/* system map */
+.sysmap{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;border-top:3px solid var(--blue)}
+.col.tof{border-top-color:var(--purple)}.col.mof{border-top-color:var(--teal)}.col.bof{border-top-color:var(--red)}
+.col h3{margin:0 0 2px;font-size:17px;font-weight:700}
+.col .purpose{font-size:12.7px;color:var(--txt-dim);margin-bottom:12px;min-height:34px}
+.col .bud{font-family:var(--mono);font-size:20px;font-weight:700;margin-bottom:3px}
+.col .bud small{font-size:11px;color:var(--txt-dim);font-weight:400}
+.col .budl{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:14px;padding-bottom:13px;border-bottom:1px solid var(--line)}
+.pill{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;background:rgba(0,0,0,.22);border:1px solid var(--line);margin-bottom:7px}
+.pill .pn{font-size:12.6px;line-height:1.35}
+.pill .pv{font-family:var(--mono);font-size:11px;white-space:nowrap;color:var(--txt-mid)}
+.sb{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;padding:2px 6px;border-radius:4px;font-weight:700;white-space:nowrap}
+.sb-on{background:rgba(0,153,209,.2);color:#4cc4f0;border:1px solid rgba(0,153,209,.45)}
+.sb-core{background:rgba(34,197,94,.2);color:var(--green);border:1px solid rgba(34,197,94,.5)}
+.sb-light{background:rgba(255,209,102,.16);color:var(--yellow);border:1px solid rgba(255,209,102,.4)}
+.sb-audit{background:rgba(244,162,97,.18);color:var(--orange);border:1px solid rgba(244,162,97,.45)}
+.sb-gap{background:rgba(239,68,68,.18);color:#f87171;border:1px solid rgba(239,68,68,.45)}
+.sb-next{background:rgba(167,139,250,.18);color:var(--purple);border:1px solid rgba(167,139,250,.45)}
+/* treemap */
+.tree{display:grid;grid-template-columns:repeat(12,1fr);gap:9px;grid-auto-rows:74px}
+.blk{border-radius:9px;padding:12px 13px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line)}
+.blk .bn{font-size:12.6px;font-weight:600;line-height:1.25}
+.blk .bs{font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--txt-dim)}
+.blk .ba{font-family:var(--mono);font-size:15px;font-weight:700}
+.blk.tof{background:linear-gradient(150deg,rgba(167,139,250,.22),rgba(17,29,51,.6))}
+.blk.mof{background:linear-gradient(150deg,rgba(0,196,179,.2),rgba(17,29,51,.6))}
+.blk.goog{background:linear-gradient(150deg,rgba(0,153,209,.2),rgba(17,29,51,.6))}
+.blk.bof{background:rgba(239,68,68,.07);border:1px dashed rgba(239,68,68,.45)}
+.blk.new{background:rgba(167,139,250,.06);border:1px dashed rgba(167,139,250,.5)}
+/* bars */
+.bars{display:flex;flex-direction:column;gap:9px}
+.brow{display:grid;grid-template-columns:250px 1fr auto;gap:14px;align-items:center}
+.brow .bl{font-size:13px;color:var(--txt-mid)}
+.brow .bl small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--txt-dim)}
+.bt{height:28px;background:rgba(0,0,0,.22);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.bf{position:absolute;left:0;top:0;bottom:0;border-radius:4px;min-width:3px;background:linear-gradient(90deg,rgba(0,153,209,.55),rgba(0,196,179,.3))}
+.bf.hot{background:linear-gradient(90deg,rgba(239,68,68,.55),rgba(244,162,97,.3))}
+.bf.g{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
+.bf.z{background:none;min-width:0}
+.brow .bv{font-family:var(--mono);font-size:12.6px;font-weight:700;min-width:150px;text-align:right}
+.brow .bv small{display:block;color:var(--txt-dim);font-weight:400;font-size:10.5px}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:13.3px;min-width:740px}
+th{position:sticky;top:0;background:#0e1c33;text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+text-transform:uppercase;color:var(--txt-dim);font-weight:500;padding:12px;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid rgba(189,215,255,.07);vertical-align:top}
+tr:last-child td{border-bottom:none}tbody tr:hover{background:rgba(0,153,209,.055)}
+td.num{font-family:var(--mono);font-size:12.5px;text-align:right;white-space:nowrap}
+td.nm{font-weight:500;min-width:160px}td.sm{font-size:12.5px;color:var(--txt-mid)}
+tfoot td{font-family:var(--mono);font-size:12.3px;color:var(--txt-mid);border-top:1px solid var(--line-strong);background:rgba(0,0,0,.16);font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:15px}
+.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:11px;padding:20px}
+.card.crit{border-left-color:var(--red)}.card.opp{border-left-color:var(--green)}.card.watch{border-left-color:var(--orange)}
+.card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.card.crit .tag{color:#f87171}.card.opp .tag{color:var(--green)}.card.watch .tag{color:var(--orange)}
+.card h4{margin:9px 0 9px;font-size:16.5px;line-height:1.32;font-weight:700}
+.card p{margin:0;color:var(--txt-mid);font-size:13.8px}.card p b{color:var(--txt)}
+.card .vd{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;padding:3px 8px;border-radius:5px;font-weight:700;float:right}
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.ph{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:21px;border-top:3px solid var(--green)}
+.ph.next{border-top-color:var(--purple)}.ph.later{border-top-color:var(--blue)}
+.ph .pt{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.ph.next .pt{color:var(--purple)}.ph.later .pt{color:var(--blue)}
+.ph h4{margin:7px 0 3px;font-size:18px;font-weight:700}
+.ph .cost{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.ph ol{margin:0;padding-left:18px;color:var(--txt-mid);font-size:13.3px}
+.ph li{margin-bottom:8px}
+.ph li b{color:var(--txt)}
+.note{font-size:12.7px;color:var(--txt-dim);font-family:var(--mono);margin:16px 0 0;padding-left:11px;border-left:2px solid var(--line-strong)}
+.internal{border:1px solid rgba(244,162,97,.32);background:rgba(244,162,97,.07);border-radius:8px;padding:11px 15px;font-family:var(--mono);font-size:11.2px;color:var(--orange);margin-top:22px}
+footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;font-size:12.4px;color:var(--txt-dim)}
+footer b{color:var(--txt-mid)}
+@media (max-width:900px){.sysmap,.road{grid-template-columns:1fr}.tree{grid-template-columns:repeat(6,1fr)}}
+@media (max-width:760px){.brow{grid-template-columns:1fr;gap:5px}.brow .bv{text-align:left}}
+@media (max-width:640px){.wrap{padding:0 15px 60px}header{padding:34px 0 22px}.tree{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+
+/* ---- room nav ---- */
+.roomnav{position:sticky;top:0;z-index:999;background:rgba(6,15,28,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);margin-bottom:0}
+.roomnav .inner{max-width:1220px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
+.roomnav .brand{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal);white-space:nowrap;font-weight:700}
+.roomnav .links{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.roomnav .links::-webkit-scrollbar{display:none}
+.roomnav a{font-size:13px;color:var(--txt-dim);text-decoration:none;padding:7px 12px;border-radius:7px;white-space:nowrap;transition:.15s}
+.roomnav a:hover{color:var(--txt);background:rgba(0,153,209,.1)}
+.roomnav a.on{color:#04121f;background:var(--blue);font-weight:700}
+.roomnav a .n{font-family:var(--mono);font-size:9.5px;opacity:.7;margin-right:5px}
+.roomnav a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@media (max-width:760px){.roomnav .inner{padding:0 15px;gap:12px}.roomnav .brand{display:none}}
+</style>
+<style>
+.emsbar{display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;background:var(--surface);
+ border:1px solid var(--line);border-radius:13px;padding:22px 26px;margin:6px 0 26px}
+.emsbar .big{font-family:var(--mono);font-size:48px;font-weight:700;line-height:1;color:var(--teal)}
+.emsbar .big span{font-size:17px;color:var(--txt-dim)}
+.emsl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:8px}
+.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.stages div{text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+ padding:9px 4px;background:rgba(0,0,0,.28);color:var(--txt-dim);border:1px solid var(--line)}
+.stages div:first-child{border-radius:6px 0 0 6px}.stages div:last-child{border-radius:0 6px 6px 0}
+.stages div.on{background:var(--teal);color:#04121f;font-weight:700;border-color:var(--teal)}
+.bypil{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);line-height:1.9;white-space:nowrap}
+.bypil b{color:var(--txt)}
+.board{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:start}
+.colh{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--blue);font-weight:700}
+.cols{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);padding-bottom:9px;margin-bottom:11px;border-bottom:1px solid var(--line-strong)}
+.mc{border-radius:9px;padding:11px 12px;margin-bottom:9px;border:1px solid var(--line);background:var(--surface);position:relative}
+.mc.c-run{background:rgba(0,196,179,.09);border-color:rgba(0,196,179,.35)}
+.mc.c-next{background:rgba(34,197,94,.2);border-color:var(--green)}
+.mc.c-gap{background:transparent;border:1px dashed rgba(239,68,68,.5)}
+.mc.c-lock{background:rgba(111,136,173,.13);border-color:var(--line-strong)}
+.mch{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.mid{font-family:var(--mono);font-size:10px;color:var(--txt-dim)}
+.pip{font-size:11px;letter-spacing:1.5px;color:var(--txt-mid)}
+.mc.c-next .pip,.mc.c-next .mid{color:var(--green)}
+.mnm{font-size:13.2px;font-weight:600;line-height:1.3}
+.mow{font-family:var(--mono);font-size:9.5px;color:var(--txt-dim);margin-top:5px}
+.cb{position:absolute;bottom:8px;right:10px;font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;
+ text-transform:uppercase;color:var(--green);font-weight:700}
+.mc.c-lock .cb{color:var(--txt-dim)}
+.mc.c-next{padding-bottom:24px}.mc.c-lock{padding-bottom:24px}
+.lgd{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line);
+ font-family:var(--mono);font-size:10.5px;color:var(--txt-dim);align-items:center}
+.lgd span.k{display:inline-block;width:13px;height:13px;border-radius:3px;margin-right:6px;vertical-align:-2px}
+@media (max-width:1100px){.board{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.board{grid-template-columns:repeat(2,1fr)}.emsbar{grid-template-columns:1fr;gap:16px}}
+</style></head>
+<body>
+<nav class="roomnav"><div class="inner"><span class="brand">Envision Horizons / Impact Report</span><div class="links"><a href="index.html">Summary</a><a href="02-results.html"><span class="n">02</span>Results</a><a href="03-performance.html"><span class="n">03</span>Performance</a><a href="04-intent.html"><span class="n">04</span>Intent</a><a href="05-pipeline.html"><span class="n">05</span>Pipeline</a><a href="06-insights.html"><span class="n">06</span>Insights</a><a href="07-ecosystem.html"><span class="n">07</span>Ecosystem</a><a href="08-next90.html"><span class="n">08</span>Next 90</a><a href="09-strategy.html" class="on"><span class="n">09</span>Strategy</a><a href="10-sources.html"><span class="n">10</span>Sources</a></div></div></nav>
+<div class="wrap"><header><p class="eyebrow">Impact Report / Strategy</p>
+<h1>Strategy<span class="sub">Who they are, who they sell to, what we say, and every assumption this report rests on</span></h1>
+<p class="meta">Standing context. Updated when it changes, not every quarter.</p></header>
+<section><div class="sec-head"><span class="sec-num">01</span><h2>The company and the ICP</h2></div>
+<div class="tblwrap"><table><thead><tr><th>Attribute</th><th>Definition</th></tr></thead><tbody>
+<tr><td class="nm">Business</td><td class="sm">Amazon focused marketplace growth agency. Full service marketplace management, advertising, creative and brand protection.</td></tr>
+<tr><td class="nm">Buyer</td><td class="sm">Laura Meyer, CEO and Founder, now the direct marketing owner following Todd Piechowski stepping back.</td></tr>
+<tr><td class="nm">Geography</td><td class="sm">USA and Canada. 100% of delivery is US.</td></tr>
+<tr><td class="nm">Verticals</td><td class="sm"><b>Beauty is the top vertical and core expertise.</b> Then health and wellness, then baby. Services extend to industrial, automotive and fashion.</td></tr>
+<tr><td class="nm">Size, high priority</td><td class="sm">51 to 200, 201 to 500, 501 to 1,000, 1,001 to 5,000</td></tr>
+<tr><td class="nm">Titles</td><td class="sm">Director of Amazon or Ecommerce, Director of Marketplaces, VP Ecommerce, Amazon Manager. Founder and CEO at emerging brands.</td></tr>
+<tr style="background:rgba(244,162,97,.07)"><td class="nm">Seniority by size rule</td><td class="sm"><b>Do not target Director at 1,000+ employees.</b> Use VP, CXO, Owner and Partner instead.</td></tr>
+<tr><td class="nm">Contract floor</td><td class="sm">$7,500 to $15,000 per month. Companies under 50 employees are unlikely to clear it.</td></tr>
+<tr><td class="nm">Secondary ICP</td><td class="sm">Prime Day and Shopify ecosystem. Lower ACV, roughly $5K entry. <b>Meta is the primary channel for this ICP.</b></td></tr>
+</tbody></table></div></section>
+<section><div class="sec-head"><span class="sec-num">02</span><h2>Competitive white space</h2></div>
+<p class="sec-sub">From the April analysis. Five competitors profiled: Blue Wheel, Tinuiti, Front Row, Flywheel, Podean.</p>
+<div class="tblwrap"><table><thead><tr><th>Gap</th><th>Status now</th></tr></thead><tbody>
+<tr><td class="nm">Original category intelligence and research</td><td class="sm"><b>Validated.</b> The AI Shopping Report produced 10 of 18 leads.</td></tr>
+<tr><td class="nm">CEO led thought leadership as a BD engine</td><td class="sm">Untested. Laura's profile sits with the PR agency, no posts delivered.</td></tr>
+<tr><td class="nm">Profitability and incrementality, not just ROAS</td><td class="sm">Untested in creative.</td></tr>
+<tr><td class="nm">Beauty and wellness depth with global reach</td><td class="sm"><b>Validated.</b> Retail Health and Personal Care posts the best CTR of any material industry at 3.06%.</td></tr>
+<tr style="background:rgba(34,197,94,.07)"><td class="nm">AI driven commerce discovery readiness</td><td class="sm"><b>Validated by traffic.</b> 389 unpaid sessions from ChatGPT, Copilot and Perplexity, roughly ten times what all paid sends to the site.</td></tr>
+</tbody></table></div>
+<p class="note">Three competitors are actively engaging with this account's content: Podean, Common Thread Collective and Bebold Digital, two at very high tier. Read as a signal the positioning lands.</p></section>
+<section><div class="sec-head"><span class="sec-num">03</span><h2>Assumptions ledger</h2></div>
+<p class="sec-sub">Everything in this report that is inferred rather than measured. Challenge any of it.</p>
+<div class="tblwrap"><table><thead><tr><th>Assumption</th><th>Why it matters</th><th>How to settle it</th></tr></thead><tbody>
+<tr><td class="nm">Activate is gated and unscored in the EMS</td><td class="sm">Moves the score by several points and could cross the 41 boundary back into Ramp.</td><td class="sm">Confirm against the doctrine's pillar weighting.</td></tr>
+<tr><td class="nm">Frequency and penetration are platform reported</td><td class="sm">Reach is de-duplicated per campaign but not across campaigns, so a person in three retargeting ad sets is counted three times.</td><td class="sm">Account level reach export.</td></tr>
+<tr><td class="nm">Estimated spend by segment uses impression share</td><td class="sm">Ranking is sound, absolute dollars are indicative.</td><td class="sm">Audience Tuning export with cost columns.</td></tr>
+<tr><td class="nm">The affiliate keyword finding is keyword level</td><td class="sm">Shows what we bid on, not what people typed. The intent read is directional.</td><td class="sm">Google search terms report.</td></tr>
+<tr><td class="nm">Google is $2,809 per month</td><td class="sm">A separate $2,500 credit was recorded in May. Media and credit may have been conflated earlier.</td><td class="sm">Confirm the commercial arrangement.</td></tr>
+<tr><td class="nm">The 30/60/90 account progression</td><td class="sm">Only one Company Hub snapshot exists, so progression cannot be shown.</td><td class="sm">Monthly snapshots from Andrii.</td></tr>
+</tbody></table></div></section>
+<section><div class="sec-head"><span class="sec-num">04</span><h2>Definitions, hard coded</h2></div>
+<p class="sec-sub">A definition that lives nowhere gets guessed at, and the guess ends up in front of the client. This section exists because Business Development was once flagged as a targeting problem.</p>
+<div class="tblwrap"><table><thead><tr><th>LinkedIn function</th><th>Contains</th><th>Buyer status</th></tr></thead><tbody>
+<tr style="background:rgba(34,197,94,.07)"><td class="nm">Business Development</td><td class="sm"><b>Founder, Co-Founder, Owner, CEO, President, COO, Board Member</b>, plus partnerships</td><td><span class="b b-g">Economic buyer</span></td></tr>
+<tr style="background:rgba(34,197,94,.07)"><td class="nm">Marketing</td><td class="sm">CMO, VP Marketing, Marketing Director, Brand Manager, Brand Specialist, Digital Specialist</td><td><span class="b b-g">Functional buyer</span></td></tr>
+<tr style="background:rgba(34,197,94,.07)"><td class="nm">Operations</td><td class="sm">COO, VP Operations, Supply Chain, Marketplace and Ecommerce Operations</td><td><span class="b b-g">Functional buyer</span></td></tr>
+<tr><td class="nm">Sales</td><td class="sm">Sales Director, VP Sales, Account Executive. At a vendor or agency these are sellers.</td><td><span class="b b-o">Usually not</span></td></tr>
+<tr><td class="nm">Engineering, IT, HR, Legal, Finance, Arts</td><td class="sm">Support functions</td><td><span class="b b-d">No</span></td></tr>
+</tbody></table></div>
+<h3 style="margin:26px 0 8px;font-size:17px;font-weight:700">Audience priority ladder</h3>
+<div class="tblwrap"><table><thead><tr><th>Tier</th><th>Audience</th><th>Standard</th><th>This account</th></tr></thead><tbody>
+<tr><td class="nm">Tier 1, warm</td><td class="sm">Website visitors, ad engagers, CRM and newsletter uploads</td><td class="num">60%</td><td class="sm">40% while pools build. <b>Newsletter and website lists still not uploaded.</b></td></tr>
+<tr><td class="nm">Tier 2, ABM</td><td class="sm">Named target accounts, competitor followers</td><td class="num">25%</td><td class="sm">35%. 794 accounts, 69.1% penetration.</td></tr>
+<tr><td class="nm">Tier 3, cold</td><td class="sm">One controlled persona audience at a time</td><td class="num">15%</td><td class="sm">25%. Two TOF campaigns at 10 to 13% penetration.</td></tr>
+</tbody></table></div>
+<h3 style="margin:26px 0 8px;font-size:17px;font-weight:700">Suppression list</h3>
+<div class="tblwrap"><table><thead><tr><th>Category</th><th>Entities</th></tr></thead><tbody>
+<tr><td class="nm">Client self</td><td class="sm">Envision Horizons, both entities including the marketingconcepts.com duplicate</td></tr>
+<tr><td class="nm">Us</td><td class="sm">Impactable</td></tr>
+<tr><td class="nm">Marketplace operator</td><td class="sm">Amazon</td></tr>
+<tr><td class="nm">Direct competitors</td><td class="sm">Podean, Common Thread Collective, Bebold Digital, Market Defense, Legacy Designs, Ikon Digital Media, Threadex Strategy, Trellis, Level Up Listings, BellaVix, Growth Spread</td></tr>
+<tr><td class="nm">Adtech and analysts</td><td class="sm">Skai, Kinesso, Digitas, Ansira, PLTFRM, Red Moon Marketing, Kyn Agency, Harvest Group, assembly, Confluencer Commerce</td></tr>
+<tr><td class="nm">Industry level</td><td class="sm">Advertising Services, IT Services and IT Consulting</td></tr>
+<tr><td class="nm">Website paths</td><td class="sm">/careers/, /career-page-new/, /wp-content/uploads/2022/02/theresumator_helper.html</td></tr>
+</tbody></table></div>
+<h3 style="margin:26px 0 8px;font-size:17px;font-weight:700">Reporting rules</h3>
+<div class="tblwrap"><table><tbody>
+<tr><td class="nm">Canonical spend</td><td class="sm">Windsor verified. LinkedIn $14,473.64 (89d), Google $3,932.69 (42d). <b>Never summed without stating both windows.</b></td></tr>
+<tr><td class="nm">Canonical leads</td><td class="sm">18 through 31 July, 17 through 28 July. Deduped against the CRM label.</td></tr>
+<tr><td class="nm">Conversions</td><td class="sm"><b>Never quote one figure without naming the source.</b></td></tr>
+<tr><td class="nm">Missing data</td><td class="sm">Absence is reported as absence. A disconnected source is never a measured zero.</td></tr>
+<tr><td class="nm">Name matching</td><td class="sm">Normalise, strip suffixes, minimum 5 characters. Prefer email domain over company name.</td></tr>
+</tbody></table></div></section>
+<footer><div><b>Standing context</b><br>Updated on change</div><div><b>White space</b><br>April 2026</div><div><b>Prepared by</b><br>Impactable</div></footer></div></body></html>

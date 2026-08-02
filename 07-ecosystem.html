@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Envision Horizons | Ecosystem Board</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a1628;--surface:rgba(17,29,51,.7);--line:rgba(189,215,255,.14);--line-strong:rgba(189,215,255,.28);
+--navy:#1a3b6d;--blue:#0099d1;--teal:#00c4b3;--orange:#f4a261;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;--yellow:#ffd166;
+--txt:#e8f0fb;--txt-mid:#a8bcd8;--txt-dim:#6f88ad;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:15px;line-height:1.55;
+background-image:radial-gradient(1200px 600px at 15% -5%,rgba(0,153,209,.10),transparent 60%),radial-gradient(900px 500px at 90% 0%,rgba(0,196,179,.07),transparent 55%);background-attachment:fixed}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px 90px}
+header{padding:52px 0 30px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 14px}
+h1{font-size:clamp(28px,4.2vw,44px);line-height:1.07;margin:0 0 12px;font-weight:700;letter-spacing:-.02em}
+h1 .sub{display:block;color:var(--txt-mid);font-weight:400;font-size:clamp(16px,2vw,21px);margin-top:10px}
+.meta{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin:16px 0 22px}
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{border:1px solid var(--line-strong);background:var(--surface);border-radius:999px;padding:7px 15px;font-family:var(--mono);font-size:11.5px;color:var(--txt-mid)}
+.badge b{color:var(--txt);font-weight:700}
+.rule{height:1px;background:linear-gradient(90deg,var(--teal),var(--blue) 40%,transparent);margin:30px 0 0}
+.alert{margin:34px 0 0;border:1px solid rgba(239,68,68,.32);border-left:4px solid var(--red);
+background:linear-gradient(90deg,rgba(239,68,68,.08),rgba(17,29,51,.55));border-radius:10px;padding:22px 24px}
+.alert.w{border-color:rgba(244,162,97,.35);border-left-color:var(--orange);background:linear-gradient(90deg,rgba(244,162,97,.09),rgba(17,29,51,.55))}
+.alert.g{border-color:rgba(34,197,94,.32);border-left-color:var(--green);background:linear-gradient(90deg,rgba(34,197,94,.08),rgba(17,29,51,.55))}
+.alert .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#f87171;font-weight:700}
+.alert.w .tag{color:var(--orange)}.alert.g .tag{color:var(--green)}
+.alert h3{margin:9px 0 10px;font-size:19px;font-weight:700;line-height:1.3}
+.alert p{margin:0 0 9px;color:var(--txt-mid);font-size:14.2px;max-width:100ch}.alert p:last-child{margin-bottom:0}
+section{margin-top:56px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.14em}
+h2{font-size:23px;margin:0;font-weight:700;letter-spacing:-.01em}
+.sec-sub{color:var(--txt-dim);font-size:13.5px;margin:6px 0 22px;max-width:105ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(188px,1fr));gap:14px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:19px 18px;position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue)}
+.stat.good::before{background:var(--green)}.stat.bad::before{background:var(--red)}.stat.warn::before{background:var(--orange)}.stat.sig::before{background:var(--purple)}
+.stat .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim)}
+.stat .val{font-family:var(--mono);font-size:25px;font-weight:700;margin:9px 0 3px;letter-spacing:-.02em}
+.stat .val.good{color:var(--green)}.stat .val.bad{color:var(--red)}.stat .val.warn{color:var(--orange)}.stat .val.sig{color:var(--purple)}
+.stat .who{font-size:13px;color:var(--txt-mid)}.stat .note{font-size:11.5px;color:var(--txt-dim);margin-top:7px}
+/* system map */
+.sysmap{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;border-top:3px solid var(--blue)}
+.col.tof{border-top-color:var(--purple)}.col.mof{border-top-color:var(--teal)}.col.bof{border-top-color:var(--red)}
+.col h3{margin:0 0 2px;font-size:17px;font-weight:700}
+.col .purpose{font-size:12.7px;color:var(--txt-dim);margin-bottom:12px;min-height:34px}
+.col .bud{font-family:var(--mono);font-size:20px;font-weight:700;margin-bottom:3px}
+.col .bud small{font-size:11px;color:var(--txt-dim);font-weight:400}
+.col .budl{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:14px;padding-bottom:13px;border-bottom:1px solid var(--line)}
+.pill{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;background:rgba(0,0,0,.22);border:1px solid var(--line);margin-bottom:7px}
+.pill .pn{font-size:12.6px;line-height:1.35}
+.pill .pv{font-family:var(--mono);font-size:11px;white-space:nowrap;color:var(--txt-mid)}
+.sb{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;padding:2px 6px;border-radius:4px;font-weight:700;white-space:nowrap}
+.sb-on{background:rgba(0,153,209,.2);color:#4cc4f0;border:1px solid rgba(0,153,209,.45)}
+.sb-core{background:rgba(34,197,94,.2);color:var(--green);border:1px solid rgba(34,197,94,.5)}
+.sb-light{background:rgba(255,209,102,.16);color:var(--yellow);border:1px solid rgba(255,209,102,.4)}
+.sb-audit{background:rgba(244,162,97,.18);color:var(--orange);border:1px solid rgba(244,162,97,.45)}
+.sb-gap{background:rgba(239,68,68,.18);color:#f87171;border:1px solid rgba(239,68,68,.45)}
+.sb-next{background:rgba(167,139,250,.18);color:var(--purple);border:1px solid rgba(167,139,250,.45)}
+/* treemap */
+.tree{display:grid;grid-template-columns:repeat(12,1fr);gap:9px;grid-auto-rows:74px}
+.blk{border-radius:9px;padding:12px 13px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line)}
+.blk .bn{font-size:12.6px;font-weight:600;line-height:1.25}
+.blk .bs{font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--txt-dim)}
+.blk .ba{font-family:var(--mono);font-size:15px;font-weight:700}
+.blk.tof{background:linear-gradient(150deg,rgba(167,139,250,.22),rgba(17,29,51,.6))}
+.blk.mof{background:linear-gradient(150deg,rgba(0,196,179,.2),rgba(17,29,51,.6))}
+.blk.goog{background:linear-gradient(150deg,rgba(0,153,209,.2),rgba(17,29,51,.6))}
+.blk.bof{background:rgba(239,68,68,.07);border:1px dashed rgba(239,68,68,.45)}
+.blk.new{background:rgba(167,139,250,.06);border:1px dashed rgba(167,139,250,.5)}
+/* bars */
+.bars{display:flex;flex-direction:column;gap:9px}
+.brow{display:grid;grid-template-columns:250px 1fr auto;gap:14px;align-items:center}
+.brow .bl{font-size:13px;color:var(--txt-mid)}
+.brow .bl small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--txt-dim)}
+.bt{height:28px;background:rgba(0,0,0,.22);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.bf{position:absolute;left:0;top:0;bottom:0;border-radius:4px;min-width:3px;background:linear-gradient(90deg,rgba(0,153,209,.55),rgba(0,196,179,.3))}
+.bf.hot{background:linear-gradient(90deg,rgba(239,68,68,.55),rgba(244,162,97,.3))}
+.bf.g{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
+.bf.z{background:none;min-width:0}
+.brow .bv{font-family:var(--mono);font-size:12.6px;font-weight:700;min-width:150px;text-align:right}
+.brow .bv small{display:block;color:var(--txt-dim);font-weight:400;font-size:10.5px}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:13.3px;min-width:740px}
+th{position:sticky;top:0;background:#0e1c33;text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+text-transform:uppercase;color:var(--txt-dim);font-weight:500;padding:12px;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid rgba(189,215,255,.07);vertical-align:top}
+tr:last-child td{border-bottom:none}tbody tr:hover{background:rgba(0,153,209,.055)}
+td.num{font-family:var(--mono);font-size:12.5px;text-align:right;white-space:nowrap}
+td.nm{font-weight:500;min-width:160px}td.sm{font-size:12.5px;color:var(--txt-mid)}
+tfoot td{font-family:var(--mono);font-size:12.3px;color:var(--txt-mid);border-top:1px solid var(--line-strong);background:rgba(0,0,0,.16);font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:15px}
+.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:11px;padding:20px}
+.card.crit{border-left-color:var(--red)}.card.opp{border-left-color:var(--green)}.card.watch{border-left-color:var(--orange)}
+.card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.card.crit .tag{color:#f87171}.card.opp .tag{color:var(--green)}.card.watch .tag{color:var(--orange)}
+.card h4{margin:9px 0 9px;font-size:16.5px;line-height:1.32;font-weight:700}
+.card p{margin:0;color:var(--txt-mid);font-size:13.8px}.card p b{color:var(--txt)}
+.card .vd{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;padding:3px 8px;border-radius:5px;font-weight:700;float:right}
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.ph{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:21px;border-top:3px solid var(--green)}
+.ph.next{border-top-color:var(--purple)}.ph.later{border-top-color:var(--blue)}
+.ph .pt{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.ph.next .pt{color:var(--purple)}.ph.later .pt{color:var(--blue)}
+.ph h4{margin:7px 0 3px;font-size:18px;font-weight:700}
+.ph .cost{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.ph ol{margin:0;padding-left:18px;color:var(--txt-mid);font-size:13.3px}
+.ph li{margin-bottom:8px}
+.ph li b{color:var(--txt)}
+.note{font-size:12.7px;color:var(--txt-dim);font-family:var(--mono);margin:16px 0 0;padding-left:11px;border-left:2px solid var(--line-strong)}
+.internal{border:1px solid rgba(244,162,97,.32);background:rgba(244,162,97,.07);border-radius:8px;padding:11px 15px;font-family:var(--mono);font-size:11.2px;color:var(--orange);margin-top:22px}
+footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;font-size:12.4px;color:var(--txt-dim)}
+footer b{color:var(--txt-mid)}
+@media (max-width:900px){.sysmap,.road{grid-template-columns:1fr}.tree{grid-template-columns:repeat(6,1fr)}}
+@media (max-width:760px){.brow{grid-template-columns:1fr;gap:5px}.brow .bv{text-align:left}}
+@media (max-width:640px){.wrap{padding:0 15px 60px}header{padding:34px 0 22px}.tree{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+
+/* ---- room nav ---- */
+.roomnav{position:sticky;top:0;z-index:999;background:rgba(6,15,28,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);margin-bottom:0}
+.roomnav .inner{max-width:1220px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
+.roomnav .brand{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal);white-space:nowrap;font-weight:700}
+.roomnav .links{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.roomnav .links::-webkit-scrollbar{display:none}
+.roomnav a{font-size:13px;color:var(--txt-dim);text-decoration:none;padding:7px 12px;border-radius:7px;white-space:nowrap;transition:.15s}
+.roomnav a:hover{color:var(--txt);background:rgba(0,153,209,.1)}
+.roomnav a.on{color:#04121f;background:var(--blue);font-weight:700}
+.roomnav a .n{font-family:var(--mono);font-size:9.5px;opacity:.7;margin-right:5px}
+.roomnav a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@media (max-width:760px){.roomnav .inner{padding:0 15px;gap:12px}.roomnav .brand{display:none}}
+</style>
+<style>
+.emsbar{display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;background:var(--surface);
+ border:1px solid var(--line);border-radius:13px;padding:22px 26px;margin:6px 0 26px}
+.emsbar .big{font-family:var(--mono);font-size:48px;font-weight:700;line-height:1;color:var(--teal)}
+.emsbar .big span{font-size:17px;color:var(--txt-dim)}
+.emsl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:8px}
+.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.stages div{text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+ padding:9px 4px;background:rgba(0,0,0,.28);color:var(--txt-dim);border:1px solid var(--line)}
+.stages div:first-child{border-radius:6px 0 0 6px}.stages div:last-child{border-radius:0 6px 6px 0}
+.stages div.on{background:var(--teal);color:#04121f;font-weight:700;border-color:var(--teal)}
+.bypil{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);line-height:1.9;white-space:nowrap}
+.bypil b{color:var(--txt)}
+.board{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:start}
+.colh{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--blue);font-weight:700}
+.cols{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);padding-bottom:9px;margin-bottom:11px;border-bottom:1px solid var(--line-strong)}
+.mc{border-radius:9px;padding:11px 12px;margin-bottom:9px;border:1px solid var(--line);background:var(--surface);position:relative}
+.mc.c-run{background:rgba(0,196,179,.09);border-color:rgba(0,196,179,.35)}
+.mc.c-next{background:rgba(34,197,94,.2);border-color:var(--green)}
+.mc.c-gap{background:transparent;border:1px dashed rgba(239,68,68,.5)}
+.mc.c-lock{background:rgba(111,136,173,.13);border-color:var(--line-strong)}
+.mch{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.mid{font-family:var(--mono);font-size:10px;color:var(--txt-dim)}
+.pip{font-size:11px;letter-spacing:1.5px;color:var(--txt-mid)}
+.mc.c-next .pip,.mc.c-next .mid{color:var(--green)}
+.mnm{font-size:13.2px;font-weight:600;line-height:1.3}
+.mow{font-family:var(--mono);font-size:9.5px;color:var(--txt-dim);margin-top:5px}
+.cb{position:absolute;bottom:8px;right:10px;font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;
+ text-transform:uppercase;color:var(--green);font-weight:700}
+.mc.c-lock .cb{color:var(--txt-dim)}
+.mc.c-next{padding-bottom:24px}.mc.c-lock{padding-bottom:24px}
+.lgd{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line);
+ font-family:var(--mono);font-size:10.5px;color:var(--txt-dim);align-items:center}
+.lgd span.k{display:inline-block;width:13px;height:13px;border-radius:3px;margin-right:6px;vertical-align:-2px}
+@media (max-width:1100px){.board{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.board{grid-template-columns:repeat(2,1fr)}.emsbar{grid-template-columns:1fr;gap:16px}}
+</style></head>
+<body>
+<nav class="roomnav"><div class="inner"><span class="brand">Envision Horizons / Impact Report</span><div class="links"><a href="index.html">Summary</a><a href="02-results.html"><span class="n">02</span>Results</a><a href="03-performance.html"><span class="n">03</span>Performance</a><a href="04-intent.html"><span class="n">04</span>Intent</a><a href="05-pipeline.html"><span class="n">05</span>Pipeline</a><a href="06-insights.html"><span class="n">06</span>Insights</a><a href="07-ecosystem.html" class="on"><span class="n">07</span>Ecosystem</a><a href="08-next90.html"><span class="n">08</span>Next 90</a><a href="09-strategy.html"><span class="n">09</span>Strategy</a><a href="10-sources.html"><span class="n">10</span>Sources</a></div></div></nav>
+<div class="wrap"><style>
+.emsbar{display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;background:var(--surface);
+ border:1px solid var(--line);border-radius:13px;padding:22px 26px;margin:6px 0 26px}
+.emsbar .big{font-family:var(--mono);font-size:48px;font-weight:700;line-height:1;color:var(--teal)}
+.emsbar .big span{font-size:17px;color:var(--txt-dim)}
+.emsl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:8px}
+.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
+.stages div{text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
+ padding:9px 4px;background:rgba(0,0,0,.28);color:var(--txt-dim);border:1px solid var(--line)}
+.stages div:first-child{border-radius:6px 0 0 6px}.stages div:last-child{border-radius:0 6px 6px 0}
+.stages div.on{background:var(--teal);color:#04121f;font-weight:700;border-color:var(--teal)}
+.bypil{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);line-height:1.9;white-space:nowrap}
+.bypil b{color:var(--txt)}
+.board{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:start}
+.colh{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--blue);font-weight:700}
+.cols{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);padding-bottom:9px;margin-bottom:11px;border-bottom:1px solid var(--line-strong)}
+.mc{border-radius:9px;padding:11px 12px;margin-bottom:9px;border:1px solid var(--line);background:var(--surface);position:relative}
+.mc.c-run{background:rgba(0,196,179,.09);border-color:rgba(0,196,179,.35)}
+.mc.c-next{background:rgba(34,197,94,.2);border-color:var(--green)}
+.mc.c-gap{background:transparent;border:1px dashed rgba(239,68,68,.5)}
+.mc.c-lock{background:rgba(111,136,173,.13);border-color:var(--line-strong)}
+.mch{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.mid{font-family:var(--mono);font-size:10px;color:var(--txt-dim)}
+.pip{font-size:11px;letter-spacing:1.5px;color:var(--txt-mid)}
+.mc.c-next .pip,.mc.c-next .mid{color:var(--green)}
+.mnm{font-size:13.2px;font-weight:600;line-height:1.3}
+.mow{font-family:var(--mono);font-size:9.5px;color:var(--txt-dim);margin-top:5px}
+.cb{position:absolute;bottom:8px;right:10px;font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;
+ text-transform:uppercase;color:var(--green);font-weight:700}
+.mc.c-lock .cb{color:var(--txt-dim)}
+.mc.c-next{padding-bottom:24px}.mc.c-lock{padding-bottom:24px}
+.lgd{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line);
+ font-family:var(--mono);font-size:10.5px;color:var(--txt-dim);align-items:center}
+.lgd span.k{display:inline-block;width:13px;height:13px;border-radius:3px;margin-right:6px;vertical-align:-2px}
+@media (max-width:1100px){.board{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:700px){.board{grid-template-columns:repeat(2,1fr)}.emsbar{grid-template-columns:1fr;gap:16px}}
+</style><header><p class="eyebrow">Impact Report / Ecosystem</p>
+<h1>The Ecosystem Board<span class="sub">Every account we run is graded against the same 22 motions on the same four level scale, so this reads the same way next quarter and against the rest of our book.</span></h1>
+<p class="meta">One glance should tell you what is running, what is missing, and what is next.</p></header>
+<div class="emsbar">
+<div><div class="big">47<span>/100</span></div></div>
+<div><div class="emsl">Ecosystem maturity, 1 Aug 2026</div><div class="stages">
+<div class="">Validate</div><div class="">Ramp</div><div class="on">Reach</div><div class="">Supply</div><div class="">Sustain</div>
+</div></div>
+<div><div class="emsl">By pillar</div><div class="bypil">
+Create <b>14.6</b>/25 &nbsp; Capture <b>6.7</b>/15 &nbsp; Connect <b>10.4</b>/25<br>
+Convert <b>7.8</b>/20 &nbsp; Compound <b>7.5</b>/15 &nbsp; Activate <b>gated</b>
+</div></div></div>
+<div class="board"><div class="col"><div class="colh">CREATE</div><div class="cols">14.6 / 25</div><div class="mc c-run"><div class="mch"><span class="mid">C1</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
+<div class="mnm">SEO and content</div><div class="mow">Client</div></div><div class="mc c-run"><div class="mch"><span class="mid">C2</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
+<div class="mnm">Thought leadership</div><div class="mow">Partner</div></div><div class="mc c-run"><div class="mch"><span class="mid">C3</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
+<div class="mnm">Distribution depth</div><div class="mow">Client</div></div><div class="mc c-run"><div class="mch"><span class="mid">C4</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
+<div class="mnm">TL amplification</div><div class="mow">Impactable</div></div></div><div class="col"><div class="colh">CAPTURE</div><div class="cols">6.7 / 15</div><div class="mc c-run"><div class="mch"><span class="mid">C5</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
+<div class="mnm">Brand defense</div><div class="mow">Impactable</div></div><div class="mc c-run"><div class="mch"><span class="mid">C6</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
+<div class="mnm">Solution search</div><div class="mow">Impactable</div></div><div class="mc c-run"><div class="mch"><span class="mid">C7</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
+<div class="mnm">Conquest search</div><div class="mow">Impactable</div></div></div><div class="col"><div class="colh">CONNECT</div><div class="cols">10.4 / 25</div><div class="mc c-next"><div class="mch"><span class="mid">C11</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
+<div class="mnm">Conversion tracking</div><div class="mow">Client</div><span class="cb">Next 2</span></div><div class="mc c-run"><div class="mch"><span class="mid">C12</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
+<div class="mnm">Visitor ID</div><div class="mow">Impactable</div></div><div class="mc c-run"><div class="mch"><span class="mid">C13</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
+<div class="mnm">Account intel</div><div class="mow">Impactable</div></div><div class="mc c-next"><div class="mch"><span class="mid">C14</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
+<div class="mnm">Enrichment</div><div class="mow">Impactable</div><span class="cb">Next 1</span></div></div><div class="col"><div class="colh">CONVERT</div><div class="cols">7.8 / 20</div><div class="mc c-run"><div class="mch"><span class="mid">C8</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
+<div class="mnm">LI retargeting</div><div class="mow">Impactable</div></div><div class="mc c-run"><div class="mch"><span class="mid">C9</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
+<div class="mnm">LI cold and ABM</div><div class="mow">Impactable</div></div><div class="mc c-gap"><div class="mch"><span class="mid">C10</span><span class="pip">&#9675;&#9675;&#9675;</span></div>
+<div class="mnm">BOF conversion</div><div class="mow">Both</div></div><div class="mc c-run"><div class="mch"><span class="mid">C18</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
+<div class="mnm">Pages and CRO</div><div class="mow">Client</div></div><div class="mc c-run"><div class="mch"><span class="mid">C19</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
+<div class="mnm">Offer architecture</div><div class="mow">Impactable</div></div><div class="mc c-gap"><div class="mch"><span class="mid">C20</span><span class="pip">&#9675;&#9675;&#9675;</span></div>
+<div class="mnm">Sales activation</div><div class="mow">Client</div></div></div><div class="col"><div class="colh">ACTIVATE</div><div class="cols">Gated</div><div class="mc c-next"><div class="mch"><span class="mid">C15</span><span class="pip">&#9675;&#9675;&#9675;</span></div>
+<div class="mnm">Meta B2B</div><div class="mow">Impactable</div><span class="cb">Next 3</span></div><div class="mc c-lock"><div class="mch"><span class="mid">C16</span><span class="pip">&#9675;&#9675;&#9675;</span></div>
+<div class="mnm">Programmatic</div><div class="mow">Impactable</div><span class="cb">Locked</span></div><div class="mc c-run"><div class="mch"><span class="mid">C17</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
+<div class="mnm">Email and outreach</div><div class="mow">Client</div></div></div><div class="col"><div class="colh">COMPOUND</div><div class="cols">7.5 / 15</div><div class="mc c-run"><div class="mch"><span class="mid">C21</span><span class="pip">&#9679;&#9679;&#9679;</span></div>
+<div class="mnm">Diagnostics and EBR</div><div class="mow">Impactable</div></div><div class="mc c-gap"><div class="mch"><span class="mid">C22</span><span class="pip">&#9675;&#9675;&#9675;</span></div>
+<div class="mnm">Experimentation</div><div class="mow">Impactable</div></div></div></div>
+<div class="lgd">
+<div><span class="k" style="background:rgba(0,196,179,.09);border:1px solid rgba(0,196,179,.35)"></span>Running</div>
+<div><span class="k" style="border:1px dashed rgba(239,68,68,.5)"></span>Gap</div>
+<div><span class="k" style="background:rgba(111,136,173,.13);border:1px solid var(--line-strong)"></span>Locked, waiting on a prerequisite</div>
+<div><span class="k" style="background:rgba(34,197,94,.2);border:1px solid var(--green)"></span>Next unlock</div>
+<div style="margin-left:auto">&#9679;&#9679;&#9675; Depth: absent, minimum, systematic, compounding</div>
+</div>
+<section><div class="sec-head"><span class="sec-num">01</span><h2>Next three unlocks</h2></div>
+<p class="sec-sub">Selected by the six laws, not by preference. Two free moves rank above the paid expansion.</p>
+<div class="cards">
+<div class="card opp"><span class="tag">Next 1 / Law 1 / $0</span><h4>C14 Enrichment: activate the warm pools</h4><p>20,000+ newsletter subscribers, 1,325 identified companies and every CRM contact have never been uploaded as matched audiences. One afternoon. <b>Refills the audience the enterprise exclusions shrank</b> and lifts penetration without new spend.</p></div>
+<div class="card opp"><span class="tag">Next 2 / Law 2 / $0</span><h4>C11 Conversion tracking to systematic</h4><p>Campaign Manager says 5, DemandSense 0, Google 2, and no deal outcome exists. <b>$18,406 of Windsor verified spend cannot be tied to revenue.</b> Unlocks C13 account intel and makes C15 measurable.</p></div>
+<div class="card watch"><span class="tag">Next 3 / Law 5 / $2,500</span><h4>C15 Meta B2B, the gated unlock</h4><p>Earned rather than asserted. The LGF campaign is validated at 18 leads and $170.76 CPL but reaches <b>47.6% of its pool</b>. 4,036 unreached inside it, 24,081 across the ABM and 180D pools. Activate stays gated until C11 and C14 clear.</p></div>
+</div></section>
+<section><div class="sec-head"><span class="sec-num">02</span><h2>What the Board says</h2></div>
+<div class="cards">
+<div class="card opp"><span class="tag">Strength</span><h4>Create carries the account at 14.6 of 25</h4><p>Content, a 20,000 subscriber newsletter and thought leader ads all running. This is the pillar most agencies never build, and it is why the paid programme has anything warm to work with.</p></div>
+<div class="card crit"><span class="tag">Weakness</span><h4>Convert scores 7.8 of 20 across six motions</h4><p><b>BOF conversion and sales activation are both at zero depth.</b> The system generates warm accounts and then has nothing to close them with. This is the structural reason engagement does not become pipeline.</p></div>
+<div class="card watch"><span class="tag">Gated</span><h4>Activate is unscored by design</h4><p>Meta, programmatic and outreach do not count toward maturity until the signal layer supports them. <b>Scoring them would reward launching channels before they can be measured</b>, which is the failure this account already made on Google.</p></div>
+</div></section>
+<div class="internal">Graded 1 August 2026 against the Impactable Growth System Doctrine. Activate is gated and excluded from the score. Five motions sit at zero depth: BOF conversion, sales activation, experimentation, Meta and programmatic.</div>
+<footer><div><b>Score</b><br>47 / 100</div><div><b>Stage</b><br>Reach</div><div><b>Zero depth</b><br>5 of 22</div><div><b>Next unlock</b><br>Warm pools, $0</div><div><b>Prepared by</b><br>Impactable</div></footer></div></body></html>

@@ -1,0 +1,11 @@
+channel,funnel_stage,campaign,spend,impressions,clicks,reach,frequency,penetration,conversions,status,ctr,cpc,cpm,cpa,verdict
+linkedin,TOF,TOF | ENG | TL_Image | Client List + JF + JS + Member skills: 60k | LAN OFF | 3/02,3436.9,26584,859,10576,2.514,13.1,0,ACTIVE,3.23,4.0,129.28,,MAINTAIN
+linkedin,MOF,MOF | ENG | Doc | RT 90D | Audience size: 3500+ | LAN OFF | 03/18/2026,1992.42,14390,764,4035,3.566,54.5,0,ACTIVE,5.31,2.61,138.46,,OPTIMIZE
+linkedin,TOF,TOF | ENG | TL_Video | Client List + JF + JS + Member skills: 60k | LAN OFF | 3/02,2074.18,20909,358,8264,2.53,10.3,0,ACTIVE,1.71,5.79,99.2,,REDUCE
+linkedin,MOF,MOF | ENG | TL_Image | RT 90D | Audience size: 3700+ | LAN OFF | 3/02,1909.55,26110,656,4387,5.952,57.7,0,ACTIVE,2.51,2.91,73.13,,REDUCE
+linkedin,MOF,IMP | MOF | LGF | Doc | US + CA | RT 90D | 3400+ | 5/4/26,3073.6,27531,215,3666,7.51,47.6,18,ACTIVE,0.78,14.3,111.64,170.76,SCALE
+linkedin,MOF,IMP | MOF | WV | Video | US + CA | RT 90D | Audience size: 3700+ | LAN OFF | 6/5/2026,1050.57,16143,82,2001,8.067,42.6,0,ACTIVE,0.51,12.81,65.08,,CUT
+linkedin,MOF,MOF | WV | Image | RT 180D + ABM Lists | Audience size: 13000+ | LAN OFF | 6/25/2026,363.46,1923,13,1342,1.433,10.3,0,ACTIVE,0.68,27.96,189.01,,CUT
+linkedin,MOF,MOF | WV | Image | RT 180D + ABM Lists | Post Prime Day|  Audience size: 14000+ | LAN OFF | 6/25/2026,572.96,14611,62,3619,4.037,22.6,0,ACTIVE,0.42,9.24,39.21,,CUT
+google,TOF,IMP - Amazon Services,3597.9,18022,2255,,,,1,Enabled,12.51,1.6,199.64,3597.9,OPTIMIZE
+google,MOF,IMP - Brand Campaign,334.79,907,352,,,,1,Enabled,38.81,0.95,369.12,334.79,SCALE

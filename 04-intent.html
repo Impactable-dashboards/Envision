@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Envision Horizons | Intent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a1628;--surface:rgba(17,29,51,.7);--line:rgba(189,215,255,.14);--line-strong:rgba(189,215,255,.28);
+--navy:#1a3b6d;--blue:#0099d1;--teal:#00c4b3;--orange:#f4a261;--green:#22c55e;--red:#ef4444;--purple:#a78bfa;--yellow:#ffd166;
+--txt:#e8f0fb;--txt-mid:#a8bcd8;--txt-dim:#6f88ad;--mono:'JetBrains Mono',ui-monospace,monospace;--sans:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:15px;line-height:1.55;
+background-image:radial-gradient(1200px 600px at 15% -5%,rgba(0,153,209,.10),transparent 60%),radial-gradient(900px 500px at 90% 0%,rgba(0,196,179,.07),transparent 55%);background-attachment:fixed}
+.wrap{max-width:1220px;margin:0 auto;padding:0 24px 90px}
+header{padding:52px 0 30px}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--blue);margin:0 0 14px}
+h1{font-size:clamp(28px,4.2vw,44px);line-height:1.07;margin:0 0 12px;font-weight:700;letter-spacing:-.02em}
+h1 .sub{display:block;color:var(--txt-mid);font-weight:400;font-size:clamp(16px,2vw,21px);margin-top:10px}
+.meta{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin:16px 0 22px}
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{border:1px solid var(--line-strong);background:var(--surface);border-radius:999px;padding:7px 15px;font-family:var(--mono);font-size:11.5px;color:var(--txt-mid)}
+.badge b{color:var(--txt);font-weight:700}
+.rule{height:1px;background:linear-gradient(90deg,var(--teal),var(--blue) 40%,transparent);margin:30px 0 0}
+.alert{margin:34px 0 0;border:1px solid rgba(239,68,68,.32);border-left:4px solid var(--red);
+background:linear-gradient(90deg,rgba(239,68,68,.08),rgba(17,29,51,.55));border-radius:10px;padding:22px 24px}
+.alert.w{border-color:rgba(244,162,97,.35);border-left-color:var(--orange);background:linear-gradient(90deg,rgba(244,162,97,.09),rgba(17,29,51,.55))}
+.alert.g{border-color:rgba(34,197,94,.32);border-left-color:var(--green);background:linear-gradient(90deg,rgba(34,197,94,.08),rgba(17,29,51,.55))}
+.alert .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#f87171;font-weight:700}
+.alert.w .tag{color:var(--orange)}.alert.g .tag{color:var(--green)}
+.alert h3{margin:9px 0 10px;font-size:19px;font-weight:700;line-height:1.3}
+.alert p{margin:0 0 9px;color:var(--txt-mid);font-size:14.2px;max-width:100ch}.alert p:last-child{margin-bottom:0}
+section{margin-top:56px}
+.sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.sec-num{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.14em}
+h2{font-size:23px;margin:0;font-weight:700;letter-spacing:-.01em}
+.sec-sub{color:var(--txt-dim);font-size:13.5px;margin:6px 0 22px;max-width:105ch}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(188px,1fr));gap:14px}
+.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:19px 18px;position:relative;overflow:hidden}
+.stat::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue)}
+.stat.good::before{background:var(--green)}.stat.bad::before{background:var(--red)}.stat.warn::before{background:var(--orange)}.stat.sig::before{background:var(--purple)}
+.stat .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim)}
+.stat .val{font-family:var(--mono);font-size:25px;font-weight:700;margin:9px 0 3px;letter-spacing:-.02em}
+.stat .val.good{color:var(--green)}.stat .val.bad{color:var(--red)}.stat .val.warn{color:var(--orange)}.stat .val.sig{color:var(--purple)}
+.stat .who{font-size:13px;color:var(--txt-mid)}.stat .note{font-size:11.5px;color:var(--txt-dim);margin-top:7px}
+/* system map */
+.sysmap{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;border-top:3px solid var(--blue)}
+.col.tof{border-top-color:var(--purple)}.col.mof{border-top-color:var(--teal)}.col.bof{border-top-color:var(--red)}
+.col h3{margin:0 0 2px;font-size:17px;font-weight:700}
+.col .purpose{font-size:12.7px;color:var(--txt-dim);margin-bottom:12px;min-height:34px}
+.col .bud{font-family:var(--mono);font-size:20px;font-weight:700;margin-bottom:3px}
+.col .bud small{font-size:11px;color:var(--txt-dim);font-weight:400}
+.col .budl{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:14px;padding-bottom:13px;border-bottom:1px solid var(--line)}
+.pill{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;background:rgba(0,0,0,.22);border:1px solid var(--line);margin-bottom:7px}
+.pill .pn{font-size:12.6px;line-height:1.35}
+.pill .pv{font-family:var(--mono);font-size:11px;white-space:nowrap;color:var(--txt-mid)}
+.sb{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;padding:2px 6px;border-radius:4px;font-weight:700;white-space:nowrap}
+.sb-on{background:rgba(0,153,209,.2);color:#4cc4f0;border:1px solid rgba(0,153,209,.45)}
+.sb-core{background:rgba(34,197,94,.2);color:var(--green);border:1px solid rgba(34,197,94,.5)}
+.sb-light{background:rgba(255,209,102,.16);color:var(--yellow);border:1px solid rgba(255,209,102,.4)}
+.sb-audit{background:rgba(244,162,97,.18);color:var(--orange);border:1px solid rgba(244,162,97,.45)}
+.sb-gap{background:rgba(239,68,68,.18);color:#f87171;border:1px solid rgba(239,68,68,.45)}
+.sb-next{background:rgba(167,139,250,.18);color:var(--purple);border:1px solid rgba(167,139,250,.45)}
+/* treemap */
+.tree{display:grid;grid-template-columns:repeat(12,1fr);gap:9px;grid-auto-rows:74px}
+.blk{border-radius:9px;padding:12px 13px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line)}
+.blk .bn{font-size:12.6px;font-weight:600;line-height:1.25}
+.blk .bs{font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--txt-dim)}
+.blk .ba{font-family:var(--mono);font-size:15px;font-weight:700}
+.blk.tof{background:linear-gradient(150deg,rgba(167,139,250,.22),rgba(17,29,51,.6))}
+.blk.mof{background:linear-gradient(150deg,rgba(0,196,179,.2),rgba(17,29,51,.6))}
+.blk.goog{background:linear-gradient(150deg,rgba(0,153,209,.2),rgba(17,29,51,.6))}
+.blk.bof{background:rgba(239,68,68,.07);border:1px dashed rgba(239,68,68,.45)}
+.blk.new{background:rgba(167,139,250,.06);border:1px dashed rgba(167,139,250,.5)}
+/* bars */
+.bars{display:flex;flex-direction:column;gap:9px}
+.brow{display:grid;grid-template-columns:250px 1fr auto;gap:14px;align-items:center}
+.brow .bl{font-size:13px;color:var(--txt-mid)}
+.brow .bl small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--txt-dim)}
+.bt{height:28px;background:rgba(0,0,0,.22);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--line)}
+.bf{position:absolute;left:0;top:0;bottom:0;border-radius:4px;min-width:3px;background:linear-gradient(90deg,rgba(0,153,209,.55),rgba(0,196,179,.3))}
+.bf.hot{background:linear-gradient(90deg,rgba(239,68,68,.55),rgba(244,162,97,.3))}
+.bf.g{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
+.bf.z{background:none;min-width:0}
+.brow .bv{font-family:var(--mono);font-size:12.6px;font-weight:700;min-width:150px;text-align:right}
+.brow .bv small{display:block;color:var(--txt-dim);font-weight:400;font-size:10.5px}
+.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:13.3px;min-width:740px}
+th{position:sticky;top:0;background:#0e1c33;text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+text-transform:uppercase;color:var(--txt-dim);font-weight:500;padding:12px;border-bottom:1px solid var(--line-strong);white-space:nowrap}
+td{padding:10px 12px;border-bottom:1px solid rgba(189,215,255,.07);vertical-align:top}
+tr:last-child td{border-bottom:none}tbody tr:hover{background:rgba(0,153,209,.055)}
+td.num{font-family:var(--mono);font-size:12.5px;text-align:right;white-space:nowrap}
+td.nm{font-weight:500;min-width:160px}td.sm{font-size:12.5px;color:var(--txt-mid)}
+tfoot td{font-family:var(--mono);font-size:12.3px;color:var(--txt-mid);border-top:1px solid var(--line-strong);background:rgba(0,0,0,.16);font-weight:700}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:15px}
+.card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:11px;padding:20px}
+.card.crit{border-left-color:var(--red)}.card.opp{border-left-color:var(--green)}.card.watch{border-left-color:var(--orange)}
+.card .tag{font-family:var(--mono);font-size:10px;letter-spacing:.17em;text-transform:uppercase;font-weight:700;color:var(--blue)}
+.card.crit .tag{color:#f87171}.card.opp .tag{color:var(--green)}.card.watch .tag{color:var(--orange)}
+.card h4{margin:9px 0 9px;font-size:16.5px;line-height:1.32;font-weight:700}
+.card p{margin:0;color:var(--txt-mid);font-size:13.8px}.card p b{color:var(--txt)}
+.card .vd{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;padding:3px 8px;border-radius:5px;font-weight:700;float:right}
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.ph{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:21px;border-top:3px solid var(--green)}
+.ph.next{border-top-color:var(--purple)}.ph.later{border-top-color:var(--blue)}
+.ph .pt{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+.ph.next .pt{color:var(--purple)}.ph.later .pt{color:var(--blue)}
+.ph h4{margin:7px 0 3px;font-size:18px;font-weight:700}
+.ph .cost{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.ph ol{margin:0;padding-left:18px;color:var(--txt-mid);font-size:13.3px}
+.ph li{margin-bottom:8px}
+.ph li b{color:var(--txt)}
+.note{font-size:12.7px;color:var(--txt-dim);font-family:var(--mono);margin:16px 0 0;padding-left:11px;border-left:2px solid var(--line-strong)}
+.internal{border:1px solid rgba(244,162,97,.32);background:rgba(244,162,97,.07);border-radius:8px;padding:11px 15px;font-family:var(--mono);font-size:11.2px;color:var(--orange);margin-top:22px}
+footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;font-size:12.4px;color:var(--txt-dim)}
+footer b{color:var(--txt-mid)}
+@media (max-width:900px){.sysmap,.road{grid-template-columns:1fr}.tree{grid-template-columns:repeat(6,1fr)}}
+@media (max-width:760px){.brow{grid-template-columns:1fr;gap:5px}.brow .bv{text-align:left}}
+@media (max-width:640px){.wrap{padding:0 15px 60px}header{padding:34px 0 22px}.tree{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+
+/* ---- room nav ---- */
+.roomnav{position:sticky;top:0;z-index:999;background:rgba(6,15,28,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--line);margin-bottom:0}
+.roomnav .inner{max-width:1220px;margin:0 auto;padding:0 24px;display:flex;align-items:center;gap:20px;height:56px}
+.roomnav .brand{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal);white-space:nowrap;font-weight:700}
+.roomnav .links{display:flex;gap:3px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.roomnav .links::-webkit-scrollbar{display:none}
+.roomnav a{font-size:13px;color:var(--txt-dim);text-decoration:none;padding:7px 12px;border-radius:7px;white-space:nowrap;transition:.15s}
+.roomnav a:hover{color:var(--txt);background:rgba(0,153,209,.1)}
+.roomnav a.on{color:#04121f;background:var(--blue);font-weight:700}
+.roomnav a .n{font-family:var(--mono);font-size:9.5px;opacity:.7;margin-right:5px}
+.roomnav a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+@media (max-width:760px){.roomnav .inner{padding:0 15px;gap:12px}.roomnav .brand{display:none}}
+</style>
+</head>
+<body>
+<nav class="roomnav"><div class="inner"><span class="brand">Envision Horizons / Impact Report</span><div class="links"><a href="index.html">Summary</a><a href="02-results.html"><span class="n">02</span>Results</a><a href="03-performance.html"><span class="n">03</span>Performance</a><a href="04-intent.html" class="on"><span class="n">04</span>Intent</a><a href="05-pipeline.html"><span class="n">05</span>Pipeline</a><a href="06-insights.html"><span class="n">06</span>Insights</a><a href="07-ecosystem.html"><span class="n">07</span>Ecosystem</a><a href="08-next90.html"><span class="n">08</span>Next 90</a><a href="09-strategy.html"><span class="n">09</span>Strategy</a><a href="10-sources.html"><span class="n">10</span>Sources</a></div></div></nav>
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Supplement to Report 2 / version 2, supersedes v1</p>
+  <h1>WebID ICP Filter
+    <span class="sub">Envision Horizons: the buyers on the site, their company size, and whether we have ever advertised to them</span>
+  </h1>
+  <p class="meta">Website identity and LinkedIn ads &nbsp;/&nbsp; 1 March 2026 to 28 July 2026 &nbsp;/&nbsp; prepared by Impactable</p>
+  <div class="badges">
+    <span class="badge"><b>59</b> ICP companies</span>
+    <span class="badge"><b>30</b> ICP named people</span>
+    <span class="badge"><b>29</b> distinct ICP accounts</span>
+    <span class="badge"><b>3</b> with paid exposure</span>
+    <span class="badge"><b>11</b> competitor entities on site</span>
+    <span class="badge"><b>1</b> complete three signal account</span>
+  </div>
+  <div class="rule"></div>
+</header>
+
+<div class="alert">
+  <span class="tag">Version 2 corrects version 1</span>
+  <h3>Version 1 undercounted ICP companies by roughly 12x and ICP people by roughly 7x.</h3>
+  <p><b>What went wrong.</b> v1 ranked companies and people by visits and sessions and reviewed the top 100 of each. Every ICP company in this dataset has only one to three visits, so a volume ranking buried all of them beneath high frequency job seekers and crawlers. Grouping by company plus industry plus employee size made it worse by fragmenting single companies across rows. The DemandSense row limit is a hard 100 per call and cannot be raised, so partitioning by attribute is the only correct method.</p>
+  <p><b>What changed.</b> v2 pulls the full industry distribution across all 1,306 identified companies, then pulls every ICP industry bucket exhaustively, then sweeps the mislabelled buckets, then filters people by seniority and by department rather than by session count. Corrected: <b>59 ICP companies, not 5. 30 ICP named people, not 4. 3 companies with paid exposure, not 1.</b></p>
+  <p><b>One v1 headline was simply false.</b> v1 stated that none of the 19 July ad cohort brands appear on the website. Moroccanoil appears in both, with two named marketing managers. That claim is withdrawn.</p>
+</div>
+
+<div class="alert g" style="margin-top:16px">
+  <span class="tag">The account to lead with</span>
+  <h3>Moroccanoil is the only complete account in the dataset: ads, then site, then two named buyers.</h3>
+  <p><b>246 paid impressions and 7 clicks</b> in the 180 day window, present in the July engaged cohort at 179 impressions, <b>2 website visits</b>, and <b>two named people in performance marketing and brand management</b>. 501 to 1,000 employees, squarely inside the ICP band, cosmetics.</p>
+  <p>Every other account in this report has one or two of those three signals. This is the single proof that the full funnel can work, and it is the strongest named story available for the EBR.</p>
+</div>
+
+<section>
+  <div class="sec-head"><span class="sec-num">01</span><h2>Method, stated so it can be challenged</h2></div>
+  <div class="crit-rule">
+    <dl>
+      <dt>Companies</dt><dd>Full industry distribution across all 1,306 identified companies, then exhaustive pulls of the 11 core ICP industries (74 companies, complete set) plus a sweep of the mislabel prone buckets Automotive, Building materials, Wholesale, Consumer services and Design (100 rows).</dd>
+      <dt>People, pass A</dt><dd>Seniority filter. CXO returned 95 rows, the complete set. Director, VP, Owner, Partner and Senior returned 100 rows.</dd>
+      <dt>People, pass B</dt><dd>Department filter across Marketing, Purchasing and Product management at all seniorities, 57 rows, the complete set. This catches manager level brand and ecommerce people that a seniority filter misses.</dd>
+      <dt>Join</dt><dd>Normalised on lowercase, punctuation stripped, corporate suffixes removed (inc, llc, group, usa, brands, the, company), minimum token length 5 to avoid short string false positives.</dd>
+      <dt>Label override</dt><dd>WebID industry labels were disregarded where wrong. Moroccanoil, Jane Iredale, Billion Dollar Beauty, Quip, RG Barry and Revlon are all filed under Automotive. Artsana, Beach House Group, Cartograph and Hamilton Beach are under Building materials.</dd>
+      <dt>Known limit</dt><dd>The ad exposure list is the top 100 ICP industry companies by impressions, which bottoms out around 235 impressions. Companies below that threshold may have exposure this join cannot see. Hamilton Beach Brands is a confirmed example at 145 July impressions. <b>So 3 matched is a floor and 56 unmatched is a ceiling.</b></dd>
+    </dl>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">02</span><h2>ICP people by company size</h2></div>
+  <p class="sec-sub">30 named people across 29 companies. Size is the decisive filter because the minimum contract is $7,500 to $15,000 per month.</p>
+  <div class="sizerow"><div class="sl">2 to 10</div><div class="st"><div class="sf low" style="width:57%"></div></div><div class="sv">4<small>below floor</small></div></div>
+  <div class="sizerow"><div class="sl">11 to 50</div><div class="st"><div class="sf low" style="width:71%"></div></div><div class="sv">5<small>below floor</small></div></div>
+  <div class="sizerow"><div class="sl">51 to 200</div><div class="st"><div class="sf icp" style="width:57%"></div></div><div class="sv">4<small>ICP band</small></div></div>
+  <div class="sizerow"><div class="sl">201 to 500</div><div class="st"><div class="sf icp" style="width:100%"></div></div><div class="sv">7<small>ICP band, largest</small></div></div>
+  <div class="sizerow"><div class="sl">501 to 1,000</div><div class="st"><div class="sf icp" style="width:29%"></div></div><div class="sv">2<small>ICP band</small></div></div>
+  <div class="sizerow"><div class="sl">1,001 to 5,000</div><div class="st"><div class="sf icp" style="width:14%"></div></div><div class="sv">1<small>ICP band</small></div></div>
+  <div class="sizerow"><div class="sl">5,001 to 10,000</div><div class="st"><div class="sf" style="width:29%"></div></div><div class="sv">2<small>enterprise</small></div></div>
+  <div class="sizerow"><div class="sl">10,001+</div><div class="st"><div class="sf" style="width:14%"></div></div><div class="sv">1<small>enterprise</small></div></div>
+  <div class="sizerow"><div class="sl">Unknown</div><div class="st"><div class="sf" style="width:57%"></div></div><div class="sv">4<small>unresolved</small></div></div>
+  <div class="stats" style="margin-top:22px">
+    <div class="stat good"><div class="lbl">Inside stated ICP band</div><div class="val good">14</div><div class="who">51 to 5,000 employees</div><div class="note">47% of named ICP people</div></div>
+    <div class="stat warn"><div class="lbl">Below contract floor</div><div class="val warn">9</div><div class="who">Under 50 employees</div><div class="note">30%, likely cannot pay</div></div>
+    <div class="stat sig"><div class="lbl">Largest single band</div><div class="val sig">201-500</div><div class="who">7 named people</div><div class="note">Same band, zero ad leads</div></div>
+    <div class="stat good"><div class="lbl">Accounts with 2+ buyers</div><div class="val good">1</div><div class="who">Moroccanoil</div><div class="note">Buying committee forming</div></div>
+  </div>
+  <p class="note">The 201 to 500 band is where the best inbound buyers live and it is the same band Report 1 flagged for 319 clicks, a healthy 1.60% CTR and zero leads. Those two facts together move the diagnosis: this is not an audience fit problem, it is a conversion problem in a band that is already engaging on both channels.</p>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">03</span><h2>The ICP prospect list</h2></div>
+  <p class="sec-sub">Ordered by signal strength then size. Three signals means paid or organic ad exposure, plus a website visit, plus a named person.</p>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Company</th><th>Size</th><th>Named person title</th><th>Function</th><th>Signals</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Moroccanoil</td><td class="mono">501-1000</td><td class="sm">Sr. Manager, Performance Marketing NA<br><span style="color:var(--txt-dim)">plus Brand Manager</span></td><td class="sm">Marketing</td><td><span class="b b3">Ads + site + 2 people</span></td><td><span class="b b3">Tier 1</span></td></tr>
+        <tr><td class="nm">Beach House Group</td><td class="mono">201-500</td><td class="sm">VP of Global Digital Strategy</td><td class="sm">Marketing</td><td><span class="b b2">Site + person</span></td><td><span class="b b3">Tier 1</span></td></tr>
+        <tr><td class="nm">Fekkai</td><td class="mono">201-500</td><td class="sm">Director of Ecommerce</td><td class="sm">Ecommerce</td><td><span class="b b2">Site + person</span></td><td><span class="b b3">Tier 1</span></td></tr>
+        <tr><td class="nm">Michael Todd Beauty</td><td class="mono">51-200</td><td class="sm">Supply Chain Director</td><td class="sm">Purchasing</td><td><span class="b b2">Site + person</span></td><td><span class="b b3">Tier 1</span></td></tr>
+        <tr><td class="nm">Ollie</td><td class="mono">201-500</td><td class="sm">VP Commercial</td><td class="sm">Commercial</td><td><span class="b b2">Site + person</span></td><td><span class="b b3">Tier 1</span></td></tr>
+        <tr><td class="nm">Cartograph</td><td class="mono">51-200</td><td class="sm">Brand Manager</td><td class="sm">Marketing</td><td><span class="b b2">Organic + site + person</span></td><td><span class="b b3">Tier 1</span></td></tr>
+        <tr><td class="nm">Artsana USA (Chicco)</td><td class="mono">51-200</td><td class="sm">Senior Marketing Product Manager</td><td class="sm">Marketing</td><td><span class="b b2">Site + person</span></td><td><span class="b b3">Tier 1</span></td></tr>
+        <tr><td class="nm">As Beauty Group</td><td class="mono">201-500</td><td class="sm">Retention Marketing Associate</td><td class="sm">Marketing</td><td><span class="b b2">Organic + site + person</span></td><td><span class="b b2">Tier 2</span></td></tr>
+        <tr><td class="nm">Aerogrow International</td><td class="mono">201-500</td><td class="sm">Chairman</td><td class="sm">Executive</td><td><span class="b b2">Site + person</span></td><td><span class="b b2">Tier 2</span></td></tr>
+        <tr><td class="nm">Cookies By Design</td><td class="mono">201-500</td><td class="sm">Owner</td><td class="sm">Executive</td><td><span class="b b2">Site + person</span></td><td><span class="b b2">Tier 2</span></td></tr>
+        <tr><td class="nm">Saylor</td><td class="mono">201-500</td><td class="sm">Senior Social Media Manager</td><td class="sm">Marketing</td><td><span class="b b2">Site + person</span></td><td><span class="b b2">Tier 2</span></td></tr>
+        <tr><td class="nm">Jane Iredale</td><td class="mono">201-500</td><td class="sm">company identified, person not resolved</td><td class="sm">n/a</td><td><span class="b b1">Site only</span></td><td><span class="b b2">Tier 2</span></td></tr>
+        <tr><td class="nm">Nutracom</td><td class="mono">51-200</td><td class="sm">Chief Executive Officer</td><td class="sm">Executive</td><td><span class="b b2">Site + person</span></td><td><span class="b b2">Tier 2</span></td></tr>
+        <tr><td class="nm">The Avon</td><td class="mono">1001-5000</td><td class="sm">Senior Brand Manager and Director, Personal Care</td><td class="sm">Marketing</td><td><span class="b b2">Site + person</span></td><td><span class="b b2">Tier 2</span></td></tr>
+        <tr><td class="nm">Revlon</td><td class="mono">1001-5000</td><td class="sm">company identified, person not resolved</td><td class="sm">n/a</td><td><span class="b bp">Ads + site</span></td><td><span class="b b2">Tier 2</span></td></tr>
+        <tr><td class="nm">Ever Skincare</td><td class="mono">11-50</td><td class="sm">Vice President, Marketing</td><td class="sm">Marketing</td><td><span class="b b2">Site + person</span></td><td><span class="b bn">Verify size</span></td></tr>
+        <tr><td class="nm">Bogg Bag</td><td class="mono">11-50</td><td class="sm">Chief Operating Officer</td><td class="sm">Executive</td><td><span class="b b2">Site + person</span></td><td><span class="b bn">Verify size</span></td></tr>
+        <tr><td class="nm">RG Barry Brands</td><td class="mono">11-50</td><td class="sm">Merchandising Consultant</td><td class="sm">Merchandising</td><td><span class="b b2">Site + person</span></td><td><span class="b bn">Verify size</span></td></tr>
+        <tr><td class="nm">Riverguide</td><td class="mono">11-50</td><td class="sm">Assoc. Manager of Ecommerce Advertising</td><td class="sm">Ecommerce</td><td><span class="b b2">Site + person</span></td><td><span class="b bn">Verify size</span></td></tr>
+        <tr><td class="nm">Tablex</td><td class="mono">11-50</td><td class="sm">President and Owner</td><td class="sm">Executive</td><td><span class="b b2">Site + person</span></td><td><span class="b bn">Verify size</span></td></tr>
+        <tr><td class="nm">Super Coffee</td><td class="mono">2-10</td><td class="sm">Director of Ecommerce</td><td class="sm">Ecommerce</td><td><span class="b b2">Site + person</span></td><td><span class="b bn">Size label suspect</span></td></tr>
+        <tr><td class="nm">Heyday Canning</td><td class="mono">2-10</td><td class="sm">Brand Marketing Director</td><td class="sm">Marketing</td><td><span class="b b2">Site + person</span></td><td><span class="b bn">Verify size</span></td></tr>
+        <tr><td class="nm">Levels</td><td class="mono">2-10</td><td class="sm">Marketing Manager</td><td class="sm">Marketing</td><td><span class="b b2">Site + person</span></td><td><span class="b bn">Verify size</span></td></tr>
+        <tr><td class="nm">Simple Necessit-ease</td><td class="mono">2-10</td><td class="sm">President</td><td class="sm">Executive</td><td><span class="b b2">Site + person</span></td><td><span class="b bn">Verify size</span></td></tr>
+        <tr><td class="nm">Himalaya Wellness</td><td class="mono">5001-10000</td><td class="sm">eCommerce Advertising Manager</td><td class="sm">Ecommerce</td><td><span class="b b2">Site + person</span></td><td><span class="b bn">Enterprise</span></td></tr>
+        <tr><td class="nm">Xtreme Lashes by Jo Mousselli</td><td class="mono">5001-10000</td><td class="sm">Board Member</td><td class="sm">Board</td><td><span class="b b2">Organic + site + person</span></td><td><span class="b bn">Enterprise</span></td></tr>
+        <tr><td class="nm">Hasbro</td><td class="mono">5001-10000</td><td class="sm">Lead Client Computing Analyst</td><td class="sm">IT, wrong fit</td><td><span class="b bp">Ads + site</span></td><td><span class="b bn">Wrong role</span></td></tr>
+        <tr><td class="nm">Dr. Diamond's Metacine</td><td class="mono">10001+</td><td class="sm">Director of Software Engineering</td><td class="sm">IT, wrong fit</td><td><span class="b b2">Organic + site + person</span></td><td><span class="b bn">Wrong role</span></td></tr>
+        <tr><td class="nm">Sconza Candy</td><td class="mono">Unknown</td><td class="sm">Chief Executive Officer</td><td class="sm">Executive</td><td><span class="b b2">Site + person</span></td><td><span class="b b1">Enrich</span></td></tr>
+        <tr><td class="nm">Real Soda Midwest</td><td class="mono">Unknown</td><td class="sm">Owner and President</td><td class="sm">Executive</td><td><span class="b b2">Site + person</span></td><td><span class="b b1">Enrich</span></td></tr>
+        <tr><td class="nm">Sonoma Roasters</td><td class="mono">Unknown</td><td class="sm">Chief Executive Officer</td><td class="sm">Executive</td><td><span class="b b2">Site + person</span></td><td><span class="b b1">Enrich</span></td></tr>
+        <tr><td class="nm">Burly Stone Soap</td><td class="mono">Unknown</td><td class="sm">Owner</td><td class="sm">Executive</td><td><span class="b b2">Site + person</span></td><td><span class="b b1">Enrich</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Seven Tier 1 accounts carry a named decision maker in marketing, ecommerce, commercial or purchasing at a company inside or adjacent to the ICP band. That is the outreach list. Every LinkedIn URL must be verified by hand first: two records elsewhere in this dataset link to the wrong person.</p>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">04</span><h2>Competitors and agencies on the site</h2></div>
+  <p class="sec-sub">Eleven entities, several with named executives. Read twice: it is contamination in every ABM count, and it is evidence the positioning is landing.</p>
+  <div class="tblwrap">
+    <table>
+      <thead><tr><th>Entity</th><th>What they are</th><th>Named person</th><th>Ad signal</th><th>Action</th></tr></thead>
+      <tbody>
+        <tr><td class="nm">Bebold Digital</td><td class="sm">Self described "Premium and Professional Beauty Full Service Amazon Agency"</td><td class="sm">CEO and Founder</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
+        <tr><td class="nm">Podean</td><td class="sm">Direct competitor, profiled in the April white space analysis</td><td class="sm">Senior Marketing Manager</td><td class="sm">Very high, 44 organic eng.</td><td><span class="b bs">Suppress</span></td></tr>
+        <tr><td class="nm">Common Thread Collective</td><td class="sm">Ecommerce growth agency</td><td class="sm">VP of Sales</td><td class="sm">Very high, 117 impr, 10 clicks</td><td><span class="b bs">Suppress</span></td></tr>
+        <tr><td class="nm">Market Defense</td><td class="sm">Marketplace management agency</td><td class="sm">Chief Engagement Officer</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
+        <tr><td class="nm">Legacy Designs</td><td class="sm">"One Stop Shop For All Amazon Creatives"</td><td class="sm">Founder and Principal Designer</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
+        <tr><td class="nm">Ikon Digital Media</td><td class="sm">Amazon affiliate marketing</td><td class="sm">Account Director, Amazon Affiliate</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
+        <tr><td class="nm">Threadex Strategy</td><td class="sm">Independent Amazon and ecommerce strategist</td><td class="sm">Amazon and eCommerce Strategist</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
+        <tr><td class="nm">Trellis</td><td class="sm">Ecommerce agency</td><td class="sm">Director of Marketing</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
+        <tr><td class="nm">Level Up Listings</td><td class="sm">Amazon listing service</td><td class="sm">Founder and Director</td><td class="sm">Site only</td><td><span class="b bs">Suppress</span></td></tr>
+        <tr><td class="nm">Unybrands</td><td class="sm">Amazon aggregator, competitor or partner</td><td class="sm">Founder</td><td class="sm">Site only</td><td><span class="b bn">Classify</span></td></tr>
+        <tr><td class="nm">Impactable</td><td class="sm">Us</td><td class="sm">Content Production Lead</td><td class="sm">Dual signal, score 443</td><td><span class="b bs">Suppress</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="note">Skai also appears with a Senior Agency Partner. It is adtech rather than a marketplace agency, so it is a non buyer rather than a competitor, which matches the Report 2 classification.</p>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">05</span><h2>Corrections to prior deliverables</h2></div>
+  <div class="cards">
+    <div class="card crit"><span class="tag">Withdrawn</span><h4>"None of the July ad cohort appears on the website"</h4><p>False. <b>Moroccanoil is in both</b>, with two named marketing people. Hamilton Beach Brands is very likely a second case, below the impression cut of the join. The overlap is small but it is not zero, and the retargeting premise is not disproven.</p></div>
+    <div class="card opp"><span class="tag">Reinstated</span><h4>The original executive overview named list was right</h4><p>Report 2 characterised the WebID prospect set as overwhelmingly noise and implicitly withdrew three names. Two are confirmed genuine ICP decision makers: <b>Anne Coelen, VP Global Digital Strategy at Beach House Group</b>, and <b>Donna Eberly, Supply Chain Director at Michael Todd Beauty</b>. The third, Nick Zurek at Skai, is correctly classified as adtech and a non buyer. The list was real. My filter was what was broken.</p></div>
+    <div class="card watch"><span class="tag">Revised, not withdrawn</span><h4>The website population is still mostly not the ICP</h4><p>30 ICP people out of roughly 1,815 identified, and 59 ICP companies out of 1,306, is still a low hit rate, and the careers page is still the most likely driver. The direction of the Report 2 finding holds. Its magnitude was overstated.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><span class="sec-num">06</span><h2>What to do</h2></div>
+  <div class="cards">
+    <div class="card opp"><span class="tag">1 / this week</span><h4>Upload the 7 Tier 1 accounts as a matched audience</h4><p>Moroccanoil, Beach House Group, Fekkai, Michael Todd Beauty, Ollie, Cartograph, Artsana USA. Six of the seven have never received a paid impression. Named buyer, right size, right function, demonstrated intent.</p></div>
+    <div class="card opp"><span class="tag">2 / this week</span><h4>Build the wider ICP list into a second audience</h4><p>The remaining 22 ICP accounts plus the 56 ICP companies without a resolved person. Small, cheap, and currently receiving nothing.</p></div>
+    <div class="card crit"><span class="tag">3 / this week</span><h4>Suppress the 11 competitor entities</h4><p>Two of them, Podean and Common Thread Collective, sit in the very high engagement tier that carries the ABM proof point in Report 2. Removing them will lower the headline numbers, which is why it should be done and explained before the next report.</p></div>
+    <div class="card watch"><span class="tag">4 / before outreach</span><h4>Enrich the four unknown sizes and verify every URL</h4><p>Sconza Candy, Real Soda Midwest, Sonoma Roasters and Burly Stone Soap have CEO or owner level visitors and no size data, so they cannot be qualified against the contract floor. Verify all LinkedIn URLs by hand.</p></div>
+    <div class="card opp"><span class="tag">5 / next 30 days</span><h4>Attack the 201 to 500 conversion gap directly</h4><p>Seven of the 30 named ICP buyers sit in this band, and Report 1 shows the same band delivering 319 clicks at a healthy CTR with zero leads. The audience is right and engaging on both channels. Fix the offer and the landing experience for this band specifically.</p></div>
+    <div class="card crit"><span class="tag">6 / standing rule</span><h4>Never rank an ICP pull by volume again</h4><p>Partition by industry, seniority and department. The 100 row cap is hard and silent, and volume ranking systematically hides the buyers, who visit once or twice.</p></div>
+  </div>
+</section>
+
+<div class="internal">Internal working artifact, version 2. Supersedes version 1, whose company and people counts were wrong. ICP criteria are stated in section 01 and every judgement is reversible. Contains competitor identification not intended for client distribution without review.</div>
+
+<footer>
+  <div><b>Client</b><br>Envision Horizons</div>
+  <div><b>Period</b><br>1 Mar to 28 Jul 2026</div>
+  <div><b>Method</b><br>Exhaustive by industry, seniority and department</div>
+  <div><b>Sources</b><br>DemandSense WebID, account engagement, LinkedIn company intelligence</div>
+  <div><b>Prepared by</b><br>Impactable</div>
+</footer>
+</div></body></html>

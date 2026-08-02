@@ -1,0 +1,269 @@
+{
+ "ems": 42.6,
+ "stage": "Reach",
+ "pillars": {
+  "CREATE": 25,
+  "CAPTURE": 15,
+  "CONNECT": 25,
+  "CONVERT": 20,
+  "COMPOUND": 15
+ },
+ "motions": [
+  {
+   "pillar": "CREATE",
+   "id": "C1",
+   "name": "SEO and content foundation",
+   "level": 2,
+   "owner": "CLIENT",
+   "evidence": "4,093 organic sessions, 583 identified companies. Real library. Cadence unconfirmed.",
+   "pts": 4.17,
+   "weight": 6.25
+  },
+  {
+   "pillar": "CREATE",
+   "id": "C2",
+   "name": "Founder thought leadership (organic)",
+   "level": 1,
+   "owner": "PARTNER",
+   "evidence": "Laura profile with the PR agency. No posts delivered.",
+   "pts": 2.08,
+   "weight": 6.25
+  },
+  {
+   "pillar": "CREATE",
+   "id": "C3",
+   "name": "Organic distribution depth",
+   "level": 2,
+   "owner": "CLIENT",
+   "evidence": "20,000+ newsletter, 787 owned-email sessions, podcast 29.",
+   "pts": 4.17,
+   "weight": 6.25
+  },
+  {
+   "pillar": "CREATE",
+   "id": "C4",
+   "name": "Thought leader amplification (TL ads)",
+   "level": 2,
+   "owner": "IMP",
+   "evidence": "Three TL campaigns live. TOF TL_Image 3.23% CTR.",
+   "pts": 4.17,
+   "weight": 6.25
+  },
+  {
+   "pillar": "CAPTURE",
+   "id": "C5",
+   "name": "Brand defense search",
+   "level": 2,
+   "owner": "IMP",
+   "evidence": "Live. 38.81% CTR, $0.95 CPC, 1 conversion on $335.",
+   "pts": 1.67,
+   "weight": 2.5
+  },
+  {
+   "pillar": "CAPTURE",
+   "id": "C6",
+   "name": "Core / solution paid search",
+   "level": 1,
+   "owner": "IMP",
+   "evidence": "Live but 74.5% of spend on affiliate keywords. Restructure decided 31 Jul.",
+   "pts": 0.83,
+   "weight": 2.5
+  },
+  {
+   "pillar": "CAPTURE",
+   "id": "C7",
+   "name": "Competitor conquest search",
+   "level": 1,
+   "owner": "IMP",
+   "evidence": "Referenced in the 16 Jul recap. Not visible in the console export.",
+   "pts": 0.83,
+   "weight": 2.5
+  },
+  {
+   "pillar": "CAPTURE",
+   "id": "C8",
+   "name": "LinkedIn retargeting (MOF)",
+   "level": 2,
+   "owner": "IMP",
+   "evidence": "Five MOF campaigns. 42-58% penetration. All 18 leads originate here.",
+   "pts": 1.67,
+   "weight": 2.5
+  },
+  {
+   "pillar": "CAPTURE",
+   "id": "C9",
+   "name": "LinkedIn cold / ABM (TOF)",
+   "level": 2,
+   "owner": "IMP",
+   "evidence": "Two TOF campaigns on a 60k pool at 10-13%. ABM list 69.1% penetrated.",
+   "pts": 1.67,
+   "weight": 2.5
+  },
+  {
+   "pillar": "CAPTURE",
+   "id": "C10",
+   "name": "BOF conversion campaigns",
+   "level": 0,
+   "owner": "NONE",
+   "evidence": "No BOF campaign exists. Zero BOF spend in the ledger.",
+   "pts": 0.0,
+   "weight": 2.5
+  },
+  {
+   "pillar": "CONNECT",
+   "id": "C11",
+   "name": "Conversion tracking infrastructure",
+   "level": 1,
+   "owner": "CLIENT",
+   "evidence": "Contested: Campaign Manager 5, DemandSense 0, Google 2. Offline bridge not configured.",
+   "pts": 1.19,
+   "weight": 3.57
+  },
+  {
+   "pillar": "CONNECT",
+   "id": "C12",
+   "name": "Website visitor ID",
+   "level": 2,
+   "owner": "IMP",
+   "evidence": "1,325 companies, 1,815 people. Careers traffic pollutes 38% of views. No routing.",
+   "pts": 2.38,
+   "weight": 3.57
+  },
+  {
+   "pillar": "CONNECT",
+   "id": "C13",
+   "name": "Account intelligence + CRM sync",
+   "level": 1,
+   "owner": "IMP",
+   "evidence": "DemandSense and Company Hub live. in_crm returns 0 for all 9,787 accounts.",
+   "pts": 1.19,
+   "weight": 3.57
+  },
+  {
+   "pillar": "CONNECT",
+   "id": "C14",
+   "name": "Enrichment and owned-audience building",
+   "level": 1,
+   "owner": "IMP",
+   "evidence": "Target50 enriched once by the Data CoE. Not systematic. Warm lists not uploaded.",
+   "pts": 1.19,
+   "weight": 3.57
+  },
+  {
+   "pillar": "CONNECT",
+   "id": "C15",
+   "name": "Meta B2B",
+   "level": 0,
+   "owner": "NONE",
+   "evidence": "Not live. Approved 31 Jul, plan with Anastasiia Yatsun.",
+   "pts": 0.0,
+   "weight": 3.57
+  },
+  {
+   "pillar": "CONNECT",
+   "id": "C16",
+   "name": "Programmatic (display / native / CTV)",
+   "level": 0,
+   "owner": "NONE",
+   "evidence": "Not live.",
+   "pts": 0.0,
+   "weight": 3.57
+  },
+  {
+   "pillar": "CONNECT",
+   "id": "C17",
+   "name": "Email and outreach activation",
+   "level": 1,
+   "owner": "CLIENT",
+   "evidence": "Owned email drives 787 sessions. No sequence runs against identified signals.",
+   "pts": 1.19,
+   "weight": 3.57
+  },
+  {
+   "pillar": "CONVERT",
+   "id": "C18",
+   "name": "Landing pages and CRO",
+   "level": 2,
+   "owner": "CLIENT",
+   "evidence": "Guide pages hold 61-107s dwell. Post Prime Day audit page bounces at 1.5s.",
+   "pts": 4.44,
+   "weight": 6.67
+  },
+  {
+   "pillar": "CONVERT",
+   "id": "C19",
+   "name": "Offer architecture",
+   "level": 1,
+   "owner": "IMP",
+   "evidence": "Gated documents only. No audit, teardown, demo or assessment path.",
+   "pts": 2.22,
+   "weight": 6.67
+  },
+  {
+   "pillar": "CONVERT",
+   "id": "C20",
+   "name": "Sales activation loop",
+   "level": 0,
+   "owner": "CLIENT",
+   "evidence": "No routing. Kao, Beach House Group, Fekkai, Michael Todd all unworked.",
+   "pts": 0.0,
+   "weight": 6.67
+  },
+  {
+   "pillar": "COMPOUND",
+   "id": "C21",
+   "name": "Diagnostics and EBR cadence",
+   "level": 3,
+   "owner": "IMP",
+   "evidence": "Quarterly EBR running, four diagnostics built, room deployed.",
+   "pts": 7.5,
+   "weight": 7.5
+  },
+  {
+   "pillar": "COMPOUND",
+   "id": "C22",
+   "name": "Experimentation program",
+   "level": 0,
+   "owner": "NONE",
+   "evidence": "No formal experiment with hypothesis, budget cap and kill criteria.",
+   "pts": 0.0,
+   "weight": 7.5
+  }
+ ],
+ "assumption": "C8-C10 assigned to CAPTURE, C15-C17 to CONNECT. Doctrine names five weighted pillars but the matrix lists seven groups. Confirm.",
+ "next_unlocks": [
+  {
+   "id": "C14+C17",
+   "name": "Activate the warm pools",
+   "law": "Law 1: unactivated first-party data outranks all paid expansion",
+   "trigger": "20,000+ newsletter subscribers, 1,325 identified companies and all CRM contacts have never been uploaded as matched audiences",
+   "effort": "One afternoon",
+   "cost": "$0",
+   "impact": "Refills audience size lost to the enterprise exclusions and raises penetration without new spend",
+   "owner": "IMP with Tristan",
+   "opens": "C15 targeting quality, C17 sequences"
+  },
+  {
+   "id": "C11",
+   "name": "Conversion tracking to L2",
+   "law": "Law 2: foundations before amplification, and this is throttling live spend",
+   "trigger": "Three sources disagree on conversions and no deal outcome exists. $18,406 of measured spend cannot be tied to revenue",
+   "effort": "Zapier offline bridge plus a thank you page",
+   "cost": "$0",
+   "impact": "Makes every other number in the room provable",
+   "owner": "Todd with Milovan",
+   "opens": "C13 CRM sync, C15 and C16 measurable expansion"
+  },
+  {
+   "id": "C15",
+   "name": "Meta B2B",
+   "law": "Law 5: success opens pockets. Expansion earned by a working campaign",
+   "trigger": "The LGF campaign is validated at 18 leads and $170.76 CPL but reaches only 47.6% of its pool. 28,117 named ICP people are unreachable on LinkedIn",
+   "effort": "New channel build",
+   "cost": "$2,500/mo",
+   "impact": "Reaches the validated audience LinkedIn structurally cannot serve",
+   "owner": "Anastasiia Yatsun",
+   "opens": "C16 programmatic"
+  }
+ ]
+}
