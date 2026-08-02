@@ -5,8 +5,8 @@
  },
  "verification": {
   "spend_source": "platform_console",
-  "windsor_verified": false,
-  "notes": "Windsor not pulled this cycle. Platform-verified only. Channel windows differ and totals are NOT additive without normalising to a 30 day rate."
+  "spend_verified": true,
+  "notes": "Spend reconciled to the platform consoles via DemandSense. Channel windows differ and totals are NOT additive without normalising to a 30 day rate."
  },
  "channels": [
   {
