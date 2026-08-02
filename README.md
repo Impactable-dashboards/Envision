@@ -1,7 +1,7 @@
 # Envision Horizons Impact Report
 
 Quarterly impact report for Envision Horizons. Static HTML, no build step, no dependencies.
-Nine tabs, shared navigation. Cycle 1 March to 28 July 2026.
+Eight tabs, shared navigation. Cycle 1 March to 28 July 2026.
 
 | File | Tab | Contents |
 |---|---|---|
@@ -13,7 +13,6 @@ Nine tabs, shared navigation. Cycle 1 March to 28 July 2026.
 | `06-insights.html` | Insights | Part one audience segments, part two messaging and creative |
 | `07-ecosystem.html` | Ecosystem | The Board. 22 motions, six groups, EMS 47/100, next three unlocks |
 | `08-next90.html` | Next 90 | 14 moves, 3 CUT / 3 SCALE / 4 BUILD / 4 TEST, budget arc, commitment log |
-| `10-sources.html` | Sources | Every file with window and limitation, and what each source can support |
 
 ## Canonical figures
 - **Spend, Windsor verified:** LinkedIn $14,473.64 (1 May to 28 Jul, 89d) · Google $3,932.69 (17 Jun to 28 Jul, 42d). **Windows differ and are never summed.**
