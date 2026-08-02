@@ -313,23 +313,6 @@ th[data-dir]{color:var(--blue)}
 
 
 <section>
-  <div class="sec-head"><span class="sec-num">01b</span><h2>Reverse funnel by account</h2></div>
-  <p class="sec-sub">Account progression rather than lead progression. Thresholds as specified: exposed at one impression, aware at three, engaged at three clicks, then MQL and opportunity.</p>
-  <div class="funnel">
-    <div class="fstep"><div class="fl">Ad exposed<small>1 or more impression</small></div><div class="ftrack"><div class="fbar" style="width:100%"></div></div><div class="fv">3,928<small>companies</small></div></div>
-    <div class="fstep"><div class="fl">Aware<small>3 or more impressions</small></div><div class="ftrack"><div class="fbar" style="width:100%"></div></div><div class="fv">3,928<small>100%</small></div></div>
-    <div class="fstep"><div class="fl">Engaged<small>3 or more clicks</small></div><div class="ftrack"><div class="fbar hot" style="width:7.4%"></div></div><div class="fv">289<small>7.4%</small></div></div>
-    <div class="fstep"><div class="fl">MQL<small>ad touched CRM lead</small></div><div class="ftrack"><div class="fbar hot" style="width:3.3%"></div></div><div class="fv">128<small>3.3%</small></div></div>
-    <div class="fstep"><div class="fl">MQL, click verified<small>CRM LinkedIn Ads label</small></div><div class="ftrack"><div class="fbar hot" style="width:1%"></div></div><div class="fv">17<small>0.4%</small></div></div>
-    <div class="fstep"><div class="fl">SQL or opportunity<small>Deal Status not in export</small></div><div class="ftrack"><div class="fbar dead"></div></div><div class="fv" style="color:var(--txt-dim)">n/a<small>blocked</small></div></div>
-  </div>
-  <div class="cards" style="margin-top:20px">
-    <div class="card crit"><span class="tag">The threshold does not discriminate</span><h4>Exposed and Aware are identical on this data</h4><p><b>All 3,928 companies with any delivery have 3 or more impressions.</b> The ABM export only includes companies that received meaningful delivery, so the one-versus-three impression split cannot separate them. To make Aware meaningful, either raise the threshold materially, around 50 impressions puts roughly 390 accounts in tier, or pull the full delivery log including one and two impression companies. <b>As built, treat Exposed and Aware as a single stage.</b></p></div>
-    <div class="card opp"><span class="tag">Where the funnel actually breaks</span><h4>The entire drop is between Aware and Engaged</h4><p>3,928 aware accounts become <b>289 engaged, 7.4%</b>. Of those 289, <b>192 are ICP fit and 120 are on the ABM list</b>, so the engaged tier is well qualified. Then 289 becomes 128 CRM leads. <b>The bottleneck is engagement depth, not reach and not qualification</b>, which is consistent with a middle funnel that has no closing offer behind it.</p></div>
-    <div class="card watch"><span class="tag">Progression not yet available</span><h4>The 30, 60 and 90 day snapshots need pulling</h4><p>This is a single snapshot. Showing how awareness built across three months requires three Company Hub exports, and only one exists. <b>Either Andrii pulls monthly snapshots, or it is approximated from the monthly company intelligence model and labelled derived.</b> A derived progression presented as measured is exactly the claim that will not survive a question.</p></div>
-  </div>
-</section>
-<section>
   <div class="sec-head"><span class="sec-num">02</span><h2>The engagement ladder: proof and waste in one table</h2></div>
   <p class="sec-sub">This is the most important table in the report. Engagement tier behaves as a rate, not a volume, so large enterprises land in the lower tiers despite consuming the most delivery.</p>
   <div class="tblwrap">
