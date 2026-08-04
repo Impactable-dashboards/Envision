@@ -300,9 +300,44 @@ th[data-dir]{color:var(--blue)}
 .lgd span.k{display:inline-block;width:13px;height:13px;border-radius:3px;margin-right:6px;vertical-align:-2px}
 @media (max-width:1100px){.board{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:700px){.board{grid-template-columns:repeat(2,1fr)}.emsbar{grid-template-columns:1fr;gap:16px}}
-</style></head>
+</style><script>(function(){try{var t=localStorage.getItem('eh-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+<style id="eh-lighttheme">
+:root[data-theme="light"]{
+  --bg:#eef2f8;--surface:#ffffff;
+  --line:rgba(20,45,80,.14);--line-strong:rgba(20,45,80,.26);
+  --navy:#cdddf2;
+  --txt:#0e2340;--txt-mid:#41566f;--txt-dim:#6c7f97;
+  --blue:#0a6fb0;--teal:#0a978b;--orange:#bd6a12;--green:#1c9a48;--red:#d33b3b;--purple:#6a4fc7;--yellow:#b8880f;
+}
+:root[data-theme="light"] body{background-image:radial-gradient(1200px 600px at 15% -5%,rgba(10,111,176,.07),transparent 60%),radial-gradient(900px 500px at 90% 0%,rgba(10,151,139,.06),transparent 55%)}
+:root[data-theme="light"] th{background:#e6edf7;color:var(--txt-mid)}
+:root[data-theme="light"] .roomnav{background:rgba(238,242,248,.92)}
+:root[data-theme="light"] .roomnav a.on,
+:root[data-theme="light"] .stages div.on,
+:root[data-theme="light"] .tab[aria-selected="true"]{color:#fff}
+:root[data-theme="light"] .alert .tag,
+:root[data-theme="light"] .card.crit .tag{color:var(--red)}
+:root[data-theme="light"] .gate{color:#b23636}
+:root[data-theme="light"] .mchip.inplace,:root[data-theme="light"] .mchip.inplace .cid{color:#146c34}
+:root[data-theme="light"] .mchip.missing,:root[data-theme="light"] .mchip.missing .cid{color:#a72525}
+:root[data-theme="light"] .mchip.missing .nx{background:var(--red);color:#fff}
+:root[data-theme="light"] .mchip.next,:root[data-theme="light"] .mchip.next .cid{color:#0b3d1e}
+:root[data-theme="light"] .mchip.next .nx{background:var(--green);color:#fff}
+:root[data-theme="light"] .chip.ent{color:#a72525}
+:root[data-theme="light"] .chip.icp{color:#146c34}
+:root[data-theme="light"] .alert{background:rgba(211,59,59,.06)}
+:root[data-theme="light"] .alert.w{background:rgba(189,106,18,.07)}
+:root[data-theme="light"] .alert.g{background:rgba(28,154,72,.07)}
+:root[data-theme="light"] .blk.tof{background:linear-gradient(150deg,rgba(106,79,199,.16),rgba(255,255,255,.55))}
+:root[data-theme="light"] .blk.mof{background:linear-gradient(150deg,rgba(10,151,139,.16),rgba(255,255,255,.55))}
+:root[data-theme="light"] .blk.goog{background:linear-gradient(150deg,rgba(10,111,176,.16),rgba(255,255,255,.55))}
+.themetoggle{margin-left:auto;flex:0 0 auto;font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--txt-dim);background:var(--surface);border:1px solid var(--line-strong);border-radius:7px;padding:6px 11px;cursor:pointer;white-space:nowrap;transition:.15s}
+.themetoggle:hover{color:var(--txt);border-color:var(--blue)}
+.themetoggle:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
+</style>
+</head>
 <body>
-<nav class="roomnav"><div class="inner"><span class="brand">Envision Horizons / Impact Report</span><div class="links"><a href="index.html" class="on">Summary</a><a href="02-results.html"><span class="n">02</span>Results</a><a href="03-performance.html"><span class="n">03</span>Performance</a><a href="04-intent.html"><span class="n">04</span>Intent</a><a href="05-pipeline.html"><span class="n">05</span>Pipeline</a><a href="06-insights.html"><span class="n">06</span>Insights</a><a href="07-ecosystem.html"><span class="n">07</span>Ecosystem</a><a href="08-next90.html"><span class="n">08</span>Next 90</a></div></div></nav>
+<nav class="roomnav"><div class="inner"><span class="brand">Envision Horizons / Impact Report</span><div class="links"><a href="index.html" class="on">Summary</a><a href="02-results.html"><span class="n">02</span>Results</a><a href="03-performance.html"><span class="n">03</span>Performance</a><a href="04-intent.html"><span class="n">04</span>Intent</a><a href="05-pipeline.html"><span class="n">05</span>Pipeline</a><a href="06-insights.html"><span class="n">06</span>Insights</a><a href="07-ecosystem.html"><span class="n">07</span>Ecosystem</a><a href="08-next90.html"><span class="n">08</span>Next 90</a></div><button class="themetoggle" type="button" aria-label="Toggle light or dark theme"></button></div></nav>
 <div class="wrap"><header><p class="eyebrow">Quarterly Impact Report</p>
 <h1>Envision Horizons<span class="sub">The engine works inside a ceiling it cannot cross on LinkedIn. Expand now.</span></h1>
 <p class="meta">1 March to 28 July 2026 &nbsp;/&nbsp; DemandSense verified &nbsp;/&nbsp; prepared by Impactable</p>
@@ -339,4 +374,5 @@ th[data-dir]{color:var(--blue)}
 <tr><td class="nm">Test, months 4 to 6</td><td class="sm">Ollie case study, wellness category playbook, programmatic, AI assistant ads.</td><td class="num">gated</td></tr>
 </tbody></table></div>
 <p class="note">The account deliberately underspends at week 4 while waste comes out and tracking is fixed. The only new ask inside 90 days is $2,500.</p></section>
-<footer><div><b>Period</b><br>1 Mar to 28 Jul 2026</div><div><b>Thesis</b><br>Expand now</div><div><b>EMS</b><br>15/100, Validate</div><div><b>Next unlock</b><br>Warm pools, $0</div><div><b>Prepared by</b><br>Impactable</div></footer></div></body></html>
+<footer><div><b>Period</b><br>1 Mar to 28 Jul 2026</div><div><b>Thesis</b><br>Expand now</div><div><b>EMS</b><br>15/100, Validate</div><div><b>Next unlock</b><br>Warm pools, $0</div><div><b>Prepared by</b><br>Impactable</div></footer></div><script>(function(){var b=document.querySelector('.themetoggle');if(!b)return;function light(){return document.documentElement.getAttribute('data-theme')==='light';}function render(){b.textContent=light()?'\u263E Dark':'\u2600 Light';b.setAttribute('aria-pressed',light());}function set(t){document.documentElement.setAttribute('data-theme',t);try{localStorage.setItem('eh-theme',t);}catch(e){}render();}render();b.addEventListener('click',function(){set(light()?'dark':'light');});})();</script>
+</body></html>
