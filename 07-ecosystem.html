@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Envision Horizons | Ecosystem Board</title>
+<title>Envision Horizons | Marketing Hierarchy</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -20,82 +20,12 @@ header{padding:52px 0 30px}
 h1{font-size:clamp(28px,4.2vw,44px);line-height:1.07;margin:0 0 12px;font-weight:700;letter-spacing:-.02em}
 h1 .sub{display:block;color:var(--txt-mid);font-weight:400;font-size:clamp(16px,2vw,21px);margin-top:10px}
 .meta{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin:16px 0 22px}
-.badges{display:flex;flex-wrap:wrap;gap:10px}
-.badge{border:1px solid var(--line-strong);background:var(--surface);border-radius:999px;padding:7px 15px;font-family:var(--mono);font-size:11.5px;color:var(--txt-mid)}
-.badge b{color:var(--txt);font-weight:700}
 .rule{height:1px;background:linear-gradient(90deg,var(--teal),var(--blue) 40%,transparent);margin:30px 0 0}
-.alert{margin:34px 0 0;border:1px solid rgba(239,68,68,.32);border-left:4px solid var(--red);
-background:linear-gradient(90deg,rgba(239,68,68,.08),rgba(17,29,51,.55));border-radius:10px;padding:22px 24px}
-.alert.w{border-color:rgba(244,162,97,.35);border-left-color:var(--orange);background:linear-gradient(90deg,rgba(244,162,97,.09),rgba(17,29,51,.55))}
-.alert.g{border-color:rgba(34,197,94,.32);border-left-color:var(--green);background:linear-gradient(90deg,rgba(34,197,94,.08),rgba(17,29,51,.55))}
-.alert .tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:#f87171;font-weight:700}
-.alert.w .tag{color:var(--orange)}.alert.g .tag{color:var(--green)}
-.alert h3{margin:9px 0 10px;font-size:19px;font-weight:700;line-height:1.3}
-.alert p{margin:0 0 9px;color:var(--txt-mid);font-size:14.2px;max-width:100ch}.alert p:last-child{margin-bottom:0}
 section{margin-top:56px}
 .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
 .sec-num{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.14em}
 h2{font-size:23px;margin:0;font-weight:700;letter-spacing:-.01em}
 .sec-sub{color:var(--txt-dim);font-size:13.5px;margin:6px 0 22px;max-width:105ch}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(188px,1fr));gap:14px}
-.stat{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:19px 18px;position:relative;overflow:hidden}
-.stat::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--blue)}
-.stat.good::before{background:var(--green)}.stat.bad::before{background:var(--red)}.stat.warn::before{background:var(--orange)}.stat.sig::before{background:var(--purple)}
-.stat .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim)}
-.stat .val{font-family:var(--mono);font-size:25px;font-weight:700;margin:9px 0 3px;letter-spacing:-.02em}
-.stat .val.good{color:var(--green)}.stat .val.bad{color:var(--red)}.stat .val.warn{color:var(--orange)}.stat .val.sig{color:var(--purple)}
-.stat .who{font-size:13px;color:var(--txt-mid)}.stat .note{font-size:11.5px;color:var(--txt-dim);margin-top:7px}
-/* system map */
-.sysmap{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;border-top:3px solid var(--blue)}
-.col.tof{border-top-color:var(--purple)}.col.mof{border-top-color:var(--teal)}.col.bof{border-top-color:var(--red)}
-.col h3{margin:0 0 2px;font-size:17px;font-weight:700}
-.col .purpose{font-size:12.7px;color:var(--txt-dim);margin-bottom:12px;min-height:34px}
-.col .bud{font-family:var(--mono);font-size:20px;font-weight:700;margin-bottom:3px}
-.col .bud small{font-size:11px;color:var(--txt-dim);font-weight:400}
-.col .budl{font-family:var(--mono);font-size:9.5px;letter-spacing:.11em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:14px;padding-bottom:13px;border-bottom:1px solid var(--line)}
-.pill{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 10px;border-radius:7px;background:rgba(0,0,0,.22);border:1px solid var(--line);margin-bottom:7px}
-.pill .pn{font-size:12.6px;line-height:1.35}
-.pill .pv{font-family:var(--mono);font-size:11px;white-space:nowrap;color:var(--txt-mid)}
-.sb{font-family:var(--mono);font-size:8.5px;letter-spacing:.08em;padding:2px 6px;border-radius:4px;font-weight:700;white-space:nowrap}
-.sb-on{background:rgba(0,153,209,.2);color:#4cc4f0;border:1px solid rgba(0,153,209,.45)}
-.sb-core{background:rgba(34,197,94,.2);color:var(--green);border:1px solid rgba(34,197,94,.5)}
-.sb-light{background:rgba(255,209,102,.16);color:var(--yellow);border:1px solid rgba(255,209,102,.4)}
-.sb-audit{background:rgba(244,162,97,.18);color:var(--orange);border:1px solid rgba(244,162,97,.45)}
-.sb-gap{background:rgba(239,68,68,.18);color:#f87171;border:1px solid rgba(239,68,68,.45)}
-.sb-next{background:rgba(167,139,250,.18);color:var(--purple);border:1px solid rgba(167,139,250,.45)}
-/* treemap */
-.tree{display:grid;grid-template-columns:repeat(12,1fr);gap:9px;grid-auto-rows:74px}
-.blk{border-radius:9px;padding:12px 13px;display:flex;flex-direction:column;justify-content:space-between;border:1px solid var(--line)}
-.blk .bn{font-size:12.6px;font-weight:600;line-height:1.25}
-.blk .bs{font-family:var(--mono);font-size:9px;letter-spacing:.09em;text-transform:uppercase;color:var(--txt-dim)}
-.blk .ba{font-family:var(--mono);font-size:15px;font-weight:700}
-.blk.tof{background:linear-gradient(150deg,rgba(167,139,250,.22),rgba(17,29,51,.6))}
-.blk.mof{background:linear-gradient(150deg,rgba(0,196,179,.2),rgba(17,29,51,.6))}
-.blk.goog{background:linear-gradient(150deg,rgba(0,153,209,.2),rgba(17,29,51,.6))}
-.blk.bof{background:rgba(239,68,68,.07);border:1px dashed rgba(239,68,68,.45)}
-.blk.new{background:rgba(167,139,250,.06);border:1px dashed rgba(167,139,250,.5)}
-/* bars */
-.bars{display:flex;flex-direction:column;gap:9px}
-.brow{display:grid;grid-template-columns:250px 1fr auto;gap:14px;align-items:center}
-.brow .bl{font-size:13px;color:var(--txt-mid)}
-.brow .bl small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--txt-dim)}
-.bt{height:28px;background:rgba(0,0,0,.22);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--line)}
-.bf{position:absolute;left:0;top:0;bottom:0;border-radius:4px;min-width:3px;background:linear-gradient(90deg,rgba(0,153,209,.55),rgba(0,196,179,.3))}
-.bf.hot{background:linear-gradient(90deg,rgba(239,68,68,.55),rgba(244,162,97,.3))}
-.bf.g{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
-.bf.z{background:none;min-width:0}
-.brow .bv{font-family:var(--mono);font-size:12.6px;font-weight:700;min-width:150px;text-align:right}
-.brow .bv small{display:block;color:var(--txt-dim);font-weight:400;font-size:10.5px}
-.tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--surface)}
-table{width:100%;border-collapse:collapse;font-size:13.3px;min-width:740px}
-th{position:sticky;top:0;background:#0e1c33;text-align:left;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
-text-transform:uppercase;color:var(--txt-dim);font-weight:500;padding:12px;border-bottom:1px solid var(--line-strong);white-space:nowrap}
-td{padding:10px 12px;border-bottom:1px solid rgba(189,215,255,.07);vertical-align:top}
-tr:last-child td{border-bottom:none}tbody tr:hover{background:rgba(0,153,209,.055)}
-td.num{font-family:var(--mono);font-size:12.5px;text-align:right;white-space:nowrap}
-td.nm{font-weight:500;min-width:160px}td.sm{font-size:12.5px;color:var(--txt-mid)}
-tfoot td{font-family:var(--mono);font-size:12.3px;color:var(--txt-mid);border-top:1px solid var(--line-strong);background:rgba(0,0,0,.16);font-weight:700}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:15px}
 .card{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--blue);border-radius:11px;padding:20px}
 .card.crit{border-left-color:var(--red)}.card.opp{border-left-color:var(--green)}.card.watch{border-left-color:var(--orange)}
@@ -103,25 +33,9 @@ tfoot td{font-family:var(--mono);font-size:12.3px;color:var(--txt-mid);border-to
 .card.crit .tag{color:#f87171}.card.opp .tag{color:var(--green)}.card.watch .tag{color:var(--orange)}
 .card h4{margin:9px 0 9px;font-size:16.5px;line-height:1.32;font-weight:700}
 .card p{margin:0;color:var(--txt-mid);font-size:13.8px}.card p b{color:var(--txt)}
-.card .vd{font-family:var(--mono);font-size:9.5px;letter-spacing:.09em;padding:3px 8px;border-radius:5px;font-weight:700;float:right}
-/* roadmap */
-.road{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.ph{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:21px;border-top:3px solid var(--green)}
-.ph.next{border-top-color:var(--purple)}.ph.later{border-top-color:var(--blue)}
-.ph .pt{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
-.ph.next .pt{color:var(--purple)}.ph.later .pt{color:var(--blue)}
-.ph h4{margin:7px 0 3px;font-size:18px;font-weight:700}
-.ph .cost{font-family:var(--mono);font-size:12px;color:var(--txt-dim);margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid var(--line)}
-.ph ol{margin:0;padding-left:18px;color:var(--txt-mid);font-size:13.3px}
-.ph li{margin-bottom:8px}
-.ph li b{color:var(--txt)}
 .note{font-size:12.7px;color:var(--txt-dim);font-family:var(--mono);margin:16px 0 0;padding-left:11px;border-left:2px solid var(--line-strong)}
-.internal{border:1px solid rgba(244,162,97,.32);background:rgba(244,162,97,.07);border-radius:8px;padding:11px 15px;font-family:var(--mono);font-size:11.2px;color:var(--orange);margin-top:22px}
 footer{margin-top:70px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:26px;justify-content:space-between;font-size:12.4px;color:var(--txt-dim)}
 footer b{color:var(--txt-mid)}
-@media (max-width:900px){.sysmap,.road{grid-template-columns:1fr}.tree{grid-template-columns:repeat(6,1fr)}}
-@media (max-width:760px){.brow{grid-template-columns:1fr;gap:5px}.brow .bv{text-align:left}}
-@media (max-width:640px){.wrap{padding:0 15px 60px}header{padding:34px 0 22px}.tree{grid-template-columns:repeat(2,1fr)}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
 
 /* ---- room nav ---- */
@@ -139,135 +53,10 @@ footer b{color:var(--txt-mid)}
 .roomnav a:focus-visible{outline:2px solid var(--teal);outline-offset:2px}
 @media (max-width:760px){.roomnav .inner{padding:0 15px;gap:12px}.roomnav .brand{display:none}}
 
-
-/* ===== shared components (appended) ===== */
-/* status / verdict badges */
-.b{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap;border:1px solid var(--line-strong);color:var(--txt-mid);background:rgba(0,0,0,.2)}
-.b-g{background:rgba(34,197,94,.16);color:var(--green);border-color:rgba(34,197,94,.45)}
-.b-r{background:rgba(239,68,68,.16);color:#f87171;border-color:rgba(239,68,68,.45)}
-.b-o{background:rgba(244,162,97,.16);color:var(--orange);border-color:rgba(244,162,97,.45)}
-.b-p{background:rgba(167,139,250,.16);color:var(--purple);border-color:rgba(167,139,250,.45)}
-.b-b{background:rgba(0,153,209,.16);color:#4cc4f0;border-color:rgba(0,153,209,.45)}
-.b-d{background:rgba(111,136,173,.14);color:var(--txt-dim);border-color:var(--line-strong)}
-.b1{background:rgba(0,153,209,.16);color:#4cc4f0;border-color:rgba(0,153,209,.45)}
-.b2{background:rgba(0,196,179,.16);color:var(--teal);border-color:rgba(0,196,179,.45)}
-.b3{background:rgba(34,197,94,.16);color:var(--green);border-color:rgba(34,197,94,.45)}
-.bp{background:rgba(167,139,250,.16);color:var(--purple);border-color:rgba(167,139,250,.45)}
-.b-both{background:rgba(167,139,250,.16);color:var(--purple);border-color:rgba(167,139,250,.45)}
-.b-li{background:rgba(0,153,209,.16);color:#4cc4f0;border-color:rgba(0,153,209,.45)}
-.b-web{background:rgba(0,196,179,.16);color:var(--teal);border-color:rgba(0,196,179,.45)}
-.b-icp{background:rgba(34,197,94,.16);color:var(--green);border-color:rgba(34,197,94,.45)}
-.b-no{background:rgba(111,136,173,.14);color:var(--txt-dim);border-color:var(--line-strong)}
-.b-sup{background:rgba(239,68,68,.16);color:#f87171;border-color:rgba(239,68,68,.45)}
-/* table verdict pills */
-.v{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap;border:1px solid var(--line-strong);color:var(--txt-mid)}
-.v-invest{background:rgba(34,197,94,.16);color:var(--green);border-color:rgba(34,197,94,.45)}
-.v-watch{background:rgba(244,162,97,.16);color:var(--orange);border-color:rgba(244,162,97,.45)}
-.v-reduce{background:rgba(239,68,68,.16);color:#f87171;border-color:rgba(239,68,68,.45)}
-.v-hold{background:rgba(111,136,173,.14);color:var(--txt-mid);border-color:var(--line-strong)}
-.v-exclude{background:rgba(239,68,68,.1);color:#f87171;border-color:rgba(239,68,68,.4)}
-/* table helpers */
-td.seg,.seg{font-weight:600;color:var(--txt)}
-.mono{font-family:var(--mono)}
-.arw{margin-left:5px;opacity:.55;font-size:9px}
-th[data-sk]{cursor:pointer;user-select:none}
-th[data-dir]{color:var(--blue)}
-/* method definition list (Intent 01) */
-.crit-rule{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:4px 22px}
-.crit-rule dl{display:grid;grid-template-columns:190px 1fr;margin:0}
-.crit-rule dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);font-weight:700;padding:16px 18px 16px 0;border-top:1px solid var(--line)}
-.crit-rule dd{margin:0;padding:16px 0;border-top:1px solid var(--line);color:var(--txt-mid);font-size:13.6px;line-height:1.5}
-.crit-rule dt:first-of-type,.crit-rule dd:first-of-type{border-top:none}
-/* horizontal size bars (Intent 02) */
-.sizerow{display:grid;grid-template-columns:130px 1fr 150px;gap:14px;align-items:center;margin-bottom:9px}
-.sizerow .sl{font-family:var(--mono);font-size:12px;color:var(--txt-mid)}
-.sizerow .st{height:24px;background:rgba(0,0,0,.22);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--line)}
-.sizerow .sf{position:absolute;left:0;top:0;bottom:0;border-radius:4px;min-width:3px;background:linear-gradient(90deg,rgba(0,153,209,.5),rgba(0,196,179,.28))}
-.sizerow .sf.icp{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
-.sizerow .sf.low{background:linear-gradient(90deg,rgba(244,162,97,.5),rgba(239,68,68,.28))}
-.sizerow .sv{font-family:var(--mono);font-size:15px;font-weight:700}
-.sizerow .sv small{color:var(--txt-dim);font-weight:400;font-size:10.5px;margin-left:8px}
-/* account funnel (Pipeline 01) */
-.funnel{display:flex;flex-direction:column;gap:8px}
-.fstep{display:grid;grid-template-columns:240px 1fr 150px;gap:14px;align-items:center}
-.fstep .fl{font-size:13px;color:var(--txt);font-weight:500}
-.fstep .fl small{display:block;font-family:var(--mono);font-size:10.5px;color:var(--txt-dim);font-weight:400;margin-top:2px}
-.fstep .ftrack{height:26px;background:rgba(0,0,0,.22);border-radius:5px;position:relative;overflow:hidden;border:1px solid var(--line)}
-.fstep .fbar{position:absolute;left:0;top:0;bottom:0;border-radius:4px;min-width:3px;background:linear-gradient(90deg,rgba(0,153,209,.55),rgba(0,196,179,.3))}
-.fstep .fbar.hot{background:linear-gradient(90deg,rgba(34,197,94,.6),rgba(0,196,179,.3))}
-.fstep .fbar.dead{background:repeating-linear-gradient(45deg,rgba(111,136,173,.22),rgba(111,136,173,.22) 6px,transparent 6px,transparent 12px)}
-.fstep .fv{font-family:var(--mono);font-size:15px;font-weight:700;text-align:right}
-.fstep .fv small{display:block;font-family:var(--mono);font-size:10px;color:var(--txt-dim);font-weight:400;margin-top:2px}
-.panel-note{font-size:12.7px;color:var(--txt-dim);font-family:var(--mono);margin:14px 0 0;padding-left:11px;border-left:2px solid var(--line-strong);line-height:1.5}
-/* month movement columns (Pipeline 04) */
-.mo{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-.mo-col{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:20px;border-top:3px solid var(--orange)}
-.mo-col.jun{border-top-color:var(--orange)}.mo-col.jul{border-top-color:var(--teal)}
-.mo-col h4{margin:0 0 4px;font-size:17px;font-weight:700}
-.mm{font-size:12.5px;color:var(--txt-mid);margin:0 0 14px}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{font-size:11.5px;padding:4px 9px;border-radius:6px;background:rgba(0,0,0,.2);border:1px solid var(--line);color:var(--txt-mid)}
-.chip.ent{border-color:rgba(239,68,68,.4);color:#f0a4a4;background:rgba(239,68,68,.08)}
-.chip.icp{border-color:rgba(34,197,94,.4);color:#8fe0ab;background:rgba(34,197,94,.08)}
-.do{margin:12px 0 0;color:var(--txt-mid);font-size:13.3px}
-.do b{color:var(--txt)}
-/* leaderboard tabs (Pipeline 05) */
-.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
-.tab{font-family:var(--sans);font-size:13px;color:var(--txt-mid);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:8px 14px;cursor:pointer;display:inline-flex;align-items:center;gap:7px;transition:.15s}
-.tab:hover{color:var(--txt);border-color:var(--line-strong)}
-.tab[aria-selected="true"]{color:#04121f;background:var(--blue);border-color:var(--blue);font-weight:700}
-.tab .n{font-family:var(--mono);font-size:10px;background:rgba(0,0,0,.2);padding:1px 6px;border-radius:10px;opacity:.85}
-.tab[aria-selected="true"] .n{background:rgba(0,0,0,.18)}
-/* activation tiers (Pipeline 06) */
-.tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:15px}
-.tier{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--red);border-radius:12px;padding:20px}
-.tier.hot{border-top-color:var(--red)}.tier.deep{border-top-color:var(--orange)}.tier.warm{border-top-color:var(--yellow)}.tier.sup{border-top-color:var(--txt-dim)}
-.tier h4{margin:0 0 3px;font-size:16.5px;font-weight:700}
-.tier .cnt{font-family:var(--mono);font-size:11px;color:var(--txt-dim);margin:0 0 12px}
-.tier ul{margin:0 0 12px;padding-left:18px;color:var(--txt-mid);font-size:13px}
-.tier li{margin-bottom:7px}.tier li b{color:var(--txt)}
-/* persona map (Insights) */
-.pmap{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:15px}
-.p{background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--blue);border-radius:12px;padding:20px}
-.p.inv{border-top-color:var(--green)}.p.red{border-top-color:var(--red)}.p.wat{border-top-color:var(--orange)}.p.sup{border-top-color:var(--purple)}
-.p h4{margin:0 0 4px;font-size:16px;font-weight:700}
-.p .role{font-family:var(--mono);font-size:11px;color:var(--txt-dim);margin:0 0 12px}
-.p .fld{padding:9px 0;border-top:1px solid var(--line)}
-.p .fl{font-family:var(--mono);font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:3px}
-.p .fv{font-size:13.3px;color:var(--txt-mid)}
-.p .test{padding:9px 0 0;border-top:1px solid var(--line);margin-top:9px}
-.p .test .fl{color:var(--teal)}.p .test .fv{color:var(--txt)}
-/* creative cards (Insights part two) */
-.adcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px}
-.adcard .ang{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--teal);font-weight:700}
-.adcard .an{font-family:var(--mono);font-size:10.5px;color:var(--txt-dim);margin:6px 0 12px;word-break:break-word;line-height:1.5}
-.adcard dl{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:0 0 12px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.adcard dl dt{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--txt-dim)}
-.adcard dl dd{margin:3px 0 0;font-family:var(--mono);font-size:15px;font-weight:700;color:var(--txt)}
-.adcard .why{margin:0;color:var(--txt-mid);font-size:13.3px}
-.adcard .why b{color:var(--txt)}
-/* highlighted callout (Insights) */
-.gap{border:1px solid rgba(0,196,179,.28);background:rgba(0,196,179,.06);border-radius:10px;padding:18px 20px;margin-top:18px}
-.gap .tg{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--teal);font-weight:700}
-.gap p{margin:8px 0 0;color:var(--txt-mid);font-size:13.8px}.gap p b{color:var(--txt)}
-@media(max-width:820px){.mo{grid-template-columns:1fr}}
-@media(max-width:760px){
-  .crit-rule dl{grid-template-columns:1fr}
-  .crit-rule dt{padding:14px 0 2px;border-top:1px solid var(--line)}
-  .crit-rule dd{padding:2px 0 14px;border-top:none}
-  .crit-rule dd:first-of-type{border-top:none}
-  .fstep{grid-template-columns:1fr;gap:5px}
-  .fstep .fv{text-align:left}
-  .sizerow{grid-template-columns:96px 1fr;gap:8px}
-  .sizerow .sv{grid-column:2}
-  .adcard dl{grid-template-columns:repeat(2,1fr)}
-}
-
-</style>
-<style>
+/* ---- scorecard ---- */
 .emsbar{display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;background:var(--surface);
- border:1px solid var(--line);border-radius:13px;padding:22px 26px;margin:6px 0 26px}
-.emsbar .big{font-family:var(--mono);font-size:48px;font-weight:700;line-height:1;color:var(--teal)}
+ border:1px solid var(--line);border-radius:13px;padding:22px 26px;margin:22px 0 34px}
+.emsbar .big{font-family:var(--mono);font-size:48px;font-weight:700;line-height:1;color:var(--orange)}
 .emsbar .big span{font-size:17px;color:var(--txt-dim)}
 .emsl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:8px}
 .stages{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
@@ -277,121 +66,147 @@ th[data-dir]{color:var(--blue)}
 .stages div.on{background:var(--teal);color:#04121f;font-weight:700;border-color:var(--teal)}
 .bypil{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);line-height:1.9;white-space:nowrap}
 .bypil b{color:var(--txt)}
-.board{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:start}
-.colh{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--blue);font-weight:700}
-.cols{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);padding-bottom:9px;margin-bottom:11px;border-bottom:1px solid var(--line-strong)}
-.mc{border-radius:9px;padding:11px 12px;margin-bottom:9px;border:1px solid var(--line);background:var(--surface);position:relative}
-.mc.c-run{background:rgba(0,196,179,.09);border-color:rgba(0,196,179,.35)}
-.mc.c-next{background:rgba(34,197,94,.2);border-color:var(--green)}
-.mc.c-gap{background:transparent;border:1px dashed rgba(239,68,68,.5)}
-.mc.c-lock{background:rgba(111,136,173,.13);border-color:var(--line-strong)}
-.mch{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.mid{font-family:var(--mono);font-size:10px;color:var(--txt-dim)}
-.pip{font-size:11px;letter-spacing:1.5px;color:var(--txt-mid)}
-.mc.c-next .pip,.mc.c-next .mid{color:var(--green)}
-.mnm{font-size:13.2px;font-weight:600;line-height:1.3}
-.mow{font-family:var(--mono);font-size:9.5px;color:var(--txt-dim);margin-top:5px}
-.cb{position:absolute;bottom:8px;right:10px;font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;
- text-transform:uppercase;color:var(--green);font-weight:700}
-.mc.c-lock .cb{color:var(--txt-dim)}
-.mc.c-next{padding-bottom:24px}.mc.c-lock{padding-bottom:24px}
-.lgd{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line);
+.intro-h{font-size:15.5px;color:var(--txt-mid);max-width:98ch;margin:0}
+
+/* ---- floor hierarchy ---- */
+.hier{display:flex;flex-direction:column;gap:0}
+.floor{display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:start;background:var(--surface);
+ border:1px solid var(--line);border-radius:12px;padding:20px 24px}
+.floor.foundation{border-color:rgba(239,68,68,.42);background:linear-gradient(90deg,rgba(239,68,68,.06),var(--surface) 55%)}
+.floor .fnum{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-dim)}
+.floor .fname{font-size:18px;font-weight:700;margin:5px 0 11px;line-height:1.15}
+.fstat{display:inline-block;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+ font-weight:700;padding:4px 9px;border-radius:5px;border:1px solid var(--line-strong);color:var(--txt-dim);background:rgba(0,0,0,.22)}
+.fstat.ok{color:var(--green);border-color:rgba(34,197,94,.45);background:rgba(34,197,94,.12)}
+.fstat.run{color:var(--teal);border-color:rgba(0,196,179,.45);background:rgba(0,196,179,.12)}
+.fstat.none{color:var(--orange);border-color:rgba(244,162,97,.45);background:rgba(244,162,97,.12)}
+.mchips{display:flex;flex-wrap:wrap;gap:8px}
+.mchip{font-size:12.7px;padding:8px 12px;border-radius:8px;border:1px solid var(--line-strong);background:rgba(0,0,0,.22);
+ color:var(--txt-mid);display:inline-flex;align-items:center;gap:9px}
+.mchip .cid{font-family:var(--mono);font-size:10px;color:var(--txt-dim);font-weight:700}
+.mchip .nx{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;
+ padding:2px 6px;border-radius:4px;background:rgba(0,0,0,.35);color:var(--txt-mid)}
+.mchip.inplace{border-color:rgba(34,197,94,.5);background:rgba(34,197,94,.12);color:#c7f0d5}
+.mchip.inplace .cid{color:var(--green)}
+.mchip.missing{border-color:rgba(239,68,68,.55);background:rgba(239,68,68,.15);color:#f7c9c9}
+.mchip.missing .cid{color:#f87171}.mchip.missing .nx{background:rgba(239,68,68,.35);color:#ffdede}
+.mchip.next{border-color:var(--green);background:rgba(34,197,94,.22);color:#eafff1;font-weight:600}
+.mchip.next .cid{color:#eafff1}.mchip.next .nx{background:rgba(34,197,94,.45);color:#04121f}
+.mchip.gated{opacity:.7}
+.gate{text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+ color:#f0a4a4;padding:12px 10px;line-height:1.5}
+.gate span{display:inline-block;padding:0 4px}
+.gate::before,.gate::after{content:'';display:inline-block;width:24px;height:1px;background:rgba(239,68,68,.4);vertical-align:middle;margin:0 12px}
+.legend{display:flex;flex-wrap:wrap;gap:20px;margin-top:24px;padding-top:16px;border-top:1px solid var(--line);
  font-family:var(--mono);font-size:10.5px;color:var(--txt-dim);align-items:center}
-.lgd span.k{display:inline-block;width:13px;height:13px;border-radius:3px;margin-right:6px;vertical-align:-2px}
-@media (max-width:1100px){.board{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:700px){.board{grid-template-columns:repeat(2,1fr)}.emsbar{grid-template-columns:1fr;gap:16px}}
-</style></head>
+.legend .k{display:inline-block;width:13px;height:13px;border-radius:3px;margin-right:7px;vertical-align:-2px;border:1px solid var(--line-strong)}
+@media (max-width:760px){.floor{grid-template-columns:1fr;gap:12px}.emsbar{grid-template-columns:1fr;gap:16px}.gate::before,.gate::after{width:14px;margin:0 7px}}
+</style>
+</head>
 <body>
 <nav class="roomnav"><div class="inner"><span class="brand">Envision Horizons / Impact Report</span><div class="links"><a href="index.html">Summary</a><a href="02-results.html"><span class="n">02</span>Results</a><a href="03-performance.html"><span class="n">03</span>Performance</a><a href="04-intent.html"><span class="n">04</span>Intent</a><a href="05-pipeline.html"><span class="n">05</span>Pipeline</a><a href="06-insights.html"><span class="n">06</span>Insights</a><a href="07-ecosystem.html" class="on"><span class="n">07</span>Ecosystem</a><a href="08-next90.html"><span class="n">08</span>Next 90</a></div></div></nav>
-<div class="wrap"><style>
-.emsbar{display:grid;grid-template-columns:auto 1fr auto;gap:30px;align-items:center;background:var(--surface);
- border:1px solid var(--line);border-radius:13px;padding:22px 26px;margin:6px 0 26px}
-.emsbar .big{font-family:var(--mono);font-size:48px;font-weight:700;line-height:1;color:var(--teal)}
-.emsbar .big span{font-size:17px;color:var(--txt-dim)}
-.emsl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--txt-dim);margin-bottom:8px}
-.stages{display:grid;grid-template-columns:repeat(5,1fr);gap:3px}
-.stages div{text-align:center;font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;
- padding:9px 4px;background:rgba(0,0,0,.28);color:var(--txt-dim);border:1px solid var(--line)}
-.stages div:first-child{border-radius:6px 0 0 6px}.stages div:last-child{border-radius:0 6px 6px 0}
-.stages div.on{background:var(--teal);color:#04121f;font-weight:700;border-color:var(--teal)}
-.bypil{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);line-height:1.9;white-space:nowrap}
-.bypil b{color:var(--txt)}
-.board{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:start}
-.colh{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--blue);font-weight:700}
-.cols{font-family:var(--mono);font-size:11.5px;color:var(--txt-dim);padding-bottom:9px;margin-bottom:11px;border-bottom:1px solid var(--line-strong)}
-.mc{border-radius:9px;padding:11px 12px;margin-bottom:9px;border:1px solid var(--line);background:var(--surface);position:relative}
-.mc.c-run{background:rgba(0,196,179,.09);border-color:rgba(0,196,179,.35)}
-.mc.c-next{background:rgba(34,197,94,.2);border-color:var(--green)}
-.mc.c-gap{background:transparent;border:1px dashed rgba(239,68,68,.5)}
-.mc.c-lock{background:rgba(111,136,173,.13);border-color:var(--line-strong)}
-.mch{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
-.mid{font-family:var(--mono);font-size:10px;color:var(--txt-dim)}
-.pip{font-size:11px;letter-spacing:1.5px;color:var(--txt-mid)}
-.mc.c-next .pip,.mc.c-next .mid{color:var(--green)}
-.mnm{font-size:13.2px;font-weight:600;line-height:1.3}
-.mow{font-family:var(--mono);font-size:9.5px;color:var(--txt-dim);margin-top:5px}
-.cb{position:absolute;bottom:8px;right:10px;font-family:var(--mono);font-size:8.5px;letter-spacing:.09em;
- text-transform:uppercase;color:var(--green);font-weight:700}
-.mc.c-lock .cb{color:var(--txt-dim)}
-.mc.c-next{padding-bottom:24px}.mc.c-lock{padding-bottom:24px}
-.lgd{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;padding-top:16px;border-top:1px solid var(--line);
- font-family:var(--mono);font-size:10.5px;color:var(--txt-dim);align-items:center}
-.lgd span.k{display:inline-block;width:13px;height:13px;border-radius:3px;margin-right:6px;vertical-align:-2px}
-@media (max-width:1100px){.board{grid-template-columns:repeat(3,1fr)}}
-@media (max-width:700px){.board{grid-template-columns:repeat(2,1fr)}.emsbar{grid-template-columns:1fr;gap:16px}}
-</style><header><p class="eyebrow">Impact Report / Ecosystem</p>
-<h1>The Ecosystem Board<span class="sub">Every account we run is graded against the same 22 motions on the same four level scale, so this reads the same way next quarter and against the rest of our book.</span></h1>
-<p class="meta">One glance should tell you what is running, what is missing, and what is next.</p></header>
+<div class="wrap">
+<header>
+<p class="eyebrow">Impact Report / Ecosystem</p>
+<h1>The marketing hierarchy<span class="sub">You cannot skip a floor. All 22 motions we grade, arranged as a hierarchy rather than a list.</span></h1>
+<p class="meta">Ecosystem maturity &nbsp;/&nbsp; 1 August 2026 &nbsp;/&nbsp; prepared by Impactable</p>
+<p class="intro-h">Each floor is only load-bearing once the floor beneath it is complete, and the gate between every pair of floors is a specific motion rather than a budget decision. The account is stalled on the bottom floor because one foundational motion is still missing.</p>
+<div class="rule"></div>
+</header>
+
 <div class="emsbar">
-<div><div class="big">47<span>/100</span></div></div>
+<div><div class="big">15<span>/100</span></div></div>
 <div><div class="emsl">Ecosystem maturity, 1 Aug 2026</div><div class="stages">
-<div class="">Validate</div><div class="">Ramp</div><div class="on">Reach</div><div class="">Supply</div><div class="">Sustain</div>
+<div class="on">Validate</div><div>Ramp</div><div>Reach</div><div>Supply</div><div>Sustain</div>
 </div></div>
 <div><div class="emsl">By pillar</div><div class="bypil">
-Create <b>14.6</b>/25 &nbsp; Capture <b>6.7</b>/15 &nbsp; Connect <b>10.4</b>/25<br>
-Convert <b>7.8</b>/20 &nbsp; Compound <b>7.5</b>/15 &nbsp; Activate <b>gated</b>
+Create <b>8.3</b>/25 &nbsp; Capture <b>0</b>/15 &nbsp; Connect <b>2.1</b>/25<br>
+Convert <b>2.2</b>/20 &nbsp; Compound <b>2.5</b>/15
 </div></div></div>
-<div class="board"><div class="col"><div class="colh">CREATE</div><div class="cols">14.6 / 25</div><div class="mc c-run"><div class="mch"><span class="mid">C1</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
-<div class="mnm">SEO and content</div><div class="mow">Client</div></div><div class="mc c-run"><div class="mch"><span class="mid">C2</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
-<div class="mnm">Thought leadership</div><div class="mow">Partner</div></div><div class="mc c-run"><div class="mch"><span class="mid">C3</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
-<div class="mnm">Distribution depth</div><div class="mow">Client</div></div><div class="mc c-run"><div class="mch"><span class="mid">C4</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
-<div class="mnm">TL amplification</div><div class="mow">Impactable</div></div></div><div class="col"><div class="colh">CAPTURE</div><div class="cols">6.7 / 15</div><div class="mc c-run"><div class="mch"><span class="mid">C5</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
-<div class="mnm">Brand defense</div><div class="mow">Impactable</div></div><div class="mc c-run"><div class="mch"><span class="mid">C6</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
-<div class="mnm">Solution search</div><div class="mow">Impactable</div></div><div class="mc c-run"><div class="mch"><span class="mid">C7</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
-<div class="mnm">Conquest search</div><div class="mow">Impactable</div></div></div><div class="col"><div class="colh">CONNECT</div><div class="cols">10.4 / 25</div><div class="mc c-next"><div class="mch"><span class="mid">C11</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
-<div class="mnm">Conversion tracking</div><div class="mow">Client</div><span class="cb">Next 2</span></div><div class="mc c-run"><div class="mch"><span class="mid">C12</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
-<div class="mnm">Visitor ID</div><div class="mow">Impactable</div></div><div class="mc c-run"><div class="mch"><span class="mid">C13</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
-<div class="mnm">Account intel</div><div class="mow">Impactable</div></div><div class="mc c-next"><div class="mch"><span class="mid">C14</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
-<div class="mnm">Enrichment</div><div class="mow">Impactable</div><span class="cb">Next 1</span></div></div><div class="col"><div class="colh">CONVERT</div><div class="cols">7.8 / 20</div><div class="mc c-run"><div class="mch"><span class="mid">C8</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
-<div class="mnm">LI retargeting</div><div class="mow">Impactable</div></div><div class="mc c-run"><div class="mch"><span class="mid">C9</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
-<div class="mnm">LI cold and ABM</div><div class="mow">Impactable</div></div><div class="mc c-gap"><div class="mch"><span class="mid">C10</span><span class="pip">&#9675;&#9675;&#9675;</span></div>
-<div class="mnm">BOF conversion</div><div class="mow">Both</div></div><div class="mc c-run"><div class="mch"><span class="mid">C18</span><span class="pip">&#9679;&#9679;&#9675;</span></div>
-<div class="mnm">Pages and CRO</div><div class="mow">Client</div></div><div class="mc c-run"><div class="mch"><span class="mid">C19</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
-<div class="mnm">Offer architecture</div><div class="mow">Impactable</div></div><div class="mc c-gap"><div class="mch"><span class="mid">C20</span><span class="pip">&#9675;&#9675;&#9675;</span></div>
-<div class="mnm">Sales activation</div><div class="mow">Client</div></div></div><div class="col"><div class="colh">ACTIVATE</div><div class="cols">Gated</div><div class="mc c-next"><div class="mch"><span class="mid">C15</span><span class="pip">&#9675;&#9675;&#9675;</span></div>
-<div class="mnm">Meta B2B</div><div class="mow">Impactable</div><span class="cb">Next 3</span></div><div class="mc c-lock"><div class="mch"><span class="mid">C16</span><span class="pip">&#9675;&#9675;&#9675;</span></div>
-<div class="mnm">Programmatic</div><div class="mow">Impactable</div><span class="cb">Locked</span></div><div class="mc c-run"><div class="mch"><span class="mid">C17</span><span class="pip">&#9679;&#9675;&#9675;</span></div>
-<div class="mnm">Email and outreach</div><div class="mow">Client</div></div></div><div class="col"><div class="colh">COMPOUND</div><div class="cols">7.5 / 15</div><div class="mc c-run"><div class="mch"><span class="mid">C21</span><span class="pip">&#9679;&#9679;&#9679;</span></div>
-<div class="mnm">Diagnostics and reporting</div><div class="mow">Impactable</div></div><div class="mc c-gap"><div class="mch"><span class="mid">C22</span><span class="pip">&#9675;&#9675;&#9675;</span></div>
-<div class="mnm">Experimentation</div><div class="mow">Impactable</div></div></div></div>
-<div class="lgd">
-<div><span class="k" style="background:rgba(0,196,179,.09);border:1px solid rgba(0,196,179,.35)"></span>Running</div>
-<div><span class="k" style="border:1px dashed rgba(239,68,68,.5)"></span>Gap</div>
-<div><span class="k" style="background:rgba(111,136,173,.13);border:1px solid var(--line-strong)"></span>Locked, waiting on a prerequisite</div>
-<div><span class="k" style="background:rgba(34,197,94,.2);border:1px solid var(--green)"></span>Next unlock</div>
-<div style="margin-left:auto">&#9679;&#9679;&#9675; Depth: absent, minimum, systematic, compounding</div>
+
+<div class="hier">
+
+  <div class="floor">
+    <div><div class="fnum">Floor 05</div><div class="fname">Compound</div><span class="fstat run">Running early</span></div>
+    <div class="mchips">
+      <span class="mchip inplace"><span class="cid">C21</span> Diagnostics and reporting</span>
+      <span class="mchip gated"><span class="cid">C22</span> Experimentation</span>
+    </div>
+  </div>
+  <div class="gate"><span>Gate to Floor 5: enough motions running to have something worth comparing</span></div>
+
+  <div class="floor">
+    <div><div class="fnum">Floor 04</div><div class="fname">Scale and cover</div><span class="fstat">Not reachable yet</span></div>
+    <div class="mchips">
+      <span class="mchip gated"><span class="cid">C9</span> Cold and ABM</span>
+      <span class="mchip gated"><span class="cid">C17</span> Outreach activation</span>
+      <span class="mchip gated"><span class="cid">C15</span> Meta B2B</span>
+      <span class="mchip gated"><span class="cid">C16</span> Programmatic</span>
+    </div>
+  </div>
+  <div class="gate"><span>Gate to Floor 4: enrichment at L2 and enough named accounts to be worth covering</span></div>
+
+  <div class="floor">
+    <div><div class="fnum">Floor 03</div><div class="fname">Signals and intelligence</div><span class="fstat">Not reachable yet</span></div>
+    <div class="mchips">
+      <span class="mchip gated"><span class="cid">C13</span> Account intel</span>
+      <span class="mchip gated"><span class="cid">C14</span> Enrichment</span>
+      <span class="mchip gated"><span class="cid">C10</span> BOF conversion</span>
+      <span class="mchip gated"><span class="cid">C7</span> Conquest search</span>
+      <span class="mchip gated"><span class="cid">C20</span> Sales activation</span>
+    </div>
+  </div>
+  <div class="gate"><span>Gate to Floor 3: a warm pool with delivery data to read</span></div>
+
+  <div class="floor">
+    <div><div class="fnum">Floor 02</div><div class="fname">Qualify and capture</div><span class="fstat none">Nothing in place</span></div>
+    <div class="mchips">
+      <span class="mchip next"><span class="cid">C8</span> LinkedIn retargeting <span class="nx">Next 2</span></span>
+      <span class="mchip next"><span class="cid">C4</span> TL amplification <span class="nx">Next 3</span></span>
+      <span class="mchip gated"><span class="cid">C12</span> Visitor ID</span>
+      <span class="mchip gated"><span class="cid">C5</span> Brand defense</span>
+      <span class="mchip gated"><span class="cid">C6</span> Solution search</span>
+      <span class="mchip gated"><span class="cid">C3</span> Distribution depth</span>
+    </div>
+  </div>
+  <div class="gate"><span>Gate to Floor 2: C11 conversion tracking, currently missing</span></div>
+
+  <div class="floor foundation">
+    <div><div class="fnum">Floor 01</div><div class="fname">Foundation</div><span class="fstat ok">4 of 5 in place</span></div>
+    <div class="mchips">
+      <span class="mchip inplace"><span class="cid">C1</span> SEO and content</span>
+      <span class="mchip inplace"><span class="cid">C2</span> Founder thought leadership</span>
+      <span class="mchip inplace"><span class="cid">C18</span> Pages and CRO</span>
+      <span class="mchip inplace"><span class="cid">C19</span> Offer architecture</span>
+      <span class="mchip missing"><span class="cid">C11</span> Conversion tracking <span class="nx">Next 1</span></span>
+    </div>
+  </div>
+
 </div>
-<section><div class="sec-head"><span class="sec-num">01</span><h2>Next three unlocks</h2></div>
-<p class="sec-sub">Selected by the six laws, not by preference. Two free moves rank above the paid expansion.</p>
+
+<div class="legend">
+<div><span class="k" style="background:rgba(34,197,94,.12);border-color:rgba(34,197,94,.5)"></span>In place</div>
+<div><span class="k" style="background:rgba(239,68,68,.15);border-color:rgba(239,68,68,.55)"></span>Missing and load-bearing</div>
+<div><span class="k" style="background:rgba(34,197,94,.22);border-color:var(--green)"></span>Next move</div>
+<div><span class="k" style="background:rgba(0,0,0,.22);border-color:var(--line-strong)"></span>Gated, waiting on the floor below</div>
+<div style="margin-left:auto">Ecosystem maturity <b style="color:var(--txt-mid)">15/100</b> &middot; Stage <b style="color:var(--txt-mid)">Validate</b></div>
+</div>
+
+<section>
+<div class="sec-head"><span class="sec-num">01</span><h2>Why the score is 15, and what unlocks the climb</h2></div>
+<p class="sec-sub">The hierarchy is not a scorecard of effort. It grades whether each floor is load-bearing, and a floor cannot bear weight until the one beneath it is complete.</p>
 <div class="cards">
-<div class="card opp"><span class="tag">Next 1 / Law 1 / $0</span><h4>C14 Enrichment: activate the warm pools</h4><p>20,000+ newsletter subscribers, 1,325 identified companies and every CRM contact have never been uploaded as matched audiences. One afternoon. <b>Refills the audience the enterprise exclusions shrank</b> and lifts penetration without new spend.</p></div>
-<div class="card opp"><span class="tag">Next 2 / Law 2 / $0</span><h4>C11 Conversion tracking to systematic</h4><p>Campaign Manager says 5, DemandSense 0, Google 2, and no deal outcome exists. <b>$18,406 of DemandSense verified spend cannot be tied to revenue.</b> Unlocks C13 account intel and makes C15 measurable.</p></div>
-<div class="card watch"><span class="tag">Next 3 / Law 5 / $2,500</span><h4>C15 Meta B2B, the gated unlock</h4><p>Earned rather than asserted. The LGF campaign is validated at 18 leads and $170.76 CPL but reaches <b>47.6% of its pool</b>. 4,036 unreached inside it, 24,081 across the ABM and 180D pools. Activate stays gated until C11 and C14 clear.</p></div>
-</div></section>
-<section><div class="sec-head"><span class="sec-num">02</span><h2>What the Board says</h2></div>
-<div class="cards">
-<div class="card opp"><span class="tag">Strength</span><h4>Create carries the account at 14.6 of 25</h4><p>Content, a 20,000 subscriber newsletter and thought leader ads all running. This is the pillar most agencies never build, and it is why the paid programme has anything warm to work with.</p></div>
-<div class="card crit"><span class="tag">Weakness</span><h4>Convert scores 7.8 of 20 across six motions</h4><p><b>BOF conversion and sales activation are both at zero depth.</b> The system generates warm accounts and then has nothing to close them with. This is the structural reason engagement does not become pipeline.</p></div>
-<div class="card watch"><span class="tag">Gated</span><h4>Activate is unscored by design</h4><p>Meta, programmatic and outreach do not count toward maturity until the signal layer supports them. <b>Scoring them would reward launching channels before they can be measured</b>, which is the failure this account already made on Google.</p></div>
-</div></section>
-<footer><div><b>Score</b><br>47 / 100</div><div><b>Stage</b><br>Reach</div><div><b>Zero depth</b><br>5 of 22</div><div><b>Next unlock</b><br>Warm pools, $0</div><div><b>Prepared by</b><br>Impactable</div></footer></div></body></html>
+<div class="card crit"><span class="tag">The one missing brick / Next 1 / $0</span><h4>C11 Conversion tracking is the gate to everything above</h4><p>Four of the five foundation motions are in place, but conversion tracking is not. <b>$18,406 of DemandSense verified spend cannot be tied to revenue</b>, and three sources disagree on conversions. Until it lands, no floor above Foundation can be scored as load-bearing, which is why the account sits in <b>Validate at 15/100</b>.</p></div>
+<div class="card opp"><span class="tag">Already built / Next 2 and 3</span><h4>The foundation and the first capture moves are ready</h4><p>SEO and content, founder thought leadership, landing pages and offer architecture are all in place. The moment tracking is live, <b>C8 LinkedIn retargeting</b> and <b>C4 thought-leader amplification</b> become the first two floor-2 moves, both building on assets that already exist.</p></div>
+<div class="card watch"><span class="tag">You cannot skip a floor</span><h4>Meta, programmatic and ABM stay gated on purpose</h4><p>Floors 3 and 4 are marked not reachable, not because the motions are wrong but because the signal layer beneath them is incomplete. <b>Scoring or scaling them now would repeat the mistake this account already made on Google</b> — spending into a layer it could not yet measure.</p></div>
+</div>
+</section>
+
+<footer>
+<div><b>Score</b><br>15 / 100</div>
+<div><b>Stage</b><br>Validate</div>
+<div><b>Floors load-bearing</b><br>1 of 5</div>
+<div><b>Next move</b><br>C11 conversion tracking, $0</div>
+<div><b>Prepared by</b><br>Impactable</div>
+</footer>
+</div></body></html>

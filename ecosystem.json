@@ -1,6 +1,6 @@
 {
- "ems": 42.6,
- "stage": "Reach",
+ "ems": 15,
+ "stage": "Validate",
  "pillars": {
   "CREATE": 25,
   "CAPTURE": 15,
